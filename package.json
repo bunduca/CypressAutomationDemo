@@ -1,0 +1,30 @@
+{
+  "name": "testing",
+  "version": "1.0.0",
+  "description": "my cypress tests",
+  "main": "index.js",
+  "scripts": {
+    "cypress:open:demoqa": "npx cypress open --config-file demoqa.config.js",
+    "cypress:open:tutorialsninja":"npx cypress open --config-file tutorialsninja.config.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bunduca/CypressAutomationDemo.git"
+  },
+  "author": "bunduc andreea",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bunduca/CypressAutomationDemo/issues"
+  },
+  "homepage": "https://github.com/bunduca/CypressAutomationDemo#readme",
+  "devDependencies": {
+    "cy-verify-downloads": "^0.1.11",
+    "cypress": "^12.2.0",
+    "cypress-file-upload": "^5.0.8"
+    
+
+
+    
+
+  }
+}
