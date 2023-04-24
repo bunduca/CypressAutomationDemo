@@ -1,4 +1,4 @@
-// <reference types="cypress" />hover
+/// <reference types="cypress" />
 
 
 const { baseUrl } = Cypress.config();
@@ -13,7 +13,7 @@ describe('Recurring Payments', () => {
     })
 
 
-    it.skip('Verify navigating to Recurring Payments page from My Account page', () => {
+    it('Verify navigating to Recurring Payments page from My Account page', () => {
         //TC_RCP_001
 
         //visit the Homepage
@@ -48,7 +48,7 @@ describe('Recurring Payments', () => {
         cy.get('.breadcrumb').contains('Recurring Payments').should('be.visible');
     })
 
-    it.skip('Verify navigating to Recurring Payments page using Right Column options', () => {
+    it('Verify navigating to Recurring Payments page using Right Column options', () => {
         //TC_RCP_002
 
         //visit the Homepage
@@ -83,7 +83,7 @@ describe('Recurring Payments', () => {
         cy.get('.breadcrumb').contains('Recurring Payments').should('be.visible');
     })
 
-    it.skip('Verify Recurring Payments page when there are no recurring payments done by the User', () => {
+    it('Verify Recurring Payments page when there are no recurring payments done by the User', () => {
         //TC_RCP_003
 
         //visit the Homepage
@@ -117,7 +117,7 @@ describe('Recurring Payments', () => {
         cy.get('#content').contains('No recurring payments found!').should('be.visible');
     })
 
-    it.skip('Verify Continue button in the Recurring Payments page', () => {
+    it('Verify Continue button in the Recurring Payments page', () => {
         //TC_RCP_004
 
         //visit the Homepage
@@ -155,7 +155,7 @@ describe('Recurring Payments', () => {
         cy.get('.breadcrumb').contains('Account').should('be.visible');
     })
 
-    it.skip('Verify the Breadcrumb of Recurring Payments page', () => {
+    it('Verify the Breadcrumb of Recurring Payments page', () => {
         //TC_RCP_006
 
         //visit the Homepage

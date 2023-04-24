@@ -1,4 +1,4 @@
-/// <reference types="cypress" />hover
+/// <reference types="cypress" />
 
 
 const { baseUrl } = Cypress.config();
@@ -15,7 +15,7 @@ describe('Wishlist', () => {
 
 
 
-    it.skip('Verify adding a product to Wish List page from the Product that is displayed in the Related Products section of Product Display page', () => {
+    it('Verify adding a product to Wish List page from the Product that is displayed in the Related Products section of Product Display page', () => {
         //TC_WL_001
 
         //visit the Homepage
@@ -56,7 +56,7 @@ describe('Wishlist', () => {
         cy.get('#content').contains('Apple Cinema 30"');
     })
 
-    it.skip('Verify adding a product to Wish List page from the Product that is displayed in the Featured section of Home page', () => {
+    it('Verify adding a product to Wish List page from the Product that is displayed in the Featured section of Home page', () => {
         //TC_WL_002
 
         //visit the Homepage
@@ -97,7 +97,7 @@ describe('Wishlist', () => {
         cy.get('#content').contains('iPhone').should('be.visible');
     })
 
-    it.skip('Verify adding the product to Wish List from the Products displayed in the category or sub-category page', () => {
+    it('Verify adding the product to Wish List from the Products displayed in the category or sub-category page', () => {
         //TC_WL_003
 
         //visit the Homepage
@@ -147,7 +147,7 @@ describe('Wishlist', () => {
         cy.get('#content').contains('iMac').should('be.visible');
     })
 
-    it.skip('Verify adding a product to Wish List page from the Search Results page', () => {
+    it('Verify adding a product to Wish List page from the Search Results page', () => {
         //TC_WL_004
 
         //visit the Homepage
@@ -185,7 +185,7 @@ describe('Wishlist', () => {
         cy.get('#content').contains('iMac').should('be.visible');
     })
 
-    it.skip('Verify navigating to My Wish List page using the wish list! link in the success message', () => {
+    it('Verify navigating to My Wish List page using the wish list! link in the success message', () => {
         //TC_WL_005
 
         //visit the Homepage
@@ -225,7 +225,7 @@ describe('Wishlist', () => {
         cy.url().should('contain', '/index.php?route=account/wishlist');
     })
 
-    it.skip('Verify navigating to My Wish List page using the Wish List header option', () => {
+    it('Verify navigating to My Wish List page using the Wish List header option', () => {
         //TC_WL_006
 
         //visit the Homepage
@@ -265,7 +265,7 @@ describe('Wishlist', () => {
         cy.url().should('contain', '/index.php?route=account/wishlist');
     })
 
-    it.skip('Verify navigating to My Wish List page using the Right Column header options', () => {
+    it('Verify navigating to My Wish List page using the Right Column header options', () => {
         //TC_WL_007
 
         //visit the Homepage
@@ -296,7 +296,7 @@ describe('Wishlist', () => {
 
     })
 
-    it.skip('Verify navigating to My Wish List page from the My Account page ', () => {
+    it('Verify navigating to My Wish List page from the My Account page ', () => {
         //TC_WL_008
 
         //visit the Homepage
@@ -326,7 +326,7 @@ describe('Wishlist', () => {
         cy.url().should('contain', '/index.php?route=account/wishlist');
     })
 
-    it.skip('Verify navigating to My Wish List page from the Footer options ', () => {
+    it('Verify navigating to My Wish List page from the Footer options ', () => {
         //TC_WL_009
 
         //visit the Homepage
@@ -356,7 +356,7 @@ describe('Wishlist', () => {
         cy.url().should('contain', '/index.php?route=account/wishlist');
     })
 
-    it.skip('Verify the Breadcrumb in the Wish List page', () => {
+    it('Verify the Breadcrumb in the Wish List page', () => {
         //TC_WL_010
 
         //visit the Homepage
@@ -384,7 +384,7 @@ describe('Wishlist', () => {
         cy.get('.breadcrumb').contains('My Wish List').should('be.visible');
     })
 
-    it.skip('Verify the Page Title, Page URL and Page Heading of Wish List page', () => {
+    it('Verify the Page Title, Page URL and Page Heading of Wish List page', () => {
         //TC_WL_011
 
         //visit the Homepage
@@ -414,7 +414,7 @@ describe('Wishlist', () => {
         cy.title().should('eq', 'My Wish List');
     })
 
-    it.skip('Verify the removing the Product  from My Wish List page', () => {
+    it('Verify the removing the Product  from My Wish List page', () => {
         //TC_WL_014
 
 
@@ -447,7 +447,7 @@ describe('Wishlist', () => {
         cy.get('#content > p').contains('Your wish list is empty.').should('be.visible');
     })
 
-    it.skip('Verify adding the product to Cart from the My Wish List page', () => {
+    it('Verify adding the product to Cart from the My Wish List page', () => {
         //TC_WL_015
 
 

@@ -1,4 +1,4 @@
-/// <reference types="cypress" />hover
+/// <reference types="cypress" />
 
 
 const { baseUrl } = Cypress.config();
@@ -15,7 +15,7 @@ describe('Shopping Cart', () => {
 
 
 
-    it.skip('Verify navigating to Shopping Cart page from the Success message', () => {
+    it('Verify navigating to Shopping Cart page from the Success message', () => {
         //TC_SC_001
 
 
@@ -58,7 +58,7 @@ describe('Shopping Cart', () => {
         cy.get('.breadcrumb').contains('Shopping Cart').should('be.visible');
     })
 
-    it.skip('Verify navigating to Shopping Cart page from the Shopping Cart header option', () => {
+    it('Verify navigating to Shopping Cart page from the Shopping Cart header option', () => {
         //TC_SC_002
 
         //visit the Homepage
@@ -94,7 +94,7 @@ describe('Shopping Cart', () => {
         cy.get('.breadcrumb').contains('Shopping Cart').should('be.visible');
     })
 
-    it.skip('Verify navigating to Shopping Cart page from the Site Map footer page', () => {
+    it('Verify navigating to Shopping Cart page from the Site Map footer page', () => {
         //TC_SC_003
         //Test fails due to redirect issue
         //visit the Homepage
@@ -137,7 +137,7 @@ describe('Shopping Cart', () => {
         cy.get('.breadcrumb').contains('Shopping Cart').should('be.visible');
     })
 
-    it.skip('Verify the Cart button when there are no products added to the Shopping Cart', () => {
+    it('Verify the Cart button when there are no products added to the Shopping Cart', () => {
         //TC_SC_004
 
         //visit the Homepage
@@ -151,7 +151,7 @@ describe('Shopping Cart', () => {
     })
 
 
-    it.skip('Verify navigating to Shopping Cart page using the View Cart option in the Cart block', () => {
+    it('Verify navigating to Shopping Cart page using the View Cart option in the Cart block', () => {
         //TC_SC_005
 
         //visit the Homepage
@@ -175,7 +175,7 @@ describe('Shopping Cart', () => {
         cy.get('.breadcrumb').contains('Shopping Cart').should('be.visible');
     })
 
-    it.skip('Verify the weight of the Product in the Shopping Cart page', () => {
+    it('Verify the weight of the Product in the Shopping Cart page', () => {
         //TC_SC_006
 
         //visit the Homepage
@@ -199,7 +199,7 @@ describe('Shopping Cart', () => {
     })
 
 
-    it.skip('Verify Image, Name, Model, Quantity, Unit Price and Total of the Product in the Shopping Cart page', () => {
+    it('Verify Image, Name, Model, Quantity, Unit Price and Total of the Product in the Shopping Cart page', () => {
         //TC_SC_007
 
         //visit the Homepage
@@ -227,7 +227,7 @@ describe('Shopping Cart', () => {
         cy.get('tbody > tr > :nth-child(6)').contains('$122.00').should('be.visible');
     })
 
-    it.skip('Verify updating the quantity of the Product in the Shopping Cart page', () => {
+    it('Verify updating the quantity of the Product in the Shopping Cart page', () => {
         //TC_SC_008
 
         //visit the Homepage
@@ -256,7 +256,7 @@ describe('Shopping Cart', () => {
         cy.get('.alert-success').contains(' Success: You have modified your shopping cart!').should('be.visible');
     })
 
-    it.skip('Verify updating the quantity of the Product in the Shopping Cart page to a negative or zero or a non-numerical value ', () => {
+    it('Verify updating the quantity of the Product in the Shopping Cart page to a negative or zero or a non-numerical value ', () => {
         //TC_SC_009
         //Test fails due to missing error message when entering invalid non-numeric value in the quantity field
 
@@ -286,7 +286,7 @@ describe('Shopping Cart', () => {
         cy.get('.alert').contains('Warning:').should('be.visible');
     })
 
-    it.skip('Verify removing the item from Shopping Cart page', () => {
+    it('Verify removing the item from Shopping Cart page', () => {
         //TC_SC_010
 
         //visit the Homepage
@@ -312,7 +312,7 @@ describe('Shopping Cart', () => {
         cy.get('#content > p').contains('Your shopping cart is empty!').should('be.visible');
     })
 
-    it.skip('Verify Page Heading, Page Title and Page URL of Shopping Cart page', () => {
+    it('Verify Page Heading, Page Title and Page URL of Shopping Cart page', () => {
         //TC_SC_011
 
         //visit the Homepage
@@ -337,7 +337,7 @@ describe('Shopping Cart', () => {
         cy.url().should('contain', '/index.php?route=checkout/cart');
     })
 
-    it.skip('Verify Breadcrumb of Shopping Cart page', () => {
+    it('Verify Breadcrumb of Shopping Cart page', () => {
         //TC_SC_012
 
 
@@ -361,7 +361,7 @@ describe('Shopping Cart', () => {
         cy.get('.breadcrumb').contains('Shopping Cart').should('be.visible');
     })
 
-    it.skip('Verify Coupon code application in the Shopping Cart page by providing an invalid coupon code', () => {
+    it('Verify Coupon code application in the Shopping Cart page by providing an invalid coupon code', () => {
         //TC_SC_014
 
         //visit the Homepage
@@ -393,7 +393,7 @@ describe('Shopping Cart', () => {
         cy.get('.alert').contains(' Warning: Coupon is either invalid, expired or reached its usage limit!').should('be.visible');
     })
 
-    it.skip('Verify Coupon code functionality in the Shopping Cart page by not providing any coupon code ', () => {
+    it('Verify Coupon code functionality in the Shopping Cart page by not providing any coupon code ', () => {
         //TC_SC_017
 
         //visit the Homepage
@@ -423,7 +423,7 @@ describe('Shopping Cart', () => {
 
     })
 
-    it.skip('Verify Closing the Warning message in the Shopping Cart page', () => {
+    it('Verify Closing the Warning message in the Shopping Cart page', () => {
         //TC_SC_018
 
         //visit the Homepage
@@ -458,7 +458,7 @@ describe('Shopping Cart', () => {
         cy.get('.alert').should('not.exist');
     })
 
-    it.skip('Verify Coupon code functionality in the Shopping Cart page is having Placeholder', () => {
+    it('Verify Coupon code functionality in the Shopping Cart page is having Placeholder', () => {
         //TC_SC_019
 
         //visit the Homepage
@@ -484,7 +484,7 @@ describe('Shopping Cart', () => {
         cy.get('input[name=coupon]').should('have.attr', 'placeholder', 'Enter your coupon here');
     })
 
-    it.skip('Verify Estimate Shipping and Taxes functionality in the Shopping Cart page by providing all mandatory fields', () => {
+    it('Verify Estimate Shipping and Taxes functionality in the Shopping Cart page by providing all mandatory fields', () => {
         //TC_SC_020
 
         //visit the Homepage
@@ -532,7 +532,7 @@ describe('Shopping Cart', () => {
         cy.get('#content').contains('Flat Shipping Rate:').should('be.visible');
     })
 
-    it.skip('Verify Estimate Shipping and Taxes functionality in the Shopping Cart page by providing all the fields', () => {
+    it('Verify Estimate Shipping and Taxes functionality in the Shopping Cart page by providing all the fields', () => {
         //TC_SC_021
 
         //visit the Homepage
@@ -583,7 +583,7 @@ describe('Shopping Cart', () => {
         cy.get('#content').contains('Flat Shipping Rate:').should('be.visible');
     })
 
-    it.skip('Verify Estimate Shipping and Taxes functionality in the Shopping Cart page by not providing anything', () => {
+    it('Verify Estimate Shipping and Taxes functionality in the Shopping Cart page by not providing anything', () => {
         //TC_SC_022
 
         //visit the Homepage
@@ -613,7 +613,7 @@ describe('Shopping Cart', () => {
         cy.get('.form-horizontal').contains('Postcode must be between 2 and 10 characters!').should('be.visible');
     })
 
-    it.skip('Verify Estimate Shipping and Taxes functionality in the Shopping Cart page by not providing anything', () => {
+    it('Verify Estimate Shipping and Taxes functionality in the Shopping Cart page by not providing anything', () => {
         //TC_SC_023
 
         //visit the Homepage
@@ -661,7 +661,7 @@ describe('Shopping Cart', () => {
         cy.get('#content > .row').contains('Flat Shipping Rate:').should('not.exist');
     })
 
-    it.skip('Verify Estimate Shipping and Taxes functionality in the Shopping Cart page for Placeholder', () => {
+    it('Verify Estimate Shipping and Taxes functionality in the Shopping Cart page for Placeholder', () => {
         //TC_SC_024
 
         //visit the Homepage
@@ -687,7 +687,7 @@ describe('Shopping Cart', () => {
         cy.get('input[name=postcode]').should('have.attr', 'placeholder', 'Post Code');
     })
 
-    it.skip('Verify Gift Certificate functionality in the Shopping Cart page by providing a invalid Gift Certificate', () => {
+    it('Verify Gift Certificate functionality in the Shopping Cart page by providing a invalid Gift Certificate', () => {
         //TC_SC_026
 
         //visit the Homepage
@@ -719,7 +719,7 @@ describe('Shopping Cart', () => {
         cy.get('.alert').contains('Warning: Gift Certificate is either invalid or the balance has been used up!').should('be.visible');
     })
 
-    it.skip('Verify Gift Certificate functionality in the Shopping Cart page by not providing any Gift Certificate', () => {
+    it('Verify Gift Certificate functionality in the Shopping Cart page by not providing any Gift Certificate', () => {
         //TC_SC_028
 
         //visit the Homepage
@@ -748,7 +748,7 @@ describe('Shopping Cart', () => {
         cy.get('.alert').contains(' Warning: Please enter a gift certificate code!').should('be.visible');
     })
 
-    it.skip('Verify Gift Certificate functionality in the Shopping Cart page for Placeholder', () => {
+    it('Verify Gift Certificate functionality in the Shopping Cart page for Placeholder', () => {
         //TC_SC_029
 
         //visit the Homepage

@@ -1,4 +1,4 @@
-/// <reference types="cypress" />hover
+/// <reference types="cypress" />
 
 
 const { baseUrl } = Cypress.config();
@@ -8,7 +8,7 @@ describe('Product Display Page', () => {
 
 
 
-    it.skip('Verify the Thumbnails of the Product displayed in the Product Display Page', () => {
+    it('Verify the Thumbnails of the Product displayed in the Product Display Page', () => {
         //TC_PDP_001
 
         //visit the Homepage
@@ -78,7 +78,7 @@ describe('Product Display Page', () => {
         cy.get('.mfp-arrow-right').should('not.exist');
     })
 
-    it.skip('Verify that Product Name, Brand and Product Code are displayed in the Product Display Page', () => {
+    it('Verify that Product Name, Brand and Product Code are displayed in the Product Display Page', () => {
         //TC_PDP_002
 
         //visit the Homepage
@@ -112,7 +112,7 @@ describe('Product Display Page', () => {
         cy.get('.col-sm-4 > :nth-child(3) > :nth-child(2)').contains('Product Code: Product 14').should('be.visible');
     })
 
-    it.skip('Verify the availabilty status of the Product in the Product Display Page', () => {
+    it('Verify the availabilty status of the Product in the Product Display Page', () => {
         //TC_PDP_003
 
         //visit the Homepage
@@ -144,7 +144,7 @@ describe('Product Display Page', () => {
         cy.get('.col-sm-4 > :nth-child(3) > :nth-child(3)').contains('Availability:').should('be.visible');
     })
 
-    it.skip('Verify the Price of the Product with and without tax is displayed in the Product Display Page', () => {
+    it('Verify the Price of the Product with and without tax is displayed in the Product Display Page', () => {
         //TC_PDP_004
 
         //visit the Homepage
@@ -177,7 +177,7 @@ describe('Product Display Page', () => {
         cy.get('.col-sm-4 > :nth-child(4) > :nth-child(2)').contains('Ex Tax: $100.00').should('be.visible');
     })
 
-    it.skip('Verify the default quanity for the Product is displayed as 1 in the Product Display Page, when there is no minimum quantity set for the Product', () => {
+    it('Verify the default quanity for the Product is displayed as 1 in the Product Display Page, when there is no minimum quantity set for the Product', () => {
         //TC_PDP_005
 
         //visit the Homepage
@@ -218,7 +218,7 @@ describe('Product Display Page', () => {
         cy.get('.alert').contains('Success: You have added iMac to your shopping cart!').should('be.visible');
     })
 
-    it.skip('Verify the negative quantity or zero quantity or null quantity should not be allowed in the Product Display Page', () => {
+    it('Verify the negative quantity or zero quantity or null quantity should not be allowed in the Product Display Page', () => {
         //TC_PDP_006
 
         //visit the Homepage
@@ -257,7 +257,7 @@ describe('Product Display Page', () => {
     })
 
 
-    it.skip('Verify the description of the Product in the Product Display Page ', () => {
+    it('Verify the description of the Product in the Product Display Page ', () => {
         //TC_PDP_008
 
         //visit the Homepage
@@ -290,7 +290,7 @@ describe('Product Display Page', () => {
         cy.get('#tab-description > div').should('be.visible');
     })
 
-    it.skip('Verify the specifications of the Product in the Product Display Page ', () => {
+    it('Verify the specifications of the Product in the Product Display Page ', () => {
         //TC_PDP_009
 
         //visit the Homepage
@@ -325,7 +325,7 @@ describe('Product Display Page', () => {
         cy.get('table').should('be.visible');
     })
 
-    it.skip('Verify the description of the Product in the Product Display Page ', () => {
+    it('Verify the description of the Product in the Product Display Page ', () => {
         //TC_PDP_010
 
         //visit the Homepage
@@ -372,7 +372,7 @@ describe('Product Display Page', () => {
         cy.get('.alert').contains('Thank you for your review. It has been submitted to the webmaster for approval.').should('be.visible');
     })
 
-    it.skip('Verify the Reviews tab when there are no reviews or zero reviews added', () => {
+    it('Verify the Reviews tab when there are no reviews or zero reviews added', () => {
         //TC_PDP_011
 
         //visit the Homepage
@@ -407,7 +407,7 @@ describe('Product Display Page', () => {
         cy.get('#review > p').contains('There are no reviews for this product.').should('be.visible');
     })
 
-    it.skip('Verify Write a review link under Add to Cart button on the Product Display page', () => {
+    it('Verify Write a review link under Add to Cart button on the Product Display page', () => {
         //TC_PDP_013
 
         //visit the Homepage
@@ -443,7 +443,7 @@ describe('Product Display Page', () => {
         cy.get('.active > a').should('be.visible');
     })
 
-    it.skip('Verify submitting a review without filling the mandatory fields ', () => {
+    it('Verify submitting a review without filling the mandatory fields ', () => {
         //TC_PDP_017
 
         //visit the Homepage
@@ -481,7 +481,7 @@ describe('Product Display Page', () => {
         cy.get('.alert').contains('Warning: Please select a review rating!').should('be.visible');
     })
 
-    it.skip('Verify the review text given while writing is accepted according to the specified number of characters', () => {
+    it('Verify the review text given while writing is accepted according to the specified number of characters', () => {
         //TC_PDP_018
 
         //visit the Homepage
@@ -521,7 +521,7 @@ describe('Product Display Page', () => {
         cy.get('.alert').contains('Warning: Review Text must be between 25 and 1000 characters!').should('be.visible');
     })
 
-    it.skip('Verify adding the product to Wish List from the Product Display page', () => {
+    it('Verify adding the product to Wish List from the Product Display page', () => {
         //TC_PDP_019
 
         //visit the Homepage
@@ -563,7 +563,7 @@ describe('Product Display Page', () => {
         cy.get('.breadcrumb').contains('My Wish List').should('be.visible');
     })
 
-    it.skip('Verify adding the product for comparision from the Product Display page', () => {
+    it('Verify adding the product for comparision from the Product Display page', () => {
         //TC_PDP_020
 
         //visit the Homepage
@@ -605,7 +605,7 @@ describe('Product Display Page', () => {
         cy.get('.breadcrumb').contains('Product Comparison').should('be.visible');
     })
 
-    it.skip('Verify Related Products section in Product Display page', () => {
+    it('Verify Related Products section in Product Display page', () => {
         //TC_PDP_022
 
         //visit the Homepage
@@ -641,7 +641,7 @@ describe('Product Display Page', () => {
         cy.get('.breadcrumb').contains('Apple Cinema 30"').should('be.visible');
     })
 
-    it.skip('Verify navigating to the Product Display page by using the Product image in the Wish List page', () => {
+    it('Verify navigating to the Product Display page by using the Product image in the Wish List page', () => {
         //TC_PDP_023
 
         //visit the Homepage
@@ -686,7 +686,7 @@ describe('Product Display Page', () => {
         cy.get('.breadcrumb').contains('iMac').should('be.visible');
     })
 
-    it.skip('Verify navigating to the Product Display page by using the Product Name link in the Wish List page', () => {
+    it('Verify navigating to the Product Display page by using the Product Name link in the Wish List page', () => {
         //TC_PDP_024
 
         //visit the Homepage
@@ -731,7 +731,7 @@ describe('Product Display Page', () => {
         cy.get('.breadcrumb').contains('iMac').should('be.visible');
     })
 
-    it.skip('Verify navigating to the Product Display page by using the Product Name link in Success message on adding the Product to Cart', () => {
+    it('Verify navigating to the Product Display page by using the Product Name link in Success message on adding the Product to Cart', () => {
         //TC_PDP_025
 
         //visit the Homepage
@@ -770,7 +770,7 @@ describe('Product Display Page', () => {
         cy.get('.breadcrumb').contains('iMac').should('be.visible');
     })
 
-    it.skip('Verify navigating to the Product Display page by using the Product Image in the Shopping Cart page', () => {
+    it('Verify navigating to the Product Display page by using the Product Image in the Shopping Cart page', () => {
         //TC_PDP_026
 
         //visit the Homepage
@@ -812,7 +812,7 @@ describe('Product Display Page', () => {
         cy.get('.breadcrumb').contains('iMac').should('be.visible');
     })
 
-    it.skip('Verify navigating to the Product Display page by using the Product Name link in the Shopping Cart page', () => {
+    it('Verify navigating to the Product Display page by using the Product Name link in the Shopping Cart page', () => {
         //TC_PDP_027
 
         //visit the Homepage
@@ -854,7 +854,7 @@ describe('Product Display Page', () => {
         cy.get('.breadcrumb').contains('iMac').should('be.visible');
     })
 
-    it.skip('Verify the Reward Points displayed in the Product Display page', () => {
+    it('Verify the Reward Points displayed in the Product Display page', () => {
         //TC_PDP_031
 
         //visit the Homepage
@@ -887,7 +887,7 @@ describe('Product Display Page', () => {
 
     })
 
-    it.skip('Verify the original price of the Product without offer in the Product Display page', () => {
+    it('Verify the original price of the Product without offer in the Product Display page', () => {
         //TC_PDP_032
 
         //visit the Homepage
@@ -919,7 +919,7 @@ describe('Product Display Page', () => {
         cy.get('.col-sm-4 > :nth-child(4) > :nth-child(1) > span').should('have.css', 'text-decoration', 'line-through solid rgb(102, 102, 102)')
     })
 
-    it.skip('Verify the prices of the Product when purchased in bulk ', () => {
+    it('Verify the prices of the Product when purchased in bulk ', () => {
         //TC_PDP_033
 
         //visit the Homepage
@@ -953,7 +953,7 @@ describe('Product Display Page', () => {
         cy.get('.col-sm-4 > :nth-child(4)').contains('30 or more $66.00').should('be.visible');
     })
 
-    it.skip('Verify all the extra available options in the Product Display page', () => {
+    it('Verify all the extra available options in the Product Display page', () => {
         //TC_PDP_034
 
         //visit the Homepage

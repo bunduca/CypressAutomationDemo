@@ -1,4 +1,4 @@
-// <reference types="cypress" />hover
+/// <reference types="cypress" />
 
 
 const { baseUrl } = Cypress.config();
@@ -13,7 +13,7 @@ describe('Reward Points', () => {
     })
 
 
-    it.skip('Verify navigating to Your Reward Points page from My Account page', () => {
+    it('Verify navigating to Your Reward Points page from My Account page', () => {
         //TC_RP_001
 
         //visit the Homepage
@@ -47,7 +47,7 @@ describe('Reward Points', () => {
         cy.get('#content > h1').contains('Your Reward Points').should('be.visible');
     })
 
-    it.skip('Verify navigating to Your Reward Points page from Right Column options', () => {
+    it('Verify navigating to Your Reward Points page from Right Column options', () => {
         //TC_RP_002
 
         //visit the Homepage
@@ -81,7 +81,7 @@ describe('Reward Points', () => {
         cy.get('#content > h1').contains('Your Reward Points').should('be.visible');
     })
 
-    it.skip('Verify navigating to Your Reward Points page by selecting the option from Right Column options before login', () => {
+    it('Verify navigating to Your Reward Points page by selecting the option from Right Column options before login', () => {
         //TC_RP_003
 
         //visit the Homepage
@@ -109,7 +109,7 @@ describe('Reward Points', () => {
         cy.get('#content > h1').contains('Your Reward Points').should('be.visible');
     })
 
-    it.skip('Verify navigating to Your Reward Points page by selecting the option from Right Column options before login', () => {
+    it('Verify navigating to Your Reward Points page by selecting the option from Right Column options before login', () => {
         //TC_RP_004
 
         //visit the Homepage

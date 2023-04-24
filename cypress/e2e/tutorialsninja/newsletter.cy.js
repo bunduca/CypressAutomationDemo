@@ -1,4 +1,4 @@
-// <reference types="cypress" />hover
+/// <reference types="cypress" />
 
 
 const { baseUrl } = Cypress.config();
@@ -13,7 +13,7 @@ describe('Newsletter', () => {
     })
 
 
-    it.skip('Verify navigating to Newsletter Subscription page from My Account page', () => {
+    it('Verify navigating to Newsletter Subscription page from My Account page', () => {
         //TC_NLT_001
 
         //visit the Homepage
@@ -49,7 +49,7 @@ describe('Newsletter', () => {
 
     })
 
-    it.skip('Verify navigating to Newsletter Subscription page using Right Column options', () => {
+    it('Verify navigating to Newsletter Subscription page using Right Column options', () => {
         //TC_NLT_002
 
         //visit the Homepage
@@ -84,7 +84,7 @@ describe('Newsletter', () => {
         cy.get('.breadcrumb').contains('Newsletter').should('be.visible');
     })
 
-    it.skip('Verify navigating to Newsletter page by selecting the option from Right Column options before login', () => {
+    it('Verify navigating to Newsletter page by selecting the option from Right Column options before login', () => {
         //TC_NLT_003
 
         //visit the Homepage
@@ -113,7 +113,7 @@ describe('Newsletter', () => {
         cy.get('.breadcrumb').contains('Newsletter').should('be.visible');
     })
 
-    it.skip('Verify navigating to Newsletter page by selecting the option using Newsletter Footer option before login', () => {
+    it('Verify navigating to Newsletter page by selecting the option using Newsletter Footer option before login', () => {
         //TC_NLT_004
 
         //visit the Homepage
@@ -141,7 +141,7 @@ describe('Newsletter', () => {
         cy.get('.breadcrumb').contains('Newsletter').should('be.visible');
     })
 
-    it.skip('Verify navigating to Newsletter page by selecting the option using Newsletter Footer option after login', () => {
+    it('Verify navigating to Newsletter page by selecting the option using Newsletter Footer option after login', () => {
         //TC_NLT_005
 
         //visit the Homepage
@@ -170,7 +170,7 @@ describe('Newsletter', () => {
         cy.get('.breadcrumb').contains('Newsletter').should('be.visible');
     })
 
-    it.skip('Verify Back button in the Newsletter Subscription page', () => {
+    it('Verify Back button in the Newsletter Subscription page', () => {
         //TC_NLT_006
 
         //visit the Homepage
@@ -207,7 +207,7 @@ describe('Newsletter', () => {
         cy.get('#content').contains('My Account').should('be.visible');
     })
 
-    it.skip('Verify udpating the Subscribe option in the Newsletter Subscription page', () => {
+    it('Verify udpating the Subscribe option in the Newsletter Subscription page', () => {
         //TC_NLT_007
 
         //visit the Homepage
@@ -258,7 +258,7 @@ describe('Newsletter', () => {
         cy.get('.col-sm-10 > :nth-child(1) > input').should('be.checked');
     })
 
-    it.skip('Register a new Account by opting for Newsletter and check the Newsletter Subscription page', () => {
+    it('Register a new Account by opting for Newsletter and check the Newsletter Subscription page', () => {
         //TC_NLT_008
 
         //visit the Homepage
@@ -299,7 +299,7 @@ describe('Newsletter', () => {
         cy.get('.col-sm-10 > :nth-child(2) > input').should('be.checked');
     })
 
-    it.skip('Verify the Breadcrumb of Newsletter Subscription page', () => {
+    it('Verify the Breadcrumb of Newsletter Subscription page', () => {
         //TC_NLT_010
 
         //visit the Homepage

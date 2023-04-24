@@ -1,4 +1,4 @@
-/// <reference types="cypress" />hover
+/// <reference types="cypress" />
 
 
 const { baseUrl } = Cypress.config();
@@ -8,7 +8,7 @@ describe('Address Book', () => {
 
 
 
-    it.skip('Verify navigating to Address Book Entries page from My Account dropmenu', () => {
+    it('Verify navigating to Address Book Entries page from My Account dropmenu', () => {
         //TC_AB_001
 
         //visit the Homepage
@@ -43,7 +43,7 @@ describe('Address Book', () => {
         cy.get('.breadcrumb').contains('Address Book').should('be.visible');
     })
 
-    it.skip('Verify navigating to Address Book Entries page from Right Column options', () => {
+    it('Verify navigating to Address Book Entries page from Right Column options', () => {
         //TC_AB_002
 
         //visit the Homepage
@@ -78,7 +78,7 @@ describe('Address Book', () => {
         cy.get('.breadcrumb').contains('Address Book').should('be.visible');
     })
 
-    it.skip('Verify navigating to Address Book Entries page from Site Map page', () => {
+    it('Verify navigating to Address Book Entries page from Site Map page', () => {
         //TC_AB_003
 
         //visit the Homepage
@@ -110,7 +110,7 @@ describe('Address Book', () => {
         cy.get('.breadcrumb').contains('Address Book').should('be.visible');
     })
 
-    it.skip('Verify navigating to Address Book Entries page from Right Column options before logging into the Application', () => {
+    it('Verify navigating to Address Book Entries page from Right Column options before logging into the Application', () => {
         //TC_AB_004
 
         //visit the Homepage
@@ -135,7 +135,7 @@ describe('Address Book', () => {
         cy.get('.breadcrumb').contains('Address Book').should('be.visible');
     })
 
-    it.skip('Verify default address displayed in the Address Book Entries page', () => {
+    it('Verify default address displayed in the Address Book Entries page', () => {
         //TC_AB_005
 
         //visit the Homepage
@@ -164,7 +164,7 @@ describe('Address Book', () => {
         cy.get('#content > p').contains('You have no addresses in your account.').should('be.visible');
     })
 
-    it.skip('Verify deleting the default address in the Address Book Entries page', () => {
+    it('Verify deleting the default address in the Address Book Entries page', () => {
         //TC_AB_006
 
         //visit the Homepage
@@ -199,7 +199,7 @@ describe('Address Book', () => {
         cy.get('.breadcrumb').contains('Address Book').should('be.visible');
     })
 
-    it.skip('Verify updating the Address in the Address Book Entries page', () => {
+    it('Verify updating the Address in the Address Book Entries page', () => {
         //TC_AB_007
 
         //visit the Homepage
@@ -247,7 +247,7 @@ describe('Address Book', () => {
         cy.get('.alert').contains('Your address has been successfully updated').should('be.visible');
     })
 
-    it.skip('Verify changing the Default Address when there is only one address in the Address Book Entries page', () => {
+    it('Verify changing the Default Address when there is only one address in the Address Book Entries page', () => {
         //TC_AB_008
 
         //visit the Homepage
@@ -284,7 +284,7 @@ describe('Address Book', () => {
         cy.get('.alert').contains('Your address has been successfully updated').should('be.visible');
     })
 
-    it.skip('Verify updating the Address  by clearing all the non-mandatory fields', () => {
+    it('Verify updating the Address  by clearing all the non-mandatory fields', () => {
         //TC_AB_009
 
         //visit the Homepage
@@ -322,7 +322,7 @@ describe('Address Book', () => {
         cy.get('.alert').contains('Your address has been successfully updated').should('be.visible');
     })
 
-    it.skip('Verify clearing all the fields in the Edit Address page and updating the Address', () => {
+    it('Verify clearing all the fields in the Edit Address page and updating the Address', () => {
         //TC_AB_010
 
         //visit the Homepage
@@ -367,7 +367,7 @@ describe('Address Book', () => {
         cy.get('#content').contains('Please select a country!').should('be.visible');
     })
 
-    it.skip('Verify Back button in the Edit Address page', () => {
+    it('Verify Back button in the Edit Address page', () => {
         //TC_AB_011
 
         //visit the Homepage
@@ -417,7 +417,7 @@ describe('Address Book', () => {
         cy.get('.table-responsive').contains('Romania').should('be.visible')
     })
 
-    it.skip('Verify Back button in the Address Book Entries page', () => {
+    it('Verify Back button in the Address Book Entries page', () => {
         //TC_AB_012
 
         //visit the Homepage
@@ -449,7 +449,7 @@ describe('Address Book', () => {
         cy.get('.breadcrumb').contains('Account').should('be.visible');
     })
 
-    it.skip('Verify adding new Address by providing only the mandatory fields', () => {
+    it('Verify adding new Address by providing only the mandatory fields', () => {
         //TC_AB_013
 
         //visit the Homepage
@@ -503,7 +503,7 @@ describe('Address Book', () => {
         })
     })
 
-    it.skip('Verify selecting the newly added Address as default address', () => {
+    it('Verify selecting the newly added Address as default address', () => {
         //TC_AB_014
 
         //visit the Homepage
@@ -540,7 +540,7 @@ describe('Address Book', () => {
         cy.get('.alert').contains(' Your address has been successfully updated').should('be.visible');
     })
 
-    it.skip('Verify the Breadcrumb, Page URL, Page Heading and Page Title of Address Book Entries page', () => {
+    it('Verify the Breadcrumb, Page URL, Page Heading and Page Title of Address Book Entries page', () => {
         //TC_AB_017
 
         //visit the Homepage
@@ -571,7 +571,7 @@ describe('Address Book', () => {
         cy.title().should('eq', 'Address Book');
     })
 
-    it.skip('Verify the Breadcrumb, Page URL, Page Heading and Page Title of Edit Address page', () => {
+    it('Verify the Breadcrumb, Page URL, Page Heading and Page Title of Edit Address page', () => {
         //TC_AB_018
 
         //visit the Homepage

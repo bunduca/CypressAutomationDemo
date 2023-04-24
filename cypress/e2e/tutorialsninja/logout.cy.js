@@ -12,7 +12,7 @@ describe('Login', () => {
         sessionStorage.clear();
     })
 
-    it.skip('Verify Logging out by selecting Logout option from My Account dropmenu', () => {
+    it('Verify Logging out by selecting Logout option from My Account dropmenu', () => {
         //TC_LG_001
 
         //visit the Homepage
@@ -46,7 +46,7 @@ describe('Login', () => {
     })
 
 
-    it.skip('Verify Logging out by selecting Logout option from Right Column options', () => {
+    it('Verify Logging out by selecting Logout option from Right Column options', () => {
         //TC_LG_002
 
         //visit the Homepage
@@ -80,7 +80,7 @@ describe('Login', () => {
     })
 
 
-    it.skip('Verify logging out and browsing back', () => {
+    it('Verify logging out and browsing back', () => {
         //TC_LG_004
 
         //visit the Homepage
@@ -117,7 +117,7 @@ describe('Login', () => {
     })
 
 
-    it.skip('Verify Logout option is not displayed under My Account menu before logging in', () => {
+    it('Verify Logout option is not displayed under My Account menu before logging in', () => {
         // TC_LG_005
 
         //visit the Homepage
@@ -130,7 +130,7 @@ describe('Login', () => {
         cy.get('.list-inline > .dropdown > .dropdown-menu').contains('Logout').should('not.exist');
     })
 
-    it.skip('Verify Logout option is not displayed under Right Column options before logging in', () => {
+    it('Verify Logout option is not displayed under Right Column options before logging in', () => {
         // TC_LG_006
 
         //visit the Homepage
@@ -146,7 +146,7 @@ describe('Login', () => {
         cy.get('#column-right').contains('Logout').should('not.exist');
     })
 
-    it.skip('Verify logging out and loggin in immediately after logout ', () => {
+    it('Verify logging out and loggin in immediately after logout ', () => {
         //TC_LG_008
 
 
@@ -188,7 +188,7 @@ describe('Login', () => {
         cy.get('#content > :nth-child(1)').contains('My Account').should('be.visible');
     })
 
-    it.skip('Verify the Breadcrumb, Page heading, Page Title and Page URL of Account Logout page', () => {
+    it('Verify the Breadcrumb, Page heading, Page Title and Page URL of Account Logout page', () => {
         //TC_LG_009
 
         cy.visit(baseUrl);

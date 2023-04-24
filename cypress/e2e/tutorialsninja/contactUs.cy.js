@@ -1,4 +1,4 @@
-// <reference types="cypress" />hover
+/// <reference types="cypress" />
 
 
 const { baseUrl } = Cypress.config();
@@ -13,7 +13,7 @@ describe('Contact Us', () => {
     })
 
 
-    it.skip('Verify navigating to Contact Us page from Header options', () => {
+    it('Verify navigating to Contact Us page from Header options', () => {
         //TC_CU_001
 
         //visit the Homepage
@@ -27,7 +27,7 @@ describe('Contact Us', () => {
         cy.get('.breadcrumb').contains('Contact Us').should('be.visible');
     })
 
-    it.skip('Verify navigating to Contact Us page from Footer options', () => {
+    it('Verify navigating to Contact Us page from Footer options', () => {
         //TC_CU_002
 
         //visit the Homepage
@@ -41,7 +41,7 @@ describe('Contact Us', () => {
         cy.get('.breadcrumb').contains('Contact Us').should('be.visible');
     })
 
-    it.skip('Verify whether the required details and fields are displayed in the Contact Us page', () => {
+    it('Verify whether the required details and fields are displayed in the Contact Us page', () => {
         //TC_CU_004
 
         //visit the Homepage
@@ -66,7 +66,7 @@ describe('Contact Us', () => {
         })
     })
 
-    it.skip('Verify all the text fields in the Contact Us page are mandatory', () => {
+    it('Verify all the text fields in the Contact Us page are mandatory', () => {
         //TC_CU_005/6
 
         //visit the Homepage
@@ -96,7 +96,7 @@ describe('Contact Us', () => {
         cy.title().should('eq', 'Your Store');
     })
 
-    it.skip('Verify submitting the Contact Form in Contact Us page by not providing any details', () => {
+    it('Verify submitting the Contact Form in Contact Us page by not providing any details', () => {
         //TC_CU_007
 
         //visit the Homepage
@@ -120,7 +120,7 @@ describe('Contact Us', () => {
         })
     })
 
-    it.skip('Verify entering invalid email address into the E-Mail Address field and submit the form', () => {
+    it('Verify entering invalid email address into the E-Mail Address field and submit the form', () => {
         //TC_CU_008
 
         //visit the Homepage
@@ -166,7 +166,7 @@ describe('Contact Us', () => {
         cy.get('.text-danger').contains('E-Mail Address does not appear to be valid!').should('be.visible');
     })
 
-    it.skip('Verify submitting the Contact Form in Contact Us page by providing all the details after login', () => {
+    it('Verify submitting the Contact Form in Contact Us page by providing all the details after login', () => {
         //TC_CU_009
 
         //visit the Homepage
@@ -213,7 +213,7 @@ describe('Contact Us', () => {
         cy.title().should('eq', 'Your Store');
     })
 
-    it.skip('Verify the Breadcrumb of Contact Us page', () => {
+    it('Verify the Breadcrumb of Contact Us page', () => {
         //TC_CU_010
 
         //visit the Homepage

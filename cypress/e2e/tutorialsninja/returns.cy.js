@@ -1,4 +1,4 @@
-// <reference types="cypress" />hover
+/// <reference types="cypress" />
 
 
 const { baseUrl } = Cypress.config();
@@ -13,7 +13,7 @@ describe('Returns', () => {
     })
 
 
-    it.skip('Verify navigating to Product Returns page from My Account page', () => {
+    it('Verify navigating to Product Returns page from My Account page', () => {
         //TC_RS_001
 
         //visit the Homepage
@@ -48,7 +48,7 @@ describe('Returns', () => {
         cy.get('.breadcrumb').contains('Product Returns').should('be.visible');
     })
 
-    it.skip('Verify navigating to Product Returns page using Right column option', () => {
+    it('Verify navigating to Product Returns page using Right column option', () => {
         //TC_RS_002
 
         //visit the Homepage
@@ -83,7 +83,7 @@ describe('Returns', () => {
         cy.get('.breadcrumb').contains('Product Returns').should('be.visible');
     })
 
-    it.skip('Verify navigating to Product Returns page by selecting the option from Right Column options before login', () => {
+    it('Verify navigating to Product Returns page by selecting the option from Right Column options before login', () => {
         //TC_RS_003
 
         //visit the Homepage
@@ -112,7 +112,7 @@ describe('Returns', () => {
         cy.get('.breadcrumb').contains('Product Returns').should('be.visible');
     })
 
-    it.skip('Verify navigating to Product Returns page when there are no products returned by the User', () => {
+    it('Verify navigating to Product Returns page when there are no products returned by the User', () => {
         //TC_RS_004
 
          //visit the Homepage
@@ -150,7 +150,7 @@ describe('Returns', () => {
         cy.get('#content').contains('You have not made any previous returns!').should('be.visible');
     })
 
-    it.skip('Verify Continue button on the Product Returns page', () => {
+    it('Verify Continue button on the Product Returns page', () => {
         //TC_RS_005
 
         //visit the Homepage
@@ -192,7 +192,7 @@ describe('Returns', () => {
         cy.get('.breadcrumb').contains('Account').should('be.visible');
     })
 
-    it.skip('Verify the Breadcrumb of Product Returns page', () => {
+    it('Verify the Breadcrumb of Product Returns page', () => {
         //TC_RS_008
 
          //visit the Homepage

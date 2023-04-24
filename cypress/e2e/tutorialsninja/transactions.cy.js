@@ -1,4 +1,4 @@
-// <reference types="cypress" />hover
+/// <reference types="cypress" />
 
 
 const { baseUrl } = Cypress.config();
@@ -13,7 +13,7 @@ describe('Transactions', () => {
     })
 
 
-    it.skip('Verify navigating to Your Transactions page from My Account page', () => {
+    it('Verify navigating to Your Transactions page from My Account page', () => {
         //TC_TS_001
 
         //visit the Homepage
@@ -48,7 +48,7 @@ describe('Transactions', () => {
         cy.get('.breadcrumb').contains('Your Transactions').should('be.visible');
     })
 
-    it.skip('Verify navigating to Your Transactions page from My Account Dropmenu', () => {
+    it('Verify navigating to Your Transactions page from My Account Dropmenu', () => {
         //TC_TS_002
 
         //visit the Homepage
@@ -80,7 +80,7 @@ describe('Transactions', () => {
         cy.get('.breadcrumb').contains('Your Transactions').should('be.visible');
     })
 
-    it.skip('Verify navigating to Your Transactions page using Right Column options', () => {
+    it('Verify navigating to Your Transactions page using Right Column options', () => {
         //TC_TS_003
 
         //visit the Homepage
@@ -115,7 +115,7 @@ describe('Transactions', () => {
         cy.get('.breadcrumb').contains('Your Transactions').should('be.visible');
     })
 
-    it.skip('Verify navigating to Your Transactions page by selecting the option from Right Column options before login', () => {
+    it('Verify navigating to Your Transactions page by selecting the option from Right Column options before login', () => {
         //TC_TS_004
 
         //visit the Homepage
@@ -144,7 +144,7 @@ describe('Transactions', () => {
         cy.get('.breadcrumb').contains('Your Transactions').should('be.visible');
     })
 
-    it.skip('Verify Your Transactions page when the User has not placed any orders or the payments for the order made is not completed ', () => {
+    it('Verify Your Transactions page when the User has not placed any orders or the payments for the order made is not completed ', () => {
         //TC_TS_005
 
         //visit the Homepage
@@ -186,7 +186,7 @@ describe('Transactions', () => {
         })
     })
 
-    it.skip('Verify Continue button in the Your Transactions page', () => {
+    it('Verify Continue button in the Your Transactions page', () => {
         //TC_TS_006
 
         //visit the Homepage
@@ -228,7 +228,7 @@ describe('Transactions', () => {
         cy.get('.breadcrumb').contains('Account').should('be.visible');
     })
 
-    it.skip('Verify the Breadcrumb of Your Transactions page', () => {
+    it('Verify the Breadcrumb of Your Transactions page', () => {
         //TC_TS_008
 
          //visit the Homepage
