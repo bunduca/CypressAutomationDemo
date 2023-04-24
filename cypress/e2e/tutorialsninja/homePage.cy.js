@@ -1,4 +1,4 @@
-/// <reference types="cypress" />hover
+/// <reference types="cypress" />
 
 
 const { baseUrl } = Cypress.config();
@@ -13,7 +13,7 @@ describe('Home Page', () => {
     })
 
 
-    it.skip('Verify navigating to Home Page from Shopping Cart page', () => {
+    it('Verify navigating to Home Page from Shopping Cart page', () => {
         //TC_HP_001
 
         //visit the Homepage
@@ -59,7 +59,7 @@ describe('Home Page', () => {
         cy.title().should('eq', 'Your Store');
     })
 
-    it.skip('Verify navigating to Home page from any page of the Applcation using Logo', () => {
+    it('Verify navigating to Home page from any page of the Applcation using Logo', () => {
         //TC_HP_003
 
         //visit the Homepage
@@ -99,7 +99,7 @@ describe('Home Page', () => {
         cy.title().should('eq', 'Your Store');
     })
 
-    it.skip('Verify navigating to Home page from any Category Page which dont have any products', () => {
+    it('Verify navigating to Home page from any Category Page which dont have any products', () => {
         //TC_HP_004
 
         //visit the Homepage
@@ -121,7 +121,7 @@ describe('Home Page', () => {
 
     })
 
-    it.skip('Verify Hero Images and its slider options in the Home page', () => {
+    it('Verify Hero Images and its slider options in the Home page', () => {
         //TC_HP_005
 
         //visit the Homepage
@@ -146,7 +146,7 @@ describe('Home Page', () => {
         cy.get('.img-responsive').eq(1).should('be.visible');
     })
 
-    it.skip('Verify four featured products should be displayed in the Home Page', () => {
+    it('Verify four featured products should be displayed in the Home Page', () => {
         //TC_HP_006
 
         //visit the Homepage

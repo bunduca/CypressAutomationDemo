@@ -1,4 +1,4 @@
-/// <reference types="cypress" />hover
+/// <reference types="cypress" />
 
 
 const { baseUrl } = Cypress.config();
@@ -13,7 +13,7 @@ describe('My Account', () => {
     })
 
 
-    it.skip('Verify navigating to My Account page on login', () => {
+    it('Verify navigating to My Account page on login', () => {
         //TC_MA_002
 
         //visit the Homepage
@@ -39,7 +39,7 @@ describe('My Account', () => {
     })
 
 
-    it.skip('Verify navigating to My Account page using My Account option ', () => {
+    it('Verify navigating to My Account page using My Account option ', () => {
         //TC_MA_003
 
         //visit the Homepage
@@ -64,7 +64,7 @@ describe('My Account', () => {
         cy.get('#content > :nth-child(1)').contains('My Account').should('be.visible');
     })
 
-    it.skip('Verify navigating to My Account page using Right Column options ', () => {
+    it('Verify navigating to My Account page using Right Column options ', () => {
         //TC_MA_004
 
         //visit the Homepage
@@ -92,7 +92,7 @@ describe('My Account', () => {
         cy.get('#content > :nth-child(1)').contains('My Account').should('be.visible');
     })
 
-    it.skip('Verify navigating to My Account page using My Account option in Site Map page', () => {
+    it('Verify navigating to My Account page using My Account option in Site Map page', () => {
         //TC_MA_005
 
         //visit the Homepage
@@ -120,7 +120,7 @@ describe('My Account', () => {
         cy.get('#content > :nth-child(1)').contains('My Account').should('be.visible');
     })
 
-    it.skip('Verify Breadcrump in My Account page', () => {
+    it('Verify Breadcrump in My Account page', () => {
         //TC_MA_006
 
         //visit the Homepage

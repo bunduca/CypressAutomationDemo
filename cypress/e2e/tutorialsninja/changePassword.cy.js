@@ -1,4 +1,4 @@
-/// <reference types="cypress" />hover
+/// <reference types="cypress" />
 
 
 const { baseUrl } = Cypress.config();
@@ -13,7 +13,7 @@ describe('Change Password', () => {
     })
 
 
-    it.skip('Verify navigating to Change Password page from My Account page', () => {
+    it('Verify navigating to Change Password page from My Account page', () => {
         //TC_CP_001
 
         //visit the Homepage
@@ -48,7 +48,7 @@ describe('Change Password', () => {
         cy.get('.breadcrumb').should('be.visible').contains('Change Password').should('be.visible');
     })
 
-    it.skip('Verify navigating to Change Password page using Password Right column option', () => {
+    it('Verify navigating to Change Password page using Password Right column option', () => {
         //TC_CP_002
 
         //visit the Homepage
@@ -83,7 +83,7 @@ describe('Change Password', () => {
         cy.get('.breadcrumb').should('be.visible').contains('Change Password').should('be.visible');
     })
 
-    it.skip('Verify navigating to Change Password page from Site Map page', () => {
+    it('Verify navigating to Change Password page from Site Map page', () => {
         //TC_CP_003
 
         //visit the Homepage

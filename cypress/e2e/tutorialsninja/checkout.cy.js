@@ -1,4 +1,4 @@
-/// <reference types="cypress" />hover
+/// <reference types="cypress" />
 
 
 const { baseUrl } = Cypress.config();
@@ -13,7 +13,7 @@ describe('Checkout', () => {
     })
 
 
-    it.skip('Verify navigating to Checkout page when there are no products added to the Shopping Cart', () => {
+    it('Verify navigating to Checkout page when there are no products added to the Shopping Cart', () => {
         //TC_CO_001
 
          //visit the Homepage

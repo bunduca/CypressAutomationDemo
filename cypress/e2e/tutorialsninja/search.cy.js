@@ -12,7 +12,7 @@ describe('Search', () => {
         sessionStorage.clear();
     })
 
-    it.skip('Verify searching with an existing Product Name', () => {
+    it('Verify searching with an existing Product Name', () => {
         //TC_SF_001
 
         //visit the Homepage
@@ -30,7 +30,7 @@ describe('Search', () => {
 
     })
 
-    it.skip('Verify searching with a non existing Product Name', () => {
+    it('Verify searching with a non existing Product Name', () => {
         //TC_SF_002
 
         //visit the Homepage
@@ -46,7 +46,7 @@ describe('Search', () => {
 
     })
 
-    it.skip('Verify searching without providing any Product Name', () => {
+    it('Verify searching without providing any Product Name', () => {
         //TC_SF_003
 
         //visit the Homepage
@@ -59,7 +59,7 @@ describe('Search', () => {
         cy.get('#content > :nth-child(7)').contains('There is no product that matches the search criteria.').should('be.visible');
     })
 
-    it.skip('Verify searching for a product after login to the Application', () => {
+    it('Verify searching for a product after login to the Application', () => {
         //TC_SF_004
 
         //visit the Homepage
@@ -94,7 +94,7 @@ describe('Search', () => {
         cy.get('.product-thumb').contains('iMac').should('be.visible');
     })
 
-    it.skip('Verify searching by providing a search criteria which results in multiple products', () => {
+    it('Verify searching by providing a search criteria which results in multiple products', () => {
         //TC_SF_005
 
         //visit the Homepage
@@ -112,7 +112,7 @@ describe('Search', () => {
         cy.get('#content > :nth-child(8) > :nth-child(2)').contains('Mac').should('be.visible');
     })
 
-    it.skip('Verify all the fields in the Search functionality and Search page have placeholders', () => {
+    it('Verify all the fields in the Search functionality and Search page have placeholders', () => {
         //TC_SF_006
 
         //visit the Homepage
@@ -126,7 +126,7 @@ describe('Search', () => {
         cy.get('#input-search').should('have.attr', 'placeholder', 'Keywords');
     })
 
-    it.skip('Verify searching using Search Criteria field', () => {
+    it('Verify searching using Search Criteria field', () => {
         //TC_SF_007
 
         //visit the Homepage
@@ -145,7 +145,7 @@ describe('Search', () => {
         cy.get('.product-thumb').contains('iMac').should('be.visible');
     })
 
-    it.skip('Verify Search using the text from the product description', () => {
+    it('Verify Search using the text from the product description', () => {
         //TC_SF_008
 
         //visit the Homepage
@@ -169,7 +169,7 @@ describe('Search', () => {
     })
 
 
-    it.skip('Verify Search by selecting the correct category of product', () => {
+    it('Verify Search by selecting the correct category of product', () => {
         //TC_SF_009
 
         //visit the Homepage
@@ -190,7 +190,7 @@ describe('Search', () => {
 
     })
 
-    it.skip('Verify Search by selecting the wrong category of product', () => {
+    it('Verify Search by selecting the wrong category of product', () => {
         //TC_SF_009
 
         //visit the Homepage
@@ -210,7 +210,7 @@ describe('Search', () => {
         cy.get('#content').contains('There is no product that matches the search criteria.').should('be.visible');
     })
 
-    it.skip('Verify Search by selecting  to search in subcategories', () => {
+    it('Verify Search by selecting  to search in subcategories', () => {
         //TC_SF_010
 
         //visit the Homepage
@@ -240,7 +240,7 @@ describe('Search', () => {
     })
 
 
-    it.skip('Verify List and Grid views when only one Product is displayed in the search results', () => {
+    it('Verify List and Grid views when only one Product is displayed in the search results', () => {
         //TC_SF_011
 
         //visit the Homepage
@@ -329,7 +329,7 @@ describe('Search', () => {
         cy.url().should('contain', '/product&product_id=41&search=iMac');
     })
 
-    it.skip('Verify List and Grid views when  multiple Products are displayed in the search results', () => {
+    it('Verify List and Grid views when  multiple Products are displayed in the search results', () => {
         //TC_SF_012
 
         //visit the Homepage
@@ -404,7 +404,7 @@ describe('Search', () => {
     })
 
 
-    it.skip('Verify navigating to Product Compare Page from Search Results page', () => {
+    it('Verify navigating to Product Compare Page from Search Results page', () => {
         //TC_SF_013
 
         //visit the Homepage
@@ -429,7 +429,7 @@ describe('Search', () => {
         cy.url().should('contain', '/index.php?route=product/compare');
     })
 
-    it.skip('Verify User is able to sort the Products displayed in the Search Results', () => {
+    it('Verify User is able to sort the Products displayed in the Search Results', () => {
         //TC_SF_014
 
         //visit the Homepage
@@ -484,7 +484,7 @@ describe('Search', () => {
     })
 
 
-    it.skip('Verify the User can select how many products can be displayed in the Search Results', () => {
+    it('Verify the User can select how many products can be displayed in the Search Results', () => {
         //TC_SF_015
 
         //visit the Homepage
@@ -517,7 +517,7 @@ describe('Search', () => {
 
     })
 
-    it.skip('Verify Search textbox field and the button having search icon are displayed on all the page of the Application', () => {
+    it('Verify Search textbox field and the button having search icon are displayed on all the page of the Application', () => {
         //TC_SF_016
 
         //visit the Homepage
@@ -544,7 +544,7 @@ describe('Search', () => {
         cy.get('.input-group-btn > .btn').should('be.visible');
     })
 
-    it.skip('Verify navigating to Search page from the Site Map page', () => {
+    it('Verify navigating to Search page from the Site Map page', () => {
         //TC_SF_017
 
         //visit the Homepage
@@ -567,7 +567,7 @@ describe('Search', () => {
         cy.url().should('contain', '/index.php?route=product/search');
     })
 
-    it.skip('Verify Breadcrumb of the Search page', () => {
+    it('Verify Breadcrumb of the Search page', () => {
         //TC_SF_018
 
         //visit the Homepage

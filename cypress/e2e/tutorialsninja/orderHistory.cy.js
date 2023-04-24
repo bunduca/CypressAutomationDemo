@@ -1,4 +1,4 @@
-/// <reference types="cypress" />hover
+/// <reference types="cypress" />
 
 
 const { baseUrl } = Cypress.config();
@@ -8,7 +8,7 @@ describe('Order History', () => {
 
 
 
-    it.skip('Verify navigating to Order History page from My Account page', () => {
+    it('Verify navigating to Order History page from My Account page', () => {
         //TC_OH_001
 
         //visit the Homepage
@@ -43,7 +43,7 @@ describe('Order History', () => {
         cy.get('.breadcrumb').contains('Order History').should('be.visible');
     })
 
-    it.skip('Verify navigating to Order History page from My Account dropmenu', () => {
+    it('Verify navigating to Order History page from My Account dropmenu', () => {
         //TC_OH_002
 
 
@@ -76,7 +76,7 @@ describe('Order History', () => {
         cy.get('.breadcrumb').contains('Order History').should('be.visible');
     })
 
-    it.skip('Verify navigating to Order History page using Address Book Right Column option', () => {
+    it('Verify navigating to Order History page using Address Book Right Column option', () => {
         //TC_OH_003
 
         //visit the Homepage
@@ -114,7 +114,7 @@ describe('Order History', () => {
         cy.get('.breadcrumb').contains('Order History').should('be.visible');
     })
 
-    it.skip('Verify navigating to Order History page from Site Map page', () => {
+    it('Verify navigating to Order History page from Site Map page', () => {
         //TC_OH_004
 
         //visit the Homepage
@@ -146,7 +146,7 @@ describe('Order History', () => {
         cy.get('.breadcrumb').contains('Order History').should('be.visible');
     })
 
-    it.skip('Verify navigating to Order History page from Right Column options before logging into the Application', () => {
+    it('Verify navigating to Order History page from Right Column options before logging into the Application', () => {
         //TC_OH_005
 
         //visit the Homepage

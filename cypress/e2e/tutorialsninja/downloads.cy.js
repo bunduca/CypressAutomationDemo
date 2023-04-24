@@ -1,4 +1,4 @@
-/// <reference types="cypress" />hover
+/// <reference types="cypress" />
 
 
 const { baseUrl } = Cypress.config();
@@ -8,7 +8,7 @@ describe('Downloads', () => {
 
 
 
-    it.skip('Verify navigating to Account Downloads page from My Account page', () => {
+    it('Verify navigating to Account Downloads page from My Account page', () => {
         //TC_DL_001
 
         //visit the Homepage
@@ -40,7 +40,7 @@ describe('Downloads', () => {
         cy.get('.breadcrumb').contains('Downloads').should('be.visible');
     })
 
-    it.skip('Verify navigating to Account Downloads page from My Account dropmenu', () => {
+    it('Verify navigating to Account Downloads page from My Account dropmenu', () => {
         //TC_DL_002
 
         //visit the Homepage
@@ -72,7 +72,7 @@ describe('Downloads', () => {
         cy.get('.breadcrumb').contains('Downloads').should('be.visible');
     })
 
-    it.skip('Verify navigating to Account Downloads page using Downloads Right Column option', () => {
+    it('Verify navigating to Account Downloads page using Downloads Right Column option', () => {
         //TC_DL_003
 
         //visit the Homepage
@@ -108,7 +108,7 @@ describe('Downloads', () => {
         cy.get('.breadcrumb').contains('Downloads').should('be.visible');
     })
 
-    it.skip('Verify navigating to Account Downloads page from Site Map page', () => {
+    it('Verify navigating to Account Downloads page from Site Map page', () => {
         //TC_DL_004
 
         //visit the Homepage

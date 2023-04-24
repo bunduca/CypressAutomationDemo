@@ -1,4 +1,4 @@
-// <reference types="cypress" />hover
+/// <reference types="cypress" />
 
 
 const { baseUrl } = Cypress.config();
@@ -12,7 +12,7 @@ describe('Header Menu Footer Options', () => {
         sessionStorage.clear();
     })
 
-    it.skip('Verify correct Phone number is displayed for the Contact Us Header option', () => {
+    it('Verify correct Phone number is displayed for the Contact Us Header option', () => {
         //TC_HMF_001
 
         //visit the Homepage
@@ -22,7 +22,7 @@ describe('Header Menu Footer Options', () => {
         cy.get('#top > .container').contains('123456789').should('be.visible');
     })
 
-    it.skip('Verify Currency header option is displayed with the required list of Currencies', () => {
+    it('Verify Currency header option is displayed with the required list of Currencies', () => {
         //TC_HMF_002
 
         //visit the Homepage
@@ -39,7 +39,7 @@ describe('Header Menu Footer Options', () => {
         })
     })
 
-    it.skip('Verify About Us Footer link', () => {
+    it('Verify About Us Footer link', () => {
         //TC_HMF_005
 
         //visit the Homepage
@@ -53,7 +53,7 @@ describe('Header Menu Footer Options', () => {
         cy.get('.breadcrumb').contains('About Us').should('be.visible');
     })
 
-    it.skip('Verify Delivery Information Footer link', () => {
+    it('Verify Delivery Information Footer link', () => {
         //TC_HMF_006
 
         //visit the Homepage
@@ -67,7 +67,7 @@ describe('Header Menu Footer Options', () => {
         cy.get('.breadcrumb').contains('Delivery Information').should('be.visible');
     })
 
-    it.skip('Verify Privacy Policy Footer link', () => {
+    it('Verify Privacy Policy Footer link', () => {
         //TC_HMF_007
 
         //visit the Homepage
@@ -81,7 +81,7 @@ describe('Header Menu Footer Options', () => {
         cy.get('.breadcrumb').contains('Privacy Policy').should('be.visible');
     })
 
-    it.skip('Verify Terms & Conditions Footer link', () => {
+    it('Verify Terms & Conditions Footer link', () => {
         //TC_HMF_008
 
         //visit the Homepage
@@ -95,7 +95,7 @@ describe('Header Menu Footer Options', () => {
         cy.get('.breadcrumb').contains('Terms & Conditions').should('be.visible');
     })
 
-    it.skip('Verify Brands Footer link', () => {
+    it('Verify Brands Footer link', () => {
         //TC_HMF_009
 
         //visit the Homepage
@@ -117,7 +117,7 @@ describe('Header Menu Footer Options', () => {
         })
     })
 
-    it.skip('Verify viewing the Products in Brand page in List view', () => {
+    it('Verify viewing the Products in Brand page in List view', () => {
         //TC_HMF_010
 
         //visit the Homepage
@@ -137,7 +137,7 @@ describe('Header Menu Footer Options', () => {
 
     })
 
-    it.skip('Verify viewing the Products in Brand page in Grid view', () => {
+    it('Verify viewing the Products in Brand page in Grid view', () => {
         //TC_HMF_011
 
         //visit the Homepage
@@ -156,7 +156,7 @@ describe('Header Menu Footer Options', () => {
         cy.get('#grid-view').should('have.attr', 'class', 'btn btn-default active');
     })
 
-    it.skip('Verify Product Compare link in the Brand page', () => {
+    it('Verify Product Compare link in the Brand page', () => {
         //TC_HMF_012
 
         //visit the Homepage
@@ -179,7 +179,7 @@ describe('Header Menu Footer Options', () => {
         cy.get('#content').contains('Apple Cinema 30"').should('be.visible');
     })
 
-    it.skip('Verify adding the Product to Wish List from the Brand page', () => {
+    it('Verify adding the Product to Wish List from the Brand page', () => {
         //TC_HMF_016
 
         //visit the Homepage
@@ -199,7 +199,7 @@ describe('Header Menu Footer Options', () => {
 
     })
 
-    it.skip('Verify adding the Product for Comparison from the Brand page', () => {
+    it('Verify adding the Product for Comparison from the Brand page', () => {
         //TC_HMF_017
 
         //visit the Homepage
