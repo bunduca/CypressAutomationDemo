@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "cypress:open:demoqa": "npx cypress open --config-file demoqa.config.js",
-    "cypress:open:tutorialsninja":"npx cypress open --config-file tutorialsninja.config.js"
+    "cypress:open:tutorialsninja": "npx cypress open --config-file tutorialsninja.config.js",
+    "cypress:run:tutorialsninja": "npx cypress run --config-file tutorialsninja.config.js --spec \"cypress/e2e/tutorialsNinja/**/*\"",
+    "cypress:run:homepageTutorialsNinja": "npx cypress run --config-file tutorialsninja.config.js --spec cypress/e2e/tutorialsninja/homePage.cy.js"
   },
   "repository": {
     "type": "git",
@@ -20,11 +22,7 @@
   "devDependencies": {
     "cy-verify-downloads": "^0.1.11",
     "cypress": "^12.2.0",
-    "cypress-file-upload": "^5.0.8"
-    
-
-
-    
-
+    "cypress-file-upload": "^5.0.8",
+    "cypress-mochawesome-reporter": "^3.4.0"
   }
 }
