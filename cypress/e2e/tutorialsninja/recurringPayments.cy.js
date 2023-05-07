@@ -3,6 +3,9 @@
 
 const { baseUrl } = Cypress.config();
 const picture = 'samy.jpg'
+import tutorialNinjaUserDetails from "../../fixtures/tutorialNinjaUserDetails.json"
+const { email, password } = tutorialNinjaUserDetails
+
 describe('Recurring Payments', () => {
 
     beforeEach(() => {
@@ -10,14 +13,14 @@ describe('Recurring Payments', () => {
         //Hook that is executed before the start of each test case
         cy.clearAllCookies();
         sessionStorage.clear();
-    })
 
+        //visit the Homepage
+        cy.visit(baseUrl);
+    })
 
     it('Verify navigating to Recurring Payments page from My Account page', () => {
         //TC_RCP_001
 
-        //visit the Homepage
-        cy.visit(baseUrl);
 
         //Click on "My Account" dropmenu
         cy.get('.caret').click();
@@ -30,8 +33,8 @@ describe('Recurring Payments', () => {
         cy.get('h2').contains('Returning Customer').should('be.visible');
 
         //Type in the login details and click Login button
-        cy.get('#input-email').type('bunductesteaza+1@gmail.com');
-        cy.get('#input-password').type('123456789');
+        cy.get('#input-email').type(email);
+        cy.get('#input-password').type(password);
         cy.get('form > .btn').click();
 
         // Click on 'My Account' dropmenu
@@ -51,8 +54,6 @@ describe('Recurring Payments', () => {
     it('Verify navigating to Recurring Payments page using Right Column options', () => {
         //TC_RCP_002
 
-        //visit the Homepage
-        cy.visit(baseUrl);
 
         //Click on "My Account" dropmenu
         cy.get('.caret').click();
@@ -65,8 +66,8 @@ describe('Recurring Payments', () => {
         cy.get('h2').contains('Returning Customer').should('be.visible');
 
         //Type in the login details and click Login button
-        cy.get('#input-email').type('bunductesteaza+1@gmail.com');
-        cy.get('#input-password').type('123456789');
+        cy.get('#input-email').type(email);
+        cy.get('#input-password').type(password);
         cy.get('form > .btn').click();
 
         // Click on 'My Account' dropmenu
@@ -86,8 +87,6 @@ describe('Recurring Payments', () => {
     it('Verify Recurring Payments page when there are no recurring payments done by the User', () => {
         //TC_RCP_003
 
-        //visit the Homepage
-        cy.visit(baseUrl);
 
         //Click on "My Account" dropmenu
         cy.get('.caret').click();
@@ -100,8 +99,8 @@ describe('Recurring Payments', () => {
         cy.get('h2').contains('Returning Customer').should('be.visible');
 
         //Type in the login details and click Login button
-        cy.get('#input-email').type('bunductesteaza+1@gmail.com');
-        cy.get('#input-password').type('123456789');
+        cy.get('#input-email').type(email);
+        cy.get('#input-password').type(password);
         cy.get('form > .btn').click();
 
         // Click on 'My Account' dropmenu
@@ -120,8 +119,6 @@ describe('Recurring Payments', () => {
     it('Verify Continue button in the Recurring Payments page', () => {
         //TC_RCP_004
 
-        //visit the Homepage
-        cy.visit(baseUrl);
 
         //Click on "My Account" dropmenu
         cy.get('.caret').click();
@@ -134,8 +131,8 @@ describe('Recurring Payments', () => {
         cy.get('h2').contains('Returning Customer').should('be.visible');
 
         //Type in the login details and click Login button
-        cy.get('#input-email').type('bunductesteaza+1@gmail.com');
-        cy.get('#input-password').type('123456789');
+        cy.get('#input-email').type(email);
+        cy.get('#input-password').type(password);
         cy.get('form > .btn').click();
 
         // Click on 'My Account' dropmenu
@@ -158,8 +155,6 @@ describe('Recurring Payments', () => {
     it('Verify the Breadcrumb of Recurring Payments page', () => {
         //TC_RCP_006
 
-        //visit the Homepage
-        cy.visit(baseUrl);
 
         //Click on "My Account" dropmenu
         cy.get('.caret').click();
@@ -172,8 +167,8 @@ describe('Recurring Payments', () => {
         cy.get('h2').contains('Returning Customer').should('be.visible');
 
         //Type in the login details and click Login button
-        cy.get('#input-email').type('bunductesteaza+1@gmail.com');
-        cy.get('#input-password').type('123456789');
+        cy.get('#input-email').type(email);
+        cy.get('#input-password').type(password);
         cy.get('form > .btn').click();
 
         // Click on 'My Account' dropmenu
@@ -192,8 +187,6 @@ describe('Recurring Payments', () => {
     it('Verify the Page URL, Page Heading and Page Title of Recurring Payments page', () => {
         //TC_RCP_007
 
-        //visit the Homepage
-        cy.visit(baseUrl);
 
         //Click on "My Account" dropmenu
         cy.get('.caret').click();
@@ -206,8 +199,8 @@ describe('Recurring Payments', () => {
         cy.get('h2').contains('Returning Customer').should('be.visible');
 
         //Type in the login details and click Login button
-        cy.get('#input-email').type('bunductesteaza+1@gmail.com');
-        cy.get('#input-password').type('123456789');
+        cy.get('#input-email').type(email);
+        cy.get('#input-password').type(password);
         cy.get('form > .btn').click();
 
         // Click on 'My Account' dropmenu

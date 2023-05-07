@@ -3,6 +3,9 @@
 
 const { baseUrl } = Cypress.config();
 const picture = 'samy.jpg'
+import tutorialNinjaUserDetails from "../../fixtures/tutorialNinjaUserDetails.json"
+const { email, password } = tutorialNinjaUserDetails
+
 describe('Newsletter', () => {
 
     beforeEach(() => {
@@ -10,14 +13,15 @@ describe('Newsletter', () => {
         //Hook that is executed before the start of each test case
         cy.clearAllCookies();
         sessionStorage.clear();
+
+        //visit the Homepage
+        cy.visit(baseUrl);
     })
 
 
     it('Verify navigating to Newsletter Subscription page from My Account page', () => {
         //TC_NLT_001
 
-        //visit the Homepage
-        cy.visit(baseUrl);
 
         //Click on "My Account" dropmenu
         cy.get('.caret').click();
@@ -30,8 +34,8 @@ describe('Newsletter', () => {
         cy.get('h2').contains('Returning Customer').should('be.visible');
 
         //Type in the login details and click Login button
-        cy.get('#input-email').type('bunductesteaza+1@gmail.com');
-        cy.get('#input-password').type('123456789');
+        cy.get('#input-email').type(email);
+        cy.get('#input-password').type(password);
         cy.get('form > .btn').click();
 
         // Click on 'My Account' dropmenu
@@ -52,8 +56,6 @@ describe('Newsletter', () => {
     it('Verify navigating to Newsletter Subscription page using Right Column options', () => {
         //TC_NLT_002
 
-        //visit the Homepage
-        cy.visit(baseUrl);
 
         //Click on "My Account" dropmenu
         cy.get('.caret').click();
@@ -66,8 +68,8 @@ describe('Newsletter', () => {
         cy.get('h2').contains('Returning Customer').should('be.visible');
 
         //Type in the login details and click Login button
-        cy.get('#input-email').type('bunductesteaza+1@gmail.com');
-        cy.get('#input-password').type('123456789');
+        cy.get('#input-email').type(email);
+        cy.get('#input-password').type(password);
         cy.get('form > .btn').click();
 
         // Click on 'My Account' dropmenu
@@ -87,8 +89,6 @@ describe('Newsletter', () => {
     it('Verify navigating to Newsletter page by selecting the option from Right Column options before login', () => {
         //TC_NLT_003
 
-        //visit the Homepage
-        cy.visit(baseUrl);
 
         //Click on "My Account" dropmenu
         cy.get('.caret').click();
@@ -104,8 +104,8 @@ describe('Newsletter', () => {
         cy.get(':nth-child(2) > .well > h2').contains('Returning Customer').should('be.visible');
 
         //Type in the login details and click Login button
-        cy.get('#input-email').type('bunductesteaza+1@gmail.com');
-        cy.get('#input-password').type('123456789');
+        cy.get('#input-email').type(email);
+        cy.get('#input-password').type(password);
         cy.get('form > .btn').click();
 
         //Check that User is taken to 'Newsletter Subscription' page
@@ -116,8 +116,6 @@ describe('Newsletter', () => {
     it('Verify navigating to Newsletter page by selecting the option using Newsletter Footer option before login', () => {
         //TC_NLT_004
 
-        //visit the Homepage
-        cy.visit(baseUrl);
 
         //Click on "My Account" dropmenu
         cy.get('.caret').click();
@@ -132,8 +130,8 @@ describe('Newsletter', () => {
         cy.get(':nth-child(2) > .well > h2').contains('Returning Customer').should('be.visible');
 
         //Type in the login details and click Login button
-        cy.get('#input-email').type('bunductesteaza+1@gmail.com');
-        cy.get('#input-password').type('123456789');
+        cy.get('#input-email').type(email);
+        cy.get('#input-password').type(password);
         cy.get('form > .btn').click();
 
         //Check that User is taken to 'Newsletter Subscription' page
@@ -144,8 +142,6 @@ describe('Newsletter', () => {
     it('Verify navigating to Newsletter page by selecting the option using Newsletter Footer option after login', () => {
         //TC_NLT_005
 
-        //visit the Homepage
-        cy.visit(baseUrl);
 
         //Click on "My Account" dropmenu
         cy.get('.caret').click();
@@ -158,8 +154,8 @@ describe('Newsletter', () => {
         cy.get('h2').contains('Returning Customer').should('be.visible');
 
         //Type in the login details and click Login button
-        cy.get('#input-email').type('bunductesteaza+1@gmail.com');
-        cy.get('#input-password').type('123456789');
+        cy.get('#input-email').type(email);
+        cy.get('#input-password').type(password);
         cy.get('form > .btn').click();
 
         //Click on 'Newsletter' link from the Footer of the page
@@ -173,8 +169,6 @@ describe('Newsletter', () => {
     it('Verify Back button in the Newsletter Subscription page', () => {
         //TC_NLT_006
 
-        //visit the Homepage
-        cy.visit(baseUrl);
 
         //Click on "My Account" dropmenu
         cy.get('.caret').click();
@@ -187,8 +181,8 @@ describe('Newsletter', () => {
         cy.get('h2').contains('Returning Customer').should('be.visible');
 
         //Type in the login details and click Login button
-        cy.get('#input-email').type('bunductesteaza+1@gmail.com');
-        cy.get('#input-password').type('123456789');
+        cy.get('#input-email').type(email);
+        cy.get('#input-password').type(password);
         cy.get('form > .btn').click();
 
         // Click on 'My Account' dropmenu
@@ -210,8 +204,6 @@ describe('Newsletter', () => {
     it('Verify udpating the Subscribe option in the Newsletter Subscription page', () => {
         //TC_NLT_007
 
-        //visit the Homepage
-        cy.visit(baseUrl);
 
         //Click on "My Account" dropmenu
         cy.get('.caret').click();
@@ -224,8 +216,8 @@ describe('Newsletter', () => {
         cy.get('h2').contains('Returning Customer').should('be.visible');
 
         //Type in the login details and click Login button
-        cy.get('#input-email').type('bunductesteaza+1@gmail.com');
-        cy.get('#input-password').type('123456789');
+        cy.get('#input-email').type(email);
+        cy.get('#input-password').type(password);
         cy.get('form > .btn').click();
 
         // Click on 'My Account' dropmenu
@@ -261,8 +253,6 @@ describe('Newsletter', () => {
     it('Register a new Account by opting for Newsletter and check the Newsletter Subscription page', () => {
         //TC_NLT_008
 
-        //visit the Homepage
-        cy.visit(baseUrl);
 
         //Click on "My Account" dropmenu
         cy.get('.caret').click();
@@ -278,9 +268,9 @@ describe('Newsletter', () => {
         cy.get('#input-firstname').type('Dancescu');
         cy.get('#input-lastname').type('Marian');
         cy.get('#input-email').type('testtestautomation1@gmail.com');
-        cy.get('#input-telephone').type('123456789');
-        cy.get('#input-password').type('123456789');
-        cy.get('#input-confirm').type('123456789');
+        cy.get('#input-telephone').type(password);
+        cy.get('#input-password').type(password);
+        cy.get('#input-confirm').type(password);
 
         //Select the "Privacy Policy" checkbox option
         cy.get('[type="checkbox"]').click();
@@ -302,8 +292,6 @@ describe('Newsletter', () => {
     it('Verify the Breadcrumb of Newsletter Subscription page', () => {
         //TC_NLT_010
 
-        //visit the Homepage
-        cy.visit(baseUrl);
 
         //Click on "My Account" dropmenu
         cy.get('.caret').click();
@@ -316,8 +304,8 @@ describe('Newsletter', () => {
         cy.get('h2').contains('Returning Customer').should('be.visible');
 
         //Type in the login details and click Login button
-        cy.get('#input-email').type('bunductesteaza+1@gmail.com');
-        cy.get('#input-password').type('123456789');
+        cy.get('#input-email').type(email);
+        cy.get('#input-password').type(password);
         cy.get('form > .btn').click();
 
         // Click on 'My Account' dropmenu
@@ -336,8 +324,6 @@ describe('Newsletter', () => {
     it('Verify the Page URL, Page Heading and Page Title of Newsletter Subscription page', () => {
         //TC_NLT_011
 
-        //visit the Homepage
-        cy.visit(baseUrl);
 
         //Click on "My Account" dropmenu
         cy.get('.caret').click();
@@ -350,8 +336,8 @@ describe('Newsletter', () => {
         cy.get('h2').contains('Returning Customer').should('be.visible');
 
         //Type in the login details and click Login button
-        cy.get('#input-email').type('bunductesteaza+1@gmail.com');
-        cy.get('#input-password').type('123456789');
+        cy.get('#input-email').type(email);
+        cy.get('#input-password').type(password);
         cy.get('form > .btn').click();
 
         // Click on 'My Account' dropmenu

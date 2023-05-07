@@ -3,6 +3,9 @@
 
 const { baseUrl } = Cypress.config();
 const picture = 'samy.jpg'
+import tutorialNinjaUserDetails from "../../fixtures/tutorialNinjaUserDetails.json"
+const { email, password } = tutorialNinjaUserDetails
+
 describe('Home Page', () => {
 
     beforeEach(() => {
@@ -10,14 +13,13 @@ describe('Home Page', () => {
         //Hook that is executed before the start of each test case
         cy.clearAllCookies();
         sessionStorage.clear();
-    })
-
-
-    it('Verify navigating to Home Page from Shopping Cart page', () => {
-        //TC_HP_001
 
         //visit the Homepage
         cy.visit(baseUrl);
+    })
+
+    it('Verify navigating to Home Page from Shopping Cart page', () => {
+        //TC_HP_001
 
         //Click on "My Account" dropmenu
         cy.get('.caret').click();
@@ -30,8 +32,8 @@ describe('Home Page', () => {
         cy.get('h2').contains('Returning Customer').should('be.visible');
 
         //Type in the login details and click Login button
-        cy.get('#input-email').type('bunductesteaza+1@gmail.com');
-        cy.get('#input-password').type('123456789');
+        cy.get('#input-email').type(email);
+        cy.get('#input-password').type(password);
         cy.get('form > .btn').click();
 
         //Enter any existing Product name into the Search text box field and click Search button
@@ -62,9 +64,6 @@ describe('Home Page', () => {
     it('Verify navigating to Home page from any page of the Applcation using Logo', () => {
         //TC_HP_003
 
-        //visit the Homepage
-        cy.visit(baseUrl);
-
         //Click on "My Account" dropmenu
         cy.get('.caret').click();
 
@@ -76,8 +75,8 @@ describe('Home Page', () => {
         cy.get('h2').contains('Returning Customer').should('be.visible');
 
         //Type in the login details and click Login button
-        cy.get('#input-email').type('bunductesteaza+1@gmail.com');
-        cy.get('#input-password').type('123456789');
+        cy.get('#input-email').type(email);
+        cy.get('#input-password').type(password);
         cy.get('form > .btn').click();
 
         //Enter any existing Product name into the Search text box field and click Search button
@@ -102,9 +101,6 @@ describe('Home Page', () => {
     it('Verify navigating to Home page from any Category Page which dont have any products', () => {
         //TC_HP_004
 
-        //visit the Homepage
-        cy.visit(baseUrl);
-
         //Click on on 'Desktops' menu 
         cy.get('.collapse').contains('Desktops').click();
 
@@ -123,9 +119,6 @@ describe('Home Page', () => {
 
     it('Verify Hero Images and its slider options in the Home page', () => {
         //TC_HP_005
-
-        //visit the Homepage
-        cy.visit(baseUrl);
 
         //Check that Hero Images are dislayed
         cy.get('.img-responsive').eq(3).should('exist');
@@ -149,9 +142,6 @@ describe('Home Page', () => {
     it('Verify four featured products should be displayed in the Home Page', () => {
         //TC_HP_006
 
-        //visit the Homepage
-        cy.visit(baseUrl);
-
         //Check that four Featured Products are displayed in the Featured Section 
         cy.get('#content > .row > :nth-child(1)').should('be.visible');
         cy.get('#content > .row > :nth-child(2)').should('be.visible');
@@ -162,10 +152,10 @@ describe('Home Page', () => {
     it('Verify navigating to Home Page using Home icon option of the Breadcrumb in different pages of the Application', () => {
         //TC_HP_007
 
-          //visit the Homepage
-          cy.visit(baseUrl);
+        //visit the Homepage
+        cy.visit(baseUrl);
 
-          //Enter any existing Product name into the Search text box field and click Search button
+        //Enter any existing Product name into the Search text box field and click Search button
         cy.get('.form-control').type('Apple Cinema 30"');
         cy.get('.input-group-btn > .btn').click();
 

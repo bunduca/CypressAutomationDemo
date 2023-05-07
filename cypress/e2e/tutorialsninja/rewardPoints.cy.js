@@ -3,6 +3,9 @@
 
 const { baseUrl } = Cypress.config();
 const picture = 'samy.jpg'
+import tutorialNinjaUserDetails from "../../fixtures/tutorialNinjaUserDetails.json"
+const { email, password } = tutorialNinjaUserDetails
+
 describe('Reward Points', () => {
 
     beforeEach(() => {
@@ -10,14 +13,14 @@ describe('Reward Points', () => {
         //Hook that is executed before the start of each test case
         cy.clearAllCookies();
         sessionStorage.clear();
+
+        //visit the Homepage
+        cy.visit(baseUrl);
     })
 
 
     it('Verify navigating to Your Reward Points page from My Account page', () => {
         //TC_RP_001
-
-        //visit the Homepage
-        cy.visit(baseUrl);
 
         //Click on "My Account" dropmenu
         cy.get('.caret').click();
@@ -30,8 +33,8 @@ describe('Reward Points', () => {
         cy.get('h2').contains('Returning Customer').should('be.visible');
 
         //Type in the login details and click Login button
-        cy.get('#input-email').type('bunductesteaza+1@gmail.com');
-        cy.get('#input-password').type('123456789');
+        cy.get('#input-email').type(email);
+        cy.get('#input-password').type(password);
         cy.get('form > .btn').click();
 
         // Click on 'My Account' dropmenu
@@ -50,9 +53,6 @@ describe('Reward Points', () => {
     it('Verify navigating to Your Reward Points page from Right Column options', () => {
         //TC_RP_002
 
-        //visit the Homepage
-        cy.visit(baseUrl);
-
         //Click on "My Account" dropmenu
         cy.get('.caret').click();
 
@@ -64,8 +64,8 @@ describe('Reward Points', () => {
         cy.get('h2').contains('Returning Customer').should('be.visible');
 
         //Type in the login details and click Login button
-        cy.get('#input-email').type('bunductesteaza+1@gmail.com');
-        cy.get('#input-password').type('123456789');
+        cy.get('#input-email').type(email);
+        cy.get('#input-password').type(password);
         cy.get('form > .btn').click();
 
         // Click on 'My Account' dropmenu
@@ -84,9 +84,6 @@ describe('Reward Points', () => {
     it('Verify navigating to Your Reward Points page by selecting the option from Right Column options before login', () => {
         //TC_RP_003
 
-        //visit the Homepage
-        cy.visit(baseUrl);
-
         //Click on "My Account" dropmenu
         cy.get('.caret').click();
 
@@ -100,20 +97,17 @@ describe('Reward Points', () => {
         cy.url().should('contain', '/index.php?route=account/login');
         cy.get('h2').contains('Returning Customer').should('be.visible');
 
-         //Type in the login details and click Login button
-         cy.get('#input-email').type('bunductesteaza+1@gmail.com');
-         cy.get('#input-password').type('123456789');
-         cy.get('form > .btn').click();
+        //Type in the login details and click Login button
+        cy.get('#input-email').type(email);
+        cy.get('#input-password').type(password);
+        cy.get('form > .btn').click();
 
-         //Check that User is taken to 'Your Reward Points' page
+        //Check that User is taken to 'Your Reward Points' page
         cy.get('#content > h1').contains('Your Reward Points').should('be.visible');
     })
 
     it('Verify navigating to Your Reward Points page by selecting the option from Right Column options before login', () => {
         //TC_RP_004
-
-        //visit the Homepage
-        cy.visit(baseUrl);
 
         //Click on "My Account" dropmenu
         cy.get('.caret').click();
@@ -126,8 +120,8 @@ describe('Reward Points', () => {
         cy.get('h2').contains('Returning Customer').should('be.visible');
 
         //Type in the login details and click Login button
-        cy.get('#input-email').type('bunductesteaza+1@gmail.com');
-        cy.get('#input-password').type('123456789');
+        cy.get('#input-email').type(email);
+        cy.get('#input-password').type(password);
         cy.get('form > .btn').click();
 
         // Click on 'My Account' dropmenu
@@ -150,9 +144,6 @@ describe('Reward Points', () => {
     it('Verify Continue button in the Your Reward Points page', () => {
         //TC_RP_005
 
-        //visit the Homepage
-        cy.visit(baseUrl);
-
         //Click on "My Account" dropmenu
         cy.get('.caret').click();
 
@@ -164,8 +155,8 @@ describe('Reward Points', () => {
         cy.get('h2').contains('Returning Customer').should('be.visible');
 
         //Type in the login details and click Login button
-        cy.get('#input-email').type('bunductesteaza+1@gmail.com');
-        cy.get('#input-password').type('123456789');
+        cy.get('#input-email').type(email);
+        cy.get('#input-password').type(password);
         cy.get('form > .btn').click();
 
         // Click on 'My Account' dropmenu
@@ -190,9 +181,6 @@ describe('Reward Points', () => {
     it('Verify the Breadcrumb of Your Rewards Points page', () => {
         //TC_RP_007
 
-        //visit the Homepage
-        cy.visit(baseUrl);
-
         //Click on "My Account" dropmenu
         cy.get('.caret').click();
 
@@ -204,8 +192,8 @@ describe('Reward Points', () => {
         cy.get('h2').contains('Returning Customer').should('be.visible');
 
         //Type in the login details and click Login button
-        cy.get('#input-email').type('bunductesteaza+1@gmail.com');
-        cy.get('#input-password').type('123456789');
+        cy.get('#input-email').type(email);
+        cy.get('#input-password').type(password);
         cy.get('form > .btn').click();
 
         // Click on 'My Account' dropmenu
@@ -224,9 +212,6 @@ describe('Reward Points', () => {
     it('Verify the Page URL, Page Heading and Page Title of Your Reward Points page', () => {
         //TC_RP_008
 
-        
-        //visit the Homepage
-        cy.visit(baseUrl);
 
         //Click on "My Account" dropmenu
         cy.get('.caret').click();
@@ -239,8 +224,8 @@ describe('Reward Points', () => {
         cy.get('h2').contains('Returning Customer').should('be.visible');
 
         //Type in the login details and click Login button
-        cy.get('#input-email').type('bunductesteaza+1@gmail.com');
-        cy.get('#input-password').type('123456789');
+        cy.get('#input-email').type(email);
+        cy.get('#input-password').type(password);
         cy.get('form > .btn').click();
 
         // Click on 'My Account' dropmenu

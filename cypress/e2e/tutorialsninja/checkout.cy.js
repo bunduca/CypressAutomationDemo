@@ -1,8 +1,10 @@
 /// <reference types="cypress" />
 
-
 const { baseUrl } = Cypress.config();
 const picture = 'samy.jpg'
+import tutorialNinjaUserDetails from "../../fixtures/tutorialNinjaUserDetails.json"
+const { email, password } = tutorialNinjaUserDetails
+
 describe('Checkout', () => {
 
     beforeEach(() => {
@@ -10,14 +12,14 @@ describe('Checkout', () => {
         //Hook that is executed before the start of each test case
         cy.clearAllCookies();
         sessionStorage.clear();
+
+        //visit the Homepage
+        cy.visit(baseUrl);
     })
 
 
     it('Verify navigating to Checkout page when there are no products added to the Shopping Cart', () => {
         //TC_CO_001
-
-         //visit the Homepage
-         cy.visit(baseUrl);
 
         //Click on 'Checkout' header option
         cy.get('.fa').eq(5).click();
@@ -30,9 +32,6 @@ describe('Checkout', () => {
     it('Verify navigating to Checkout page from Shopping Cart page', () => {
         //TC_CO_002
 
-        //visit the Homepage
-        cy.visit(baseUrl);
-
         //Click on "My Account" dropmenu
         cy.get('.caret').click();
 
@@ -44,8 +43,8 @@ describe('Checkout', () => {
         cy.get('h2').contains('Returning Customer').should('be.visible');
 
         //Type in the login details and click Login button
-        cy.get('#input-email').type('bunductesteaza+1@gmail.com');
-        cy.get('#input-password').type('123456789');
+        cy.get('#input-email').type(email);
+        cy.get('#input-password').type(password);
         cy.get('form > .btn').click();
 
         //Enter any existing Product name into the Search text box field and click Search button
@@ -66,7 +65,7 @@ describe('Checkout', () => {
 
         //Click on 'Checkout' button in the 'Shopping Cart' page
         cy.get('.btn-primary').contains('Checkout').click();//can not test because there is no available product on this website and it doesnt allow me to go to checkout
-        
+
 
     })
 })

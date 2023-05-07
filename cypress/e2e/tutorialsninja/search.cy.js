@@ -1,22 +1,25 @@
 /// <reference types="cypress" />
 
-
 const { baseUrl } = Cypress.config();
+const picture = 'samy.jpg'
+import tutorialNinjaUserDetails from "../../fixtures/tutorialNinjaUserDetails.json"
+const { email, password } = tutorialNinjaUserDetails
 
 describe('Search', () => {
 
     beforeEach(() => {
-        //Clear cookies and session storage
+        //Clear cookies and session storage (so that we are no longer logged in from previous test)
         //Hook that is executed before the start of each test case
         cy.clearAllCookies();
         sessionStorage.clear();
+
+        //visit the Homepage
+        cy.visit(baseUrl);
     })
 
     it('Verify searching with an existing Product Name', () => {
         //TC_SF_001
 
-        //visit the Homepage
-        cy.visit(baseUrl);
 
         //Type iMac in the Search input field
         cy.get('input[name=search]').type('iMac');
@@ -33,8 +36,6 @@ describe('Search', () => {
     it('Verify searching with a non existing Product Name', () => {
         //TC_SF_002
 
-        //visit the Homepage
-        cy.visit(baseUrl);
 
         //Type Fitbit in the Search input field
         cy.get('input[name=search]').type('Fitbit');
@@ -49,8 +50,6 @@ describe('Search', () => {
     it('Verify searching without providing any Product Name', () => {
         //TC_SF_003
 
-        //visit the Homepage
-        cy.visit(baseUrl);
 
         //Press searching button without providing any Product Name
         cy.get('.input-group-btn > .btn').click();
@@ -62,8 +61,6 @@ describe('Search', () => {
     it('Verify searching for a product after login to the Application', () => {
         //TC_SF_004
 
-        //visit the Homepage
-        cy.visit(baseUrl);
 
         //Click on "My Account" dropmenu
         cy.get('.caret').click();
@@ -76,8 +73,8 @@ describe('Search', () => {
         cy.get(':nth-child(2) > .well > h2').contains('Returning Customer').should('be.visible');
 
         //Type in the login details and click Login button
-        cy.get('#input-email').type('bunductesteaza+1@gmail.com');
-        cy.get('#input-password').type('123456789');
+        cy.get('#input-email').type(email);
+        cy.get('#input-password').type(password);
         cy.get('form > .btn').click();
 
         //Verify successfull login and redirect to My Account page
@@ -97,8 +94,6 @@ describe('Search', () => {
     it('Verify searching by providing a search criteria which results in multiple products', () => {
         //TC_SF_005
 
-        //visit the Homepage
-        cy.visit(baseUrl);
 
         //Type Mac in the Search input field
         cy.get('input[name=search]').type('Mac');
@@ -115,8 +110,6 @@ describe('Search', () => {
     it('Verify all the fields in the Search functionality and Search page have placeholders', () => {
         //TC_SF_006
 
-        //visit the Homepage
-        cy.visit(baseUrl);
 
         //Click the search button without entering any text into the search text box field
         cy.get('.input-group-btn > .btn').click();
@@ -129,8 +122,6 @@ describe('Search', () => {
     it('Verify searching using Search Criteria field', () => {
         //TC_SF_007
 
-        //visit the Homepage
-        cy.visit(baseUrl);
 
         //Click the search button without entering any text into the search text box field
         cy.get('.input-group-btn > .btn').click();
@@ -148,8 +139,6 @@ describe('Search', () => {
     it('Verify Search using the text from the product description', () => {
         //TC_SF_008
 
-        //visit the Homepage
-        cy.visit(baseUrl);
 
         //Click the search button without entering any text into the search text box field
         cy.get('.input-group-btn > .btn').click();
@@ -172,8 +161,6 @@ describe('Search', () => {
     it('Verify Search by selecting the correct category of product', () => {
         //TC_SF_009
 
-        //visit the Homepage
-        cy.visit(baseUrl);
 
         //Click the search button without entering any text into the search text box field
         cy.get('.input-group-btn > .btn').click();
@@ -193,8 +180,6 @@ describe('Search', () => {
     it('Verify Search by selecting the wrong category of product', () => {
         //TC_SF_009
 
-        //visit the Homepage
-        cy.visit(baseUrl);
 
         //Click the search button without entering any text into the search text box field
         cy.get('.input-group-btn > .btn').click();
@@ -213,8 +198,6 @@ describe('Search', () => {
     it('Verify Search by selecting  to search in subcategories', () => {
         //TC_SF_010
 
-        //visit the Homepage
-        cy.visit(baseUrl);
 
         //Click the search button without entering any text into the search text box field
         cy.get('.input-group-btn > .btn').click();
@@ -243,8 +226,6 @@ describe('Search', () => {
     it('Verify List and Grid views when only one Product is displayed in the search results', () => {
         //TC_SF_011
 
-        //visit the Homepage
-        cy.visit(baseUrl);
 
         //Click the search button after entering any text into the search text box field
         cy.get('.form-control').type('iMac');
@@ -284,8 +265,6 @@ describe('Search', () => {
         cy.get('#content > :nth-child(1) > .col-sm-4').contains('iMac').should('be.visible');
         cy.url().should('contain', '/product&product_id=41&search=iMac');
 
-        //visit the Homepage
-        cy.visit(baseUrl);
 
         //Click the search button after entering any text into the search text box field
         cy.get('.form-control').type('iMac');
@@ -332,8 +311,6 @@ describe('Search', () => {
     it('Verify List and Grid views when  multiple Products are displayed in the search results', () => {
         //TC_SF_012
 
-        //visit the Homepage
-        cy.visit(baseUrl);
 
         //Click the search button after entering any text into the search text box field
         cy.get('.form-control').type('Mac');
@@ -407,8 +384,6 @@ describe('Search', () => {
     it('Verify navigating to Product Compare Page from Search Results page', () => {
         //TC_SF_013
 
-        //visit the Homepage
-        cy.visit(baseUrl);
 
         //Click the search button after entering any text into the search text box field
         cy.get('.form-control').type('Mac');
@@ -432,8 +407,6 @@ describe('Search', () => {
     it('Verify User is able to sort the Products displayed in the Search Results', () => {
         //TC_SF_014
 
-        //visit the Homepage
-        cy.visit(baseUrl);
 
         //Click the search button after entering any text into the search text box field
         cy.get('.form-control').type('Mac');
@@ -487,8 +460,6 @@ describe('Search', () => {
     it('Verify the User can select how many products can be displayed in the Search Results', () => {
         //TC_SF_015
 
-        //visit the Homepage
-        cy.visit(baseUrl);
 
         //Click the search button after entering any text into the search text box field
         cy.get('.form-control').type('Mac');
@@ -520,8 +491,6 @@ describe('Search', () => {
     it('Verify Search textbox field and the button having search icon are displayed on all the page of the Application', () => {
         //TC_SF_016
 
-        //visit the Homepage
-        cy.visit(baseUrl);
 
         //Check that search box field and search button are displayed on every page of the Application
         cy.get('.form-control').should('be.visible');
@@ -547,8 +516,6 @@ describe('Search', () => {
     it('Verify navigating to Search page from the Site Map page', () => {
         //TC_SF_017
 
-        //visit the Homepage
-        cy.visit(baseUrl);
 
         //Click the Site Map option
         cy.get('footer').contains('Site Map').click();
@@ -570,8 +537,6 @@ describe('Search', () => {
     it('Verify Breadcrumb of the Search page', () => {
         //TC_SF_018
 
-        //visit the Homepage
-        cy.visit(baseUrl);
 
         //Enter "iMac" into the 'Search' text box field and click Search button
         cy.get('.form-control').type('iMac')
@@ -584,8 +549,6 @@ describe('Search', () => {
     it('Verify Breadcrumb of the Search page', () => {
         //TC_SF_020
 
-        //visit the Homepage
-        cy.visit(baseUrl);
 
         //Enter "iMac" into the 'Search' text box field and click Search button
         cy.get('.form-control').type('iMac')

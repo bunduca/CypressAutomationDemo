@@ -1,18 +1,24 @@
 /// <reference types="cypress" />
 
-
 const { baseUrl } = Cypress.config();
 const picture = 'samy.jpg'
+import tutorialNinjaUserDetails from "../../fixtures/tutorialNinjaUserDetails.json"
+const { email, password } = tutorialNinjaUserDetails
+
 describe('Address Book', () => {
 
-
-
-
-    it('Verify navigating to Address Book Entries page from My Account dropmenu', () => {
-        //TC_AB_001
+    beforeEach(() => {
+        //Clear cookies and session storage (so that we are no longer logged in from previous test)
+        //Hook that is executed before the start of each test case
+        cy.clearAllCookies();
+        sessionStorage.clear();
 
         //visit the Homepage
         cy.visit(baseUrl);
+    })
+
+    it('Verify navigating to Address Book Entries page from My Account dropmenu', () => {
+        //TC_AB_001
 
         //Click on "My Account" dropmenu
         cy.get('.caret').click();
@@ -25,8 +31,8 @@ describe('Address Book', () => {
         cy.get('h2').contains('Returning Customer').should('be.visible');
 
         //Type in the login details and click Login button
-        cy.get('#input-email').type('bunductesteaza+1@gmail.com');
-        cy.get('#input-password').type('123456789');
+        cy.get('#input-email').type(email);
+        cy.get('#input-password').type(password);
         cy.get('form > .btn').click();
 
         // Click on 'My Account' dropmenu
@@ -46,9 +52,6 @@ describe('Address Book', () => {
     it('Verify navigating to Address Book Entries page from Right Column options', () => {
         //TC_AB_002
 
-        //visit the Homepage
-        cy.visit(baseUrl);
-
         //Click on "My Account" dropmenu
         cy.get('.caret').click();
 
@@ -60,8 +63,8 @@ describe('Address Book', () => {
         cy.get('h2').contains('Returning Customer').should('be.visible');
 
         //Type in the login details and click Login button
-        cy.get('#input-email').type('bunductesteaza+1@gmail.com');
-        cy.get('#input-password').type('123456789');
+        cy.get('#input-email').type(email);
+        cy.get('#input-password').type();
         cy.get('form > .btn').click();
 
         // Click on 'My Account' dropmenu
@@ -81,9 +84,6 @@ describe('Address Book', () => {
     it('Verify navigating to Address Book Entries page from Site Map page', () => {
         //TC_AB_003
 
-        //visit the Homepage
-        cy.visit(baseUrl);
-
         //Click on "My Account" dropmenu
         cy.get('.caret').click();
 
@@ -95,8 +95,8 @@ describe('Address Book', () => {
         cy.get('h2').contains('Returning Customer').should('be.visible');
 
         //Type in the login details and click Login button
-        cy.get('#input-email').type('bunductesteaza+1@gmail.com');
-        cy.get('#input-password').type('123456789');
+        cy.get('#input-email').type(email);
+        cy.get('#input-password').type(password);
         cy.get('form > .btn').click();
 
         //Click on 'Site Map' footer option
@@ -113,9 +113,6 @@ describe('Address Book', () => {
     it('Verify navigating to Address Book Entries page from Right Column options before logging into the Application', () => {
         //TC_AB_004
 
-        //visit the Homepage
-        cy.visit(baseUrl);
-
         //Click on "My Account" dropmenu
         cy.get('.caret').click();
 
@@ -126,8 +123,8 @@ describe('Address Book', () => {
         cy.get('#column-right').contains('Address Book').click();
 
         //Type in the login details and click Login button
-        cy.get('#input-email').type('bunductesteaza+1@gmail.com');
-        cy.get('#input-password').type('123456789');
+        cy.get('#input-email').type(email);
+        cy.get('#input-password').type(password);
         cy.get('form > .btn').click();
 
         //Check that user is taken to 'Address Book Entries' page
@@ -137,9 +134,6 @@ describe('Address Book', () => {
 
     it('Verify default address displayed in the Address Book Entries page', () => {
         //TC_AB_005
-
-        //visit the Homepage
-        cy.visit(baseUrl);
 
         //Click on "My Account" dropmenu
         cy.get('.caret').click();
@@ -167,9 +161,6 @@ describe('Address Book', () => {
     it('Verify deleting the default address in the Address Book Entries page', () => {
         //TC_AB_006
 
-        //visit the Homepage
-        cy.visit(baseUrl);
-
         //Click on "My Account" dropmenu
         cy.get('.caret').click();
 
@@ -181,8 +172,8 @@ describe('Address Book', () => {
         cy.get('h2').contains('Returning Customer').should('be.visible');
 
         //Type in the login details and click Login button
-        cy.get('#input-email').type('bunductesteaza+1@gmail.com');
-        cy.get('#input-password').type('123456789');
+        cy.get('#input-email').type(email);
+        cy.get('#input-password').type(password);
         cy.get('form > .btn').click();
 
         // Click on 'My Account' dropmenu
@@ -202,9 +193,6 @@ describe('Address Book', () => {
     it('Verify updating the Address in the Address Book Entries page', () => {
         //TC_AB_007
 
-        //visit the Homepage
-        cy.visit(baseUrl);
-
         //Click on "My Account" dropmenu
         cy.get('.caret').click();
 
@@ -216,8 +204,8 @@ describe('Address Book', () => {
         cy.get('h2').contains('Returning Customer').should('be.visible');
 
         //Type in the login details and click Login button
-        cy.get('#input-email').type('bunductesteaza+1@gmail.com');
-        cy.get('#input-password').type('123456789');
+        cy.get('#input-email').type(email);
+        cy.get('#input-password').type(password);
         cy.get('form > .btn').click();
 
         //Click on 'Address Book' option from Right Column options
@@ -250,9 +238,6 @@ describe('Address Book', () => {
     it('Verify changing the Default Address when there is only one address in the Address Book Entries page', () => {
         //TC_AB_008
 
-        //visit the Homepage
-        cy.visit(baseUrl);
-
         //Click on "My Account" dropmenu
         cy.get('.caret').click();
 
@@ -264,8 +249,8 @@ describe('Address Book', () => {
         cy.get('h2').contains('Returning Customer').should('be.visible');
 
         //Type in the login details and click Login button
-        cy.get('#input-email').type('bunductesteaza+1@gmail.com');
-        cy.get('#input-password').type('123456789');
+        cy.get('#input-email').type(email);
+        cy.get('#input-password').type(password);
         cy.get('form > .btn').click();
 
         //Click on 'Address Book' option from Right Column options
@@ -287,9 +272,6 @@ describe('Address Book', () => {
     it('Verify updating the Address  by clearing all the non-mandatory fields', () => {
         //TC_AB_009
 
-        //visit the Homepage
-        cy.visit(baseUrl);
-
         //Click on "My Account" dropmenu
         cy.get('.caret').click();
 
@@ -301,8 +283,8 @@ describe('Address Book', () => {
         cy.get('h2').contains('Returning Customer').should('be.visible');
 
         //Type in the login details and click Login button
-        cy.get('#input-email').type('bunductesteaza+1@gmail.com');
-        cy.get('#input-password').type('123456789');
+        cy.get('#input-email').type(email);
+        cy.get('#input-password').type(password);
         cy.get('form > .btn').click();
 
         //Click on 'Address Book' option from Right Column options
@@ -325,9 +307,6 @@ describe('Address Book', () => {
     it('Verify clearing all the fields in the Edit Address page and updating the Address', () => {
         //TC_AB_010
 
-        //visit the Homepage
-        cy.visit(baseUrl);
-
         //Click on "My Account" dropmenu
         cy.get('.caret').click();
 
@@ -339,8 +318,8 @@ describe('Address Book', () => {
         cy.get('h2').contains('Returning Customer').should('be.visible');
 
         //Type in the login details and click Login button
-        cy.get('#input-email').type('bunductesteaza+1@gmail.com');
-        cy.get('#input-password').type('123456789');
+        cy.get('#input-email').type(email);
+        cy.get('#input-password').type(password);
         cy.get('form > .btn').click();
 
         //Click on 'Address Book' option from Right Column options
@@ -370,9 +349,6 @@ describe('Address Book', () => {
     it('Verify Back button in the Edit Address page', () => {
         //TC_AB_011
 
-        //visit the Homepage
-        cy.visit(baseUrl);
-
         //Click on "My Account" dropmenu
         cy.get('.caret').click();
 
@@ -384,8 +360,8 @@ describe('Address Book', () => {
         cy.get('h2').contains('Returning Customer').should('be.visible');
 
         //Type in the login details and click Login button
-        cy.get('#input-email').type('bunductesteaza+1@gmail.com');
-        cy.get('#input-password').type('123456789');
+        cy.get('#input-email').type(email);
+        cy.get('#input-password').type(password);
         cy.get('form > .btn').click();
 
         //Click on 'Address Book' option from Right Column options
@@ -400,7 +376,7 @@ describe('Address Book', () => {
         cy.get('#input-company').clear().type('Google');
         cy.get('#input-address-1').clear().type('str Napoca');
         cy.get('#input-city').clear().type('Turda');
-        cy.get('#input-postcode').clear().type('123456789');
+        cy.get('#input-postcode').clear().type(password);
         cy.get('#input-country').select('Romania');
         cy.get('#input-zone').select('Cluj');
 
@@ -420,9 +396,6 @@ describe('Address Book', () => {
     it('Verify Back button in the Address Book Entries page', () => {
         //TC_AB_012
 
-        //visit the Homepage
-        cy.visit(baseUrl);
-
         //Click on "My Account" dropmenu
         cy.get('.caret').click();
 
@@ -434,8 +407,8 @@ describe('Address Book', () => {
         cy.get('h2').contains('Returning Customer').should('be.visible');
 
         //Type in the login details and click Login button
-        cy.get('#input-email').type('bunductesteaza+1@gmail.com');
-        cy.get('#input-password').type('123456789');
+        cy.get('#input-email').type(email);
+        cy.get('#input-password').type(password);
         cy.get('form > .btn').click();
 
         //Click on 'Address Book' option from Right Column options
@@ -452,9 +425,6 @@ describe('Address Book', () => {
     it('Verify adding new Address by providing only the mandatory fields', () => {
         //TC_AB_013
 
-        //visit the Homepage
-        cy.visit(baseUrl);
-
         //Click on "My Account" dropmenu
         cy.get('.caret').click();
 
@@ -466,8 +436,8 @@ describe('Address Book', () => {
         cy.get('h2').contains('Returning Customer').should('be.visible');
 
         //Type in the login details and click Login button
-        cy.get('#input-email').type('bunductesteaza+1@gmail.com');
-        cy.get('#input-password').type('123456789');
+        cy.get('#input-email').type(email);
+        cy.get('#input-password').type(password);
         cy.get('form > .btn').click();
 
         //Click on 'Address Book' option from Right Column options
@@ -506,9 +476,6 @@ describe('Address Book', () => {
     it('Verify selecting the newly added Address as default address', () => {
         //TC_AB_014
 
-        //visit the Homepage
-        cy.visit(baseUrl);
-
         //Click on "My Account" dropmenu
         cy.get('.caret').click();
 
@@ -520,8 +487,8 @@ describe('Address Book', () => {
         cy.get('h2').contains('Returning Customer').should('be.visible');
 
         //Type in the login details and click Login button
-        cy.get('#input-email').type('bunductesteaza+1@gmail.com');
-        cy.get('#input-password').type('123456789');
+        cy.get('#input-email').type(email);
+        cy.get('#input-password').type(password);
         cy.get('form > .btn').click();
 
         //Click on 'Address Book' option from Right Column options
@@ -543,9 +510,6 @@ describe('Address Book', () => {
     it('Verify the Breadcrumb, Page URL, Page Heading and Page Title of Address Book Entries page', () => {
         //TC_AB_017
 
-        //visit the Homepage
-        cy.visit(baseUrl);
-
         //Click on "My Account" dropmenu
         cy.get('.caret').click();
 
@@ -557,8 +521,8 @@ describe('Address Book', () => {
         cy.get('h2').contains('Returning Customer').should('be.visible');
 
         //Type in the login details and click Login button
-        cy.get('#input-email').type('bunductesteaza+1@gmail.com');
-        cy.get('#input-password').type('123456789');
+        cy.get('#input-email').type(email);
+        cy.get('#input-password').type(password);
         cy.get('form > .btn').click();
 
         //Click on 'Address Book' option from Right Column options
@@ -574,9 +538,6 @@ describe('Address Book', () => {
     it('Verify the Breadcrumb, Page URL, Page Heading and Page Title of Edit Address page', () => {
         //TC_AB_018
 
-        //visit the Homepage
-        cy.visit(baseUrl);
-
         //Click on "My Account" dropmenu
         cy.get('.caret').click();
 
@@ -588,8 +549,8 @@ describe('Address Book', () => {
         cy.get('h2').contains('Returning Customer').should('be.visible');
 
         //Type in the login details and click Login button
-        cy.get('#input-email').type('bunductesteaza+1@gmail.com');
-        cy.get('#input-password').type('123456789');
+        cy.get('#input-email').type(email);
+        cy.get('#input-password').type(password);
         cy.get('form > .btn').click();
 
         //Click on 'Address Book' option from Right Column options
@@ -603,41 +564,38 @@ describe('Address Book', () => {
         cy.url().should('contain', '/index.php?route=account/address/edit&address_id=14082');
         cy.get('h2').contains('Edit Address').should('be.visible');
         cy.title().should('eq', 'Address Book');
-    }) 
+    })
 
     it('Verify the Breadcrumb, Page URL, Page Heading and Page Title of Add Address page', () => {
         //TC_AB_019
 
-       //visit the Homepage
-       cy.visit(baseUrl);
+        //Click on "My Account" dropmenu
+        cy.get('.caret').click();
 
-       //Click on "My Account" dropmenu
-       cy.get('.caret').click();
+        //Click on "Login" option
+        cy.get('.dropdown-menu > :nth-child(2) > a').click();
 
-       //Click on "Login" option
-       cy.get('.dropdown-menu > :nth-child(2) > a').click();
+        //Verify redirect to the login page
+        cy.url().should('contain', '/index.php?route=account/login');
+        cy.get('h2').contains('Returning Customer').should('be.visible');
 
-       //Verify redirect to the login page
-       cy.url().should('contain', '/index.php?route=account/login');
-       cy.get('h2').contains('Returning Customer').should('be.visible');
+        //Type in the login details and click Login button
+        cy.get('#input-email').type(email);
+        cy.get('#input-password').type(password);
+        cy.get('form > .btn').click();
 
-       //Type in the login details and click Login button
-       cy.get('#input-email').type('bunductesteaza+1@gmail.com');
-       cy.get('#input-password').type('123456789');
-       cy.get('form > .btn').click();
+        //Click on 'Address Book' option from Right Column options
+        cy.get('.list-group').contains('Address Book').click();
 
-       //Click on 'Address Book' option from Right Column options
-       cy.get('.list-group').contains('Address Book').click();
+        //Click on 'New Address' button
+        cy.get('.btn').eq(13).click();
 
-       //Click on 'New Address' button
-       cy.get('.btn').eq(13).click();
+        //Check Breadcrumb, Page URL, Page Heading and Page Title of 'Add Address' page
+        cy.get('.breadcrumb').contains('Add Address').should('be.visible');
+        cy.url().should('contain', '/index.php?route=account/address/add');
+        cy.get('h2').contains('Add Address').should('be.visible');
+        cy.title().should('eq', 'Address Book');
 
-       //Check Breadcrumb, Page URL, Page Heading and Page Title of 'Add Address' page
-       cy.get('.breadcrumb').contains('Add Address').should('be.visible');
-       cy.url().should('contain', '/index.php?route=account/address/add');
-       cy.get('h2').contains('Add Address').should('be.visible');
-       cy.title().should('eq', 'Address Book'); 
-        
-        
+
     })
 })

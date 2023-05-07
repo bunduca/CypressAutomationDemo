@@ -2,6 +2,9 @@
 
 
 const { baseUrl } = Cypress.config();
+const picture = 'samy.jpg'
+import tutorialNinjaUserDetails from "../../fixtures/tutorialNinjaUserDetails.json"
+const { email, password } = tutorialNinjaUserDetails
 
 describe('Login', () => {
 
@@ -10,13 +13,12 @@ describe('Login', () => {
         //Hook that is executed before the start of each test case
         cy.clearAllCookies();
         sessionStorage.clear();
-    })
-
-    it('Verify logging into application using valid credentials', () => {
 
         //visit the Homepage
         cy.visit(baseUrl);
+    })
 
+    it('Verify logging into application using valid credentials', () => {
         //Click on "My Account" dropmenu
         cy.get('.caret').click();
 
@@ -28,8 +30,8 @@ describe('Login', () => {
         cy.get(':nth-child(2) > .well > h2').contains('Returning Customer').should('be.visible');
 
         //Type in the login details and click Login button
-        cy.get('#input-email').type('bunductesteaza+1@gmail.com');
-        cy.get('#input-password').type('123456789');
+        cy.get('#input-email').type(email);
+        cy.get('#input-password').type(password);
         cy.get('form > .btn').click();
 
         //Verify successfull login and redirect to My Account page
@@ -61,7 +63,7 @@ describe('Login', () => {
         cy.get('#input-email').type('bunducnutesteaza@gmail.com');
 
         //Enter a valid password into the password field and click Login button
-        cy.get('#input-password').type('123456789');
+        cy.get('#input-password').type(password);
         cy.get('form > .btn').click();
 
         //Check that a warning message is displayed
@@ -128,8 +130,8 @@ describe('Login', () => {
         cy.visit('/index.php?route=account/account');
 
         //Type in the login details and click Login button
-        cy.get('#input-email').type('bunductesteaza+1@gmail.com');
-        cy.get('#input-password').type('123456789');
+        cy.get('#input-email').type(email);
+        cy.get('#input-password').type(password);
         cy.get('form > .btn').click();
 
         //Go back to the Login page using browser back function
@@ -141,10 +143,6 @@ describe('Login', () => {
     })
 
     it('Verify Logging into the application and browsing back using browser back button ', () => {
-
-        //visit the Homepage
-        cy.visit(baseUrl);
-
         //Click on "My Account" dropmenu
         cy.get('.caret').click();
 
@@ -152,8 +150,8 @@ describe('Login', () => {
         cy.get('.dropdown-menu > :nth-child(2) > a').click();
 
         //Type in the login details and click Login button
-        cy.get('#input-email').type('bunductesteaza+1@gmail.com');
-        cy.get('#input-password').type('123456789');
+        cy.get('#input-email').type(email);
+        cy.get('#input-password').type(password);
         cy.get('form > .btn').click();
 
         //Click the Logout button 
@@ -173,10 +171,6 @@ describe('Login', () => {
     })
 
     it('Verify the number of unsuccesful login attemps ', () => {
-
-        //visit the Homepage
-        cy.visit(baseUrl);
-
         //Click on "My Account" dropmenu
         cy.get('.caret').click();
 
@@ -202,10 +196,6 @@ describe('Login', () => {
     })
 
     it('Verify if the text entered into the password field is toggled to hide its visibility', () => {
-
-        //visit the Homepage
-        cy.visit(baseUrl);
-
         //Click on "My Account" dropmenu
         cy.get('.caret').click();
 
@@ -220,10 +210,6 @@ describe('Login', () => {
 
 
     it('Verify the different ways to navigate to the Login Page', () => {
-
-
-        //visit the Homepage
-        cy.visit(baseUrl);
 
         //Click the "My Account" dropmenu
         cy.get('.caret').click();
