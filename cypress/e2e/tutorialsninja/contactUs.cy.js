@@ -1,8 +1,11 @@
 /// <reference types="cypress" />
 
-
 const { baseUrl } = Cypress.config();
 const picture = 'samy.jpg'
+import tutorialNinjaUserDetails from "../../fixtures/tutorialNinjaUserDetails.json"
+const { email, password } = tutorialNinjaUserDetails
+
+
 describe('Contact Us', () => {
 
     beforeEach(() => {
@@ -10,14 +13,14 @@ describe('Contact Us', () => {
         //Hook that is executed before the start of each test case
         cy.clearAllCookies();
         sessionStorage.clear();
+
+        //visit the Homepage
+        cy.visit(baseUrl);
     })
 
 
     it('Verify navigating to Contact Us page from Header options', () => {
         //TC_CU_001
-
-        //visit the Homepage
-        cy.visit(baseUrl);
 
         //Click on 'Phone' icon option from the header options
         cy.get('i.fa.fa-phone').click();
@@ -30,9 +33,6 @@ describe('Contact Us', () => {
     it('Verify navigating to Contact Us page from Footer options', () => {
         //TC_CU_002
 
-        //visit the Homepage
-        cy.visit(baseUrl);
-
         //Click on 'Contact Us' link from the Footer options
         cy.get('footer').contains('Contact Us').should('be.visible').click();
 
@@ -43,9 +43,6 @@ describe('Contact Us', () => {
 
     it('Verify whether the required details and fields are displayed in the Contact Us page', () => {
         //TC_CU_004
-
-        //visit the Homepage
-        cy.visit(baseUrl);
 
         //Click on 'Phone' icon option from the header options
         cy.get('i.fa.fa-phone').click();
@@ -68,9 +65,6 @@ describe('Contact Us', () => {
 
     it('Verify all the text fields in the Contact Us page are mandatory', () => {
         //TC_CU_005/6
-
-        //visit the Homepage
-        cy.visit(baseUrl);
 
         //Click on 'Phone' icon option from the header options
         cy.get('i.fa.fa-phone').click();
@@ -99,9 +93,6 @@ describe('Contact Us', () => {
     it('Verify submitting the Contact Form in Contact Us page by not providing any details', () => {
         //TC_CU_007
 
-        //visit the Homepage
-        cy.visit(baseUrl);
-
         //Click on 'Phone' icon option from the header options
         cy.get('i.fa.fa-phone').click();
 
@@ -122,9 +113,6 @@ describe('Contact Us', () => {
 
     it('Verify entering invalid email address into the E-Mail Address field and submit the form', () => {
         //TC_CU_008
-
-        //visit the Homepage
-        cy.visit(baseUrl);
 
         //Click on 'Phone' icon option from the header options
         cy.get('i.fa.fa-phone').click();
@@ -169,9 +157,6 @@ describe('Contact Us', () => {
     it('Verify submitting the Contact Form in Contact Us page by providing all the details after login', () => {
         //TC_CU_009
 
-        //visit the Homepage
-        cy.visit(baseUrl);
-
         //Click on "My Account" dropmenu
         cy.get('.caret').click();
 
@@ -183,8 +168,8 @@ describe('Contact Us', () => {
         cy.get('h2').contains('Returning Customer').should('be.visible');
 
         //Type in the login details and click Login button
-        cy.get('#input-email').type('bunductesteaza+1@gmail.com');
-        cy.get('#input-password').type('123456789');
+        cy.get('#input-email').type(email);
+        cy.get('#input-password').type(password);
         cy.get('form > .btn').click();
 
         //Click on 'Phone' icon option from the header options
@@ -196,7 +181,7 @@ describe('Contact Us', () => {
 
         //Check that Logged in User name and Logged in email address is displayed by in the 'Your Name' and 'E-Mail Address' fields
         cy.get('#input-name').should('have.value', 'Ionescu');
-        cy.get('#input-email').should('have.value', 'bunductesteaza+1@gmail.com');
+        cy.get('#input-email').should('have.value', email);
 
         //Enter any text into the 'Enquiry' field
         cy.get('#input-enquiry').type('kjzzjzjkzdjdjfdjfdncfdnjcdkdfkjdfsk')
@@ -216,9 +201,6 @@ describe('Contact Us', () => {
     it('Verify the Breadcrumb of Contact Us page', () => {
         //TC_CU_010
 
-        //visit the Homepage
-        cy.visit(baseUrl);
-
         //Click on "My Account" dropmenu
         cy.get('.caret').click();
 
@@ -230,8 +212,8 @@ describe('Contact Us', () => {
         cy.get('h2').contains('Returning Customer').should('be.visible');
 
         //Type in the login details and click Login button
-        cy.get('#input-email').type('bunductesteaza+1@gmail.com');
-        cy.get('#input-password').type('123456789');
+        cy.get('#input-email').type(email);
+        cy.get('#input-password').type(password);
         cy.get('form > .btn').click();
 
         //Click on 'Phone' icon option from the header options
@@ -245,31 +227,28 @@ describe('Contact Us', () => {
     it('Verify the Page URL, Page Heading and Page Title of Contact Us page', () => {
         //TC_CU_011
 
-         //visit the Homepage
-         cy.visit(baseUrl);
+        //Click on "My Account" dropmenu
+        cy.get('.caret').click();
 
-         //Click on "My Account" dropmenu
-         cy.get('.caret').click();
- 
-         //Click on "Login" option
-         cy.get('.dropdown-menu > :nth-child(2) > a').click();
- 
-         //Verify redirect to the login page
-         cy.url().should('contain', '/index.php?route=account/login');
-         cy.get('h2').contains('Returning Customer').should('be.visible');
- 
-         //Type in the login details and click Login button
-         cy.get('#input-email').type('bunductesteaza+1@gmail.com');
-         cy.get('#input-password').type('123456789');
-         cy.get('form > .btn').click();
- 
-         //Click on 'Phone' icon option from the header options
-         cy.get('i.fa.fa-phone').click();
- 
+        //Click on "Login" option
+        cy.get('.dropdown-menu > :nth-child(2) > a').click();
+
+        //Verify redirect to the login page
+        cy.url().should('contain', '/index.php?route=account/login');
+        cy.get('h2').contains('Returning Customer').should('be.visible');
+
+        //Type in the login details and click Login button
+        cy.get('#input-email').type(email);
+        cy.get('#input-password').type(password);
+        cy.get('form > .btn').click();
+
+        //Click on 'Phone' icon option from the header options
+        cy.get('i.fa.fa-phone').click();
+
         //Check that Correct Page URL, Page Heading and Page Title should be displayed in the 'Contact Us' page. 
         cy.url().should('contain', '/index.php?route=information/contact');
         cy.title().should('eq', 'Contact Us');
         cy.get('#content').contains('Contact Us').should('be.visible');
 
-})
+    })
 })

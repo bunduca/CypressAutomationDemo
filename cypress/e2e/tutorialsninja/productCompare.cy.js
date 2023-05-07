@@ -2,17 +2,25 @@
 
 
 const { baseUrl } = Cypress.config();
+const picture = 'samy.jpg'
+import tutorialNinjaUserDetails from "../../fixtures/tutorialNinjaUserDetails.json"
+const { email, password } = tutorialNinjaUserDetails
+
 
 describe('Product Compare', () => {
 
-
-
-
-    it('Verify adding the product for comparision from Product Display Page', () => {
-        //TC_PC_001
+    beforeEach(() => {
+        //Clear cookies and session storage (so that we are no longer logged in from previous test)
+        //Hook that is executed before the start of each test case
+        cy.clearAllCookies();
+        sessionStorage.clear();
 
         //visit the Homepage
         cy.visit(baseUrl);
+    })
+
+    it('Verify adding the product for comparision from Product Display Page', () => {
+        //TC_PC_001
 
         //Click on "My Account" dropmenu
         cy.get('.caret').click();
@@ -25,8 +33,8 @@ describe('Product Compare', () => {
         cy.get('h2').contains('Returning Customer').should('be.visible');
 
         //Type in the login details and click Login button
-        cy.get('#input-email').type('bunductesteaza+1@gmail.com');
-        cy.get('#input-password').type('123456789');
+        cy.get('#input-email').type(email);
+        cy.get('#input-password').type(password);
         cy.get('form > .btn').click();
 
         //Enter any existing Product name into the Search text box field and click Search button
@@ -61,9 +69,6 @@ describe('Product Compare', () => {
     it('Verify adding the product for comparision from List View of Search Results page', () => {
         //TC_PC_002
 
-        //visit the Homepage
-        cy.visit(baseUrl);
-
         //Click on "My Account" dropmenu
         cy.get('.caret').click();
 
@@ -75,8 +80,8 @@ describe('Product Compare', () => {
         cy.get('h2').contains('Returning Customer').should('be.visible');
 
         //Type in the login details and click Login button
-        cy.get('#input-email').type('bunductesteaza+1@gmail.com');
-        cy.get('#input-password').type('123456789');
+        cy.get('#input-email').type(email);
+        cy.get('#input-password').type(password);
         cy.get('form > .btn').click();
 
         //Enter any existing Product name into the Search text box field and click Search button
@@ -112,9 +117,6 @@ describe('Product Compare', () => {
     it('Verify adding the product for comparision from Grid View of Search Results page', () => {
         //TC_PC_003
 
-        //visit the Homepage
-        cy.visit(baseUrl);
-
         //Click on "My Account" dropmenu
         cy.get('.caret').click();
 
@@ -126,8 +128,8 @@ describe('Product Compare', () => {
         cy.get('h2').contains('Returning Customer').should('be.visible');
 
         //Type in the login details and click Login button
-        cy.get('#input-email').type('bunductesteaza+1@gmail.com');
-        cy.get('#input-password').type('123456789');
+        cy.get('#input-email').type(email);
+        cy.get('#input-password').type(password);
         cy.get('form > .btn').click();
 
         //Enter any existing Product name into the Search text box field and click Search button
@@ -162,9 +164,6 @@ describe('Product Compare', () => {
     it('Verify adding the product for comparision from List View of Product Category or Sub Category page', () => {
         //TC_PC_004
 
-        //visit the Homepage
-        cy.visit(baseUrl);
-
         //Click on "My Account" dropmenu
         cy.get('.caret').click();
 
@@ -176,8 +175,8 @@ describe('Product Compare', () => {
         cy.get('h2').contains('Returning Customer').should('be.visible');
 
         //Type in the login details and click Login button
-        cy.get('#input-email').type('bunductesteaza+1@gmail.com');
-        cy.get('#input-password').type('123456789');
+        cy.get('#input-email').type(email);
+        cy.get('#input-password').type(password);
         cy.get('form > .btn').click();
 
         //Click 'Desktops' and select 'Show All Desktops' option 
@@ -211,9 +210,6 @@ describe('Product Compare', () => {
     it('Verify adding the product for comparision from Grid View of Product Category or Sub Category page', () => {
         //TC_PC_005
 
-        //visit the Homepage
-        cy.visit(baseUrl);
-
         //Click on "My Account" dropmenu
         cy.get('.caret').click();
 
@@ -225,8 +221,8 @@ describe('Product Compare', () => {
         cy.get('h2').contains('Returning Customer').should('be.visible');
 
         //Type in the login details and click Login button
-        cy.get('#input-email').type('bunductesteaza+1@gmail.com');
-        cy.get('#input-password').type('123456789');
+        cy.get('#input-email').type(email);
+        cy.get('#input-password').type(password);
         cy.get('form > .btn').click();
 
         //Click 'Desktops' and select 'Show All Desktops' option 
@@ -261,9 +257,6 @@ describe('Product Compare', () => {
     it('Verify adding the product for comparision from Related Product section on Product Display Page', () => {
         //TC_PC_006
 
-        //visit the Homepage
-        cy.visit(baseUrl);
-
         //Click on "My Account" dropmenu
         cy.get('.caret').click();
 
@@ -275,8 +268,8 @@ describe('Product Compare', () => {
         cy.get('h2').contains('Returning Customer').should('be.visible');
 
         //Type in the login details and click Login button
-        cy.get('#input-email').type('bunductesteaza+1@gmail.com');
-        cy.get('#input-password').type('123456789');
+        cy.get('#input-email').type(email);
+        cy.get('#input-password').type(password);
         cy.get('form > .btn').click();
 
         //Enter any existing Product name into the Search text box field and click Search button
@@ -313,9 +306,6 @@ describe('Product Compare', () => {
         //TC_PC_007
 
 
-        //visit the Homepage
-        cy.visit(baseUrl);
-
         //Click on "My Account" dropmenu
         cy.get('.caret').click();
 
@@ -327,8 +317,8 @@ describe('Product Compare', () => {
         cy.get('h2').contains('Returning Customer').should('be.visible');
 
         //Type in the login details and click Login button
-        cy.get('#input-email').type('bunductesteaza+1@gmail.com');
-        cy.get('#input-password').type('123456789');
+        cy.get('#input-email').type(email);
+        cy.get('#input-password').type(password);
         cy.get('form > .btn').click();
 
         //Go to Home Page
@@ -360,9 +350,6 @@ describe('Product Compare', () => {
     it('Verify navigating to Product Compare page from Search results page', () => {
         //TC_PC_008
 
-        //visit the Homepage
-        cy.visit(baseUrl);
-
         //Click on "My Account" dropmenu
         cy.get('.caret').click();
 
@@ -374,8 +361,8 @@ describe('Product Compare', () => {
         cy.get('h2').contains('Returning Customer').should('be.visible');
 
         //Type in the login details and click Login button
-        cy.get('#input-email').type('bunductesteaza+1@gmail.com');
-        cy.get('#input-password').type('123456789');
+        cy.get('#input-email').type(email);
+        cy.get('#input-password').type(password);
         cy.get('form > .btn').click();
 
         //Go to Home Page
@@ -398,9 +385,6 @@ describe('Product Compare', () => {
     it('Verify navigating to Product Compare page from Product Category page', () => {
         //TC_PC_009
 
-        //visit the Homepage
-        cy.visit(baseUrl);
-
         //Click on "My Account" dropmenu
         cy.get('.caret').click();
 
@@ -412,8 +396,8 @@ describe('Product Compare', () => {
         cy.get('h2').contains('Returning Customer').should('be.visible');
 
         //Type in the login details and click Login button
-        cy.get('#input-email').type('bunductesteaza+1@gmail.com');
-        cy.get('#input-password').type('123456789');
+        cy.get('#input-email').type(email);
+        cy.get('#input-password').type(password);
         cy.get('form > .btn').click();
 
         //Go to Home Page
@@ -436,9 +420,6 @@ describe('Product Compare', () => {
     it('Verify Product Compare page when no products are added for comparison', () => {
         //TC_PC_010
 
-        //visit the Homepage
-        cy.visit(baseUrl);
-
         //Click on "My Account" dropmenu
         cy.get('.caret').click();
 
@@ -450,8 +431,8 @@ describe('Product Compare', () => {
         cy.get('h2').contains('Returning Customer').should('be.visible');
 
         //Type in the login details and click Login button
-        cy.get('#input-email').type('bunductesteaza+1@gmail.com');
-        cy.get('#input-password').type('123456789');
+        cy.get('#input-email').type(email);
+        cy.get('#input-password').type(password);
         cy.get('form > .btn').click();
 
         //Go to Home Page
@@ -477,9 +458,6 @@ describe('Product Compare', () => {
     it('Verify  the working of Continue button on the Product Compare page', () => {
         //TC_PC_011
 
-        //visit the Homepage
-        cy.visit(baseUrl);
-
         //Click on "My Account" dropmenu
         cy.get('.caret').click();
 
@@ -491,8 +469,8 @@ describe('Product Compare', () => {
         cy.get('h2').contains('Returning Customer').should('be.visible');
 
         //Type in the login details and click Login button
-        cy.get('#input-email').type('bunductesteaza+1@gmail.com');
-        cy.get('#input-password').type('123456789');
+        cy.get('#input-email').type(email);
+        cy.get('#input-password').type(password);
         cy.get('form > .btn').click();
 
         //Go to Home Page
@@ -519,9 +497,6 @@ describe('Product Compare', () => {
     it('Verify the Breadcrumb that is displayed on the Product Compare page', () => {
         //TC_PC_012
 
-        //visit the Homepage
-        cy.visit(baseUrl);
-
         //Click on "My Account" dropmenu
         cy.get('.caret').click();
 
@@ -533,8 +508,8 @@ describe('Product Compare', () => {
         cy.get('h2').contains('Returning Customer').should('be.visible');
 
         //Type in the login details and click Login button
-        cy.get('#input-email').type('bunductesteaza+1@gmail.com');
-        cy.get('#input-password').type('123456789');
+        cy.get('#input-email').type(email);
+        cy.get('#input-password').type(password);
         cy.get('form > .btn').click();
 
         //Go to Home Page
@@ -560,9 +535,6 @@ describe('Product Compare', () => {
     it('Verify the success message which will be displayed after adding the Products for Comparison', () => {
         //TC_PC_013
 
-        //visit the Homepage
-        cy.visit(baseUrl);
-
         //Click on "My Account" dropmenu
         cy.get('.caret').click();
 
@@ -574,8 +546,8 @@ describe('Product Compare', () => {
         cy.get('h2').contains('Returning Customer').should('be.visible');
 
         //Type in the login details and click Login button
-        cy.get('#input-email').type('bunductesteaza+1@gmail.com');
-        cy.get('#input-password').type('123456789');
+        cy.get('#input-email').type(email);
+        cy.get('#input-password').type(password);
         cy.get('form > .btn').click();
 
         //Enter any existing Product name into the Search text box field and click Search button
@@ -613,9 +585,6 @@ describe('Product Compare', () => {
     it('Verify the Product Comparison page when only one producted is added to the page for comparison', () => {
         //TC_PC_014
 
-        //visit the Homepage
-        cy.visit(baseUrl);
-
         //Click on "My Account" dropmenu
         cy.get('.caret').click();
 
@@ -627,8 +596,8 @@ describe('Product Compare', () => {
         cy.get('h2').contains('Returning Customer').should('be.visible');
 
         //Type in the login details and click Login button
-        cy.get('#input-email').type('bunductesteaza+1@gmail.com');
-        cy.get('#input-password').type('123456789');
+        cy.get('#input-email').type(email);
+        cy.get('#input-password').type(password);
         cy.get('form > .btn').click();
 
         //Enter any existing Product name into the Search text box field and click Search button
@@ -656,9 +625,6 @@ describe('Product Compare', () => {
     it('Verify the Product Comparison page when only two products are added to the page for comparison', () => {
         //TC_PC_015
 
-        //visit the Homepage
-        cy.visit(baseUrl);
-
         //Click on "My Account" dropmenu
         cy.get('.caret').click();
 
@@ -670,8 +636,8 @@ describe('Product Compare', () => {
         cy.get('h2').contains('Returning Customer').should('be.visible');
 
         //Type in the login details and click Login button
-        cy.get('#input-email').type('bunductesteaza+1@gmail.com');
-        cy.get('#input-password').type('123456789');
+        cy.get('#input-email').type(email);
+        cy.get('#input-password').type(password);
         cy.get('form > .btn').click();
 
         //Enter any existing Product name into the Search text box field and click Search button
@@ -706,9 +672,6 @@ describe('Product Compare', () => {
     it('Verify the Product Comparison page when the same product is added twice to the page for comparison', () => {
         //TC_PC_016
 
-        //visit the Homepage
-        cy.visit(baseUrl);
-
         //Click on "My Account" dropmenu
         cy.get('.caret').click();
 
@@ -720,8 +683,8 @@ describe('Product Compare', () => {
         cy.get('h2').contains('Returning Customer').should('be.visible');
 
         //Type in the login details and click Login button
-        cy.get('#input-email').type('bunductesteaza+1@gmail.com');
-        cy.get('#input-password').type('123456789');
+        cy.get('#input-email').type(email);
+        cy.get('#input-password').type(password);
         cy.get('form > .btn').click();
 
         //Enter any existing Product name into the Search text box field and click Search button
@@ -753,9 +716,6 @@ describe('Product Compare', () => {
     it('Verify the Product Comparison page when three products are added to the page for comparison', () => {
         //TC_PC_017
 
-        //visit the Homepage
-        cy.visit(baseUrl);
-
         //Click on "My Account" dropmenu
         cy.get('.caret').click();
 
@@ -767,8 +727,8 @@ describe('Product Compare', () => {
         cy.get('h2').contains('Returning Customer').should('be.visible');
 
         //Type in the login details and click Login button
-        cy.get('#input-email').type('bunductesteaza+1@gmail.com');
-        cy.get('#input-password').type('123456789');
+        cy.get('#input-email').type(email);
+        cy.get('#input-password').type(password);
         cy.get('form > .btn').click();
 
         //Enter any existing Product name into the Search text box field and click Search button
@@ -810,9 +770,6 @@ describe('Product Compare', () => {
     it('Verify the Product Comparison page when four products are added to the page for comparison', () => {
         //TC_PC_018
 
-        //visit the Homepage
-        cy.visit(baseUrl);
-
         //Click on "My Account" dropmenu
         cy.get('.caret').click();
 
@@ -824,8 +781,8 @@ describe('Product Compare', () => {
         cy.get('h2').contains('Returning Customer').should('be.visible');
 
         //Type in the login details and click Login button
-        cy.get('#input-email').type('bunductesteaza+1@gmail.com');
-        cy.get('#input-password').type('123456789');
+        cy.get('#input-email').type(email);
+        cy.get('#input-password').type(password);
         cy.get('form > .btn').click();
 
         //Enter any existing Product name into the Search text box field and click Search button
@@ -874,9 +831,6 @@ describe('Product Compare', () => {
     it('Verify that more than 4 products cannot be added to the Product Comparison page', () => {
         //TC_PC_019
 
-        //visit the Homepage
-        cy.visit(baseUrl);
-
         //Click on "My Account" dropmenu
         cy.get('.caret').click();
 
@@ -888,8 +842,8 @@ describe('Product Compare', () => {
         cy.get('h2').contains('Returning Customer').should('be.visible');
 
         //Type in the login details and click Login button
-        cy.get('#input-email').type('bunductesteaza+1@gmail.com');
-        cy.get('#input-password').type('123456789');
+        cy.get('#input-email').type(email);
+        cy.get('#input-password').type(password);
         cy.get('form > .btn').click();
 
         //Enter any existing Product name into the Search text box field and click Search button
@@ -947,9 +901,6 @@ describe('Product Compare', () => {
     it('Verify adding the Products to cart from the Product Comparison page', () => {
         //TC_PC_020  
 
-        //visit the Homepage
-        cy.visit(baseUrl);
-
         //Click on "My Account" dropmenu
         cy.get('.caret').click();
 
@@ -961,8 +912,8 @@ describe('Product Compare', () => {
         cy.get('h2').contains('Returning Customer').should('be.visible');
 
         //Type in the login details and click Login button
-        cy.get('#input-email').type('bunductesteaza+1@gmail.com');
-        cy.get('#input-password').type('123456789');
+        cy.get('#input-email').type(email);
+        cy.get('#input-password').type(password);
         cy.get('form > .btn').click();
 
         //Enter any existing Product name into the Search text box field and click Search button
@@ -983,13 +934,10 @@ describe('Product Compare', () => {
 
         //Verify that the products are successfully added to the 'Shopping Cart' page from the 'Product Compare' page.
         cy.get('.alert').contains('Success: You have added iMac to your shopping cart!').should('be.visible');
-    }) 
+    })
 
     it('Verify removing the Products from the Product Comparison page', () => {
         //TC_PC_021  
-
-        //visit the Homepage
-        cy.visit(baseUrl);
 
         //Click on "My Account" dropmenu
         cy.get('.caret').click();
@@ -1002,8 +950,8 @@ describe('Product Compare', () => {
         cy.get('h2').contains('Returning Customer').should('be.visible');
 
         //Type in the login details and click Login button
-        cy.get('#input-email').type('bunductesteaza+1@gmail.com');
-        cy.get('#input-password').type('123456789');
+        cy.get('#input-email').type(email);
+        cy.get('#input-password').type(password);
         cy.get('form > .btn').click();
 
         //Enter any existing Product name into the Search text box field and click Search button
@@ -1030,9 +978,6 @@ describe('Product Compare', () => {
     it('Verify Page Title, Page Heading and Page URL of the Product Comparison page', () => {
         //TC_PC_022 
 
-        //visit the Homepage
-        cy.visit(baseUrl);
-
         //Click on "My Account" dropmenu
         cy.get('.caret').click();
 
@@ -1044,8 +989,8 @@ describe('Product Compare', () => {
         cy.get('h2').contains('Returning Customer').should('be.visible');
 
         //Type in the login details and click Login button
-        cy.get('#input-email').type('bunductesteaza+1@gmail.com');
-        cy.get('#input-password').type('123456789');
+        cy.get('#input-email').type(email);
+        cy.get('#input-password').type(password);
         cy.get('form > .btn').click();
 
         //Enter any existing Product name into the Search text box field and click Search button
@@ -1061,16 +1006,16 @@ describe('Product Compare', () => {
         //Click on the 'Product Comparison' link in the displayed success message
         cy.get('.alert').contains('product comparison').click();
 
-       //Check that proper Page Heading is displayed
-       cy.get('h1').eq(1).contains('Product Comparison').should('be.visible');
+        //Check that proper Page Heading is displayed
+        cy.get('h1').eq(1).contains('Product Comparison').should('be.visible');
 
-       //Check that proper Page Title is displayed
-       cy.title().should('eq', 'Product Comparison');
+        //Check that proper Page Title is displayed
+        cy.title().should('eq', 'Product Comparison');
 
-       //Check that proper URL is displayed
-       cy.url().should('contain', '/index.php?route=product/compare');
+        //Check that proper URL is displayed
+        cy.url().should('contain', '/index.php?route=product/compare');
 
 
-})
+    })
 
 })

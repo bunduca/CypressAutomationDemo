@@ -3,6 +3,9 @@
 
 const { baseUrl } = Cypress.config();
 const picture = 'samy.jpg'
+import tutorialNinjaUserDetails from "../../fixtures/tutorialNinjaUserDetails.json"
+const { email, password } = tutorialNinjaUserDetails
+
 describe('Wishlist', () => {
 
     beforeEach(() => {
@@ -10,16 +13,13 @@ describe('Wishlist', () => {
         //Hook that is executed before the start of each test case
         cy.clearAllCookies();
         sessionStorage.clear();
-    })
-
-
-
-
-    it('Verify adding a product to Wish List page from the Product that is displayed in the Related Products section of Product Display page', () => {
-        //TC_WL_001
 
         //visit the Homepage
         cy.visit(baseUrl);
+    })
+
+    it('Verify adding a product to Wish List page from the Product that is displayed in the Related Products section of Product Display page', () => {
+        //TC_WL_001
 
         //Click on "My Account" dropmenu
         cy.get('.caret').click();
@@ -32,8 +32,8 @@ describe('Wishlist', () => {
         cy.get('h2').contains('Returning Customer').should('be.visible');
 
         //Type in the login details and click Login button
-        cy.get('#input-email').type('bunductesteaza+1@gmail.com');
-        cy.get('#input-password').type('123456789');
+        cy.get('#input-email').type(email);
+        cy.get('#input-password').type(password);
         cy.get('form > .btn').click();
 
         //Enter any existing Product name into the Search text box field and click Search button
@@ -59,9 +59,6 @@ describe('Wishlist', () => {
     it('Verify adding a product to Wish List page from the Product that is displayed in the Featured section of Home page', () => {
         //TC_WL_002
 
-        //visit the Homepage
-        cy.visit(baseUrl);
-
         //Click on "My Account" dropmenu
         cy.get('.caret').click();
 
@@ -73,8 +70,8 @@ describe('Wishlist', () => {
         cy.get('h2').contains('Returning Customer').should('be.visible');
 
         //Type in the login details and click Login button
-        cy.get('#input-email').type('bunductesteaza+1@gmail.com');
-        cy.get('#input-password').type('123456789');
+        cy.get('#input-email').type(email);
+        cy.get('#input-password').type(password);
         cy.get('form > .btn').click();
 
         //Click on the 'Store logo'
@@ -100,9 +97,6 @@ describe('Wishlist', () => {
     it('Verify adding the product to Wish List from the Products displayed in the category or sub-category page', () => {
         //TC_WL_003
 
-        //visit the Homepage
-        cy.visit(baseUrl);
-
         //Click on "My Account" dropmenu
         cy.get('.caret').click();
 
@@ -114,8 +108,8 @@ describe('Wishlist', () => {
         cy.get('h2').contains('Returning Customer').should('be.visible');
 
         //Type in the login details and click Login button
-        cy.get('#input-email').type('bunductesteaza+1@gmail.com');
-        cy.get('#input-password').type('123456789');
+        cy.get('#input-email').type(email);
+        cy.get('#input-password').type(password);
         cy.get('form > .btn').click();
 
         //Click on the 'Store logo'
@@ -150,9 +144,6 @@ describe('Wishlist', () => {
     it('Verify adding a product to Wish List page from the Search Results page', () => {
         //TC_WL_004
 
-        //visit the Homepage
-        cy.visit(baseUrl);
-
         //Click on "My Account" dropmenu
         cy.get('.caret').click();
 
@@ -164,8 +155,8 @@ describe('Wishlist', () => {
         cy.get('h2').contains('Returning Customer').should('be.visible');
 
         //Type in the login details and click Login button
-        cy.get('#input-email').type('bunductesteaza+1@gmail.com');
-        cy.get('#input-password').type('123456789');
+        cy.get('#input-email').type(email);
+        cy.get('#input-password').type(password);
         cy.get('form > .btn').click();
 
         //Enter any existing Product name into the Search text box field and click Search button
@@ -188,9 +179,6 @@ describe('Wishlist', () => {
     it('Verify navigating to My Wish List page using the wish list! link in the success message', () => {
         //TC_WL_005
 
-        //visit the Homepage
-        cy.visit(baseUrl);
-
         //Click on "My Account" dropmenu
         cy.get('.caret').click();
 
@@ -202,8 +190,8 @@ describe('Wishlist', () => {
         cy.get('h2').contains('Returning Customer').should('be.visible');
 
         //Type in the login details and click Login button
-        cy.get('#input-email').type('bunductesteaza+1@gmail.com');
-        cy.get('#input-password').type('123456789');
+        cy.get('#input-email').type(email);
+        cy.get('#input-password').type(password);
         cy.get('form > .btn').click();
 
         //Enter any existing Product name into the Search text box field and click Search button
@@ -228,9 +216,6 @@ describe('Wishlist', () => {
     it('Verify navigating to My Wish List page using the Wish List header option', () => {
         //TC_WL_006
 
-        //visit the Homepage
-        cy.visit(baseUrl);
-
         //Click on "My Account" dropmenu
         cy.get('.caret').click();
 
@@ -242,8 +227,8 @@ describe('Wishlist', () => {
         cy.get('h2').contains('Returning Customer').should('be.visible');
 
         //Type in the login details and click Login button
-        cy.get('#input-email').type('bunductesteaza+1@gmail.com');
-        cy.get('#input-password').type('123456789');
+        cy.get('#input-email').type(email);
+        cy.get('#input-password').type(password);
         cy.get('form > .btn').click();
 
         //Enter any existing Product name into the Search text box field and click Search button
@@ -268,9 +253,6 @@ describe('Wishlist', () => {
     it('Verify navigating to My Wish List page using the Right Column header options', () => {
         //TC_WL_007
 
-        //visit the Homepage
-        cy.visit(baseUrl);
-
         //Click on "My Account" dropmenu
         cy.get('.caret').click();
 
@@ -282,8 +264,8 @@ describe('Wishlist', () => {
         cy.get('h2').contains('Returning Customer').should('be.visible');
 
         //Type in the login details and click Login button
-        cy.get('#input-email').type('bunductesteaza+1@gmail.com');
-        cy.get('#input-password').type('123456789');
+        cy.get('#input-email').type(email);
+        cy.get('#input-password').type(password);
         cy.get('form > .btn').click();
 
         //Click on 'Wish List' option from the 'Right Column' options
@@ -299,9 +281,6 @@ describe('Wishlist', () => {
     it('Verify navigating to My Wish List page from the My Account page ', () => {
         //TC_WL_008
 
-        //visit the Homepage
-        cy.visit(baseUrl);
-
         //Click on "My Account" dropmenu
         cy.get('.caret').click();
 
@@ -313,8 +292,8 @@ describe('Wishlist', () => {
         cy.get('h2').contains('Returning Customer').should('be.visible');
 
         //Type in the login details and click Login button
-        cy.get('#input-email').type('bunductesteaza+1@gmail.com');
-        cy.get('#input-password').type('123456789');
+        cy.get('#input-email').type(email);
+        cy.get('#input-password').type(password);
         cy.get('form > .btn').click();
 
         //Click on 'Modify your wish list' option
@@ -329,9 +308,6 @@ describe('Wishlist', () => {
     it('Verify navigating to My Wish List page from the Footer options ', () => {
         //TC_WL_009
 
-        //visit the Homepage
-        cy.visit(baseUrl);
-
         //Click on "My Account" dropmenu
         cy.get('.caret').click();
 
@@ -343,8 +319,8 @@ describe('Wishlist', () => {
         cy.get('h2').contains('Returning Customer').should('be.visible');
 
         //Type in the login details and click Login button
-        cy.get('#input-email').type('bunductesteaza+1@gmail.com');
-        cy.get('#input-password').type('123456789');
+        cy.get('#input-email').type(email);
+        cy.get('#input-password').type(password);
         cy.get('form > .btn').click();
 
         //Click on 'Wish List' link in the Footer options
@@ -359,9 +335,6 @@ describe('Wishlist', () => {
     it('Verify the Breadcrumb in the Wish List page', () => {
         //TC_WL_010
 
-        //visit the Homepage
-        cy.visit(baseUrl);
-
         //Click on "My Account" dropmenu
         cy.get('.caret').click();
 
@@ -373,8 +346,8 @@ describe('Wishlist', () => {
         cy.get('h2').contains('Returning Customer').should('be.visible');
 
         //Type in the login details and click Login button
-        cy.get('#input-email').type('bunductesteaza+1@gmail.com');
-        cy.get('#input-password').type('123456789');
+        cy.get('#input-email').type(email);
+        cy.get('#input-password').type(password);
         cy.get('form > .btn').click();
 
         //Click on 'Modify your wish list' option
@@ -387,9 +360,6 @@ describe('Wishlist', () => {
     it('Verify the Page Title, Page URL and Page Heading of Wish List page', () => {
         //TC_WL_011
 
-        //visit the Homepage
-        cy.visit(baseUrl);
-
         //Click on "My Account" dropmenu
         cy.get('.caret').click();
 
@@ -401,8 +371,8 @@ describe('Wishlist', () => {
         cy.get('h2').contains('Returning Customer').should('be.visible');
 
         //Type in the login details and click Login button
-        cy.get('#input-email').type('bunductesteaza+1@gmail.com');
-        cy.get('#input-password').type('123456789');
+        cy.get('#input-email').type(email);
+        cy.get('#input-password').type(password);
         cy.get('form > .btn').click();
 
         //Click on 'Modify your wish list' option
@@ -418,9 +388,6 @@ describe('Wishlist', () => {
         //TC_WL_014
 
 
-        //visit the Homepage
-        cy.visit(baseUrl);
-
         //Click on "My Account" dropmenu
         cy.get('.caret').click();
 
@@ -432,8 +399,8 @@ describe('Wishlist', () => {
         cy.get('h2').contains('Returning Customer').should('be.visible');
 
         //Type in the login details and click Login button
-        cy.get('#input-email').type('bunductesteaza+1@gmail.com');
-        cy.get('#input-password').type('123456789');
+        cy.get('#input-email').type(email);
+        cy.get('#input-password').type(password);
         cy.get('form > .btn').click();
 
         //Click on 'Modify your wish list' option
@@ -451,9 +418,6 @@ describe('Wishlist', () => {
         //TC_WL_015
 
 
-        //visit the Homepage
-        cy.visit(baseUrl);
-
         //Click on "My Account" dropmenu
         cy.get('.caret').click();
 
@@ -465,8 +429,8 @@ describe('Wishlist', () => {
         cy.get('h2').contains('Returning Customer').should('be.visible');
 
         //Type in the login details and click Login button
-        cy.get('#input-email').type('bunductesteaza+1@gmail.com');
-        cy.get('#input-password').type('123456789');
+        cy.get('#input-email').type(email);
+        cy.get('#input-password').type(password);
         cy.get('form > .btn').click();
 
         //Click on the 'Store logo'
@@ -492,9 +456,6 @@ describe('Wishlist', () => {
     it('Verify adding the product to Cart from the My Wish List page', () => {
         //TC_WL_016
 
-        //visit the Homepage
-        cy.visit(baseUrl);
-
         //Click on "My Account" dropmenu
         cy.get('.caret').click();
 
@@ -506,8 +467,8 @@ describe('Wishlist', () => {
         cy.get('h2').contains('Returning Customer').should('be.visible');
 
         //Type in the login details and click Login button
-        cy.get('#input-email').type('bunductesteaza+1@gmail.com');
-        cy.get('#input-password').type('123456789');
+        cy.get('#input-email').type(email);
+        cy.get('#input-password').type(password);
         cy.get('form > .btn').click();
 
         //Click on the 'Store logo'

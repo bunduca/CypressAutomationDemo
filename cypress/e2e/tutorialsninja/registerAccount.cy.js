@@ -1,12 +1,23 @@
 /// <reference types="cypress" />
+
 const { baseUrl } = Cypress.config();
+const picture = 'samy.jpg'
+import tutorialNinjaUserDetails from "../../fixtures/tutorialNinjaUserDetails.json"
+const { email, password } = tutorialNinjaUserDetails
 
 describe('Register Functionality', () => {
 
-  it('Verify Registering an Account by providing only the Mandatory fields', () => {
+  beforeEach(() => {
+    //Clear cookies and session storage (so that we are no longer logged in from previous test)
+    //Hook that is executed before the start of each test case
+    cy.clearAllCookies();
+    sessionStorage.clear();
 
     //visit the Homepage
     cy.visit(baseUrl);
+  })
+
+  it('Verify Registering an Account by providing only the Mandatory fields', () => {
 
     //Click on "My Account" dropmenu
     cy.get('.caret').click();
@@ -22,9 +33,9 @@ describe('Register Functionality', () => {
     cy.get('#input-firstname').type('Popescu');
     cy.get('#input-lastname').type('Maria');
     cy.get('#input-email').type('bunductesteaza@gmail.com');
-    cy.get('#input-telephone').type('123456789');
-    cy.get('#input-password').type('123456789');
-    cy.get('#input-confirm').type('123456789');
+    cy.get('#input-telephone').type(password);
+    cy.get('#input-password').type(password);
+    cy.get('#input-confirm').type(password);
 
     //Select the "Privacy Policy" checkbox option
     cy.get('[type="checkbox"]').click();

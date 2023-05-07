@@ -8,7 +8,7 @@ module.exports = defineConfig({
       on('task', verifyDownloadTasks);
     },
 
-baseUrl: "http://tutorialsninja.com/demo/",
+baseUrl: "https://tutorialsninja.com/demo/",
 
   },
 });

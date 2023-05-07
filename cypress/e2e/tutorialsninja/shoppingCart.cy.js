@@ -3,6 +3,9 @@
 
 const { baseUrl } = Cypress.config();
 const picture = 'samy.jpg'
+import tutorialNinjaUserDetails from "../../fixtures/tutorialNinjaUserDetails.json"
+const { email, password } = tutorialNinjaUserDetails
+
 describe('Shopping Cart', () => {
 
     beforeEach(() => {
@@ -10,17 +13,14 @@ describe('Shopping Cart', () => {
         //Hook that is executed before the start of each test case
         cy.clearAllCookies();
         sessionStorage.clear();
+
+        //visit the Homepage
+        cy.visit(baseUrl);
     })
-
-
-
 
     it('Verify navigating to Shopping Cart page from the Success message', () => {
         //TC_SC_001
 
-
-        //visit the Homepage
-        cy.visit(baseUrl);
 
         //Click on "My Account" dropmenu
         cy.get('.caret').click();
@@ -33,8 +33,8 @@ describe('Shopping Cart', () => {
         cy.get('h2').contains('Returning Customer').should('be.visible');
 
         //Type in the login details and click Login button
-        cy.get('#input-email').type('bunductesteaza+1@gmail.com');
-        cy.get('#input-password').type('123456789');
+        cy.get('#input-email').type(email);
+        cy.get('#input-password').type(password);
         cy.get('form > .btn').click();
 
         //Enter any existing Product name into the Search text box field and click Search button
@@ -61,9 +61,6 @@ describe('Shopping Cart', () => {
     it('Verify navigating to Shopping Cart page from the Shopping Cart header option', () => {
         //TC_SC_002
 
-        //visit the Homepage
-        cy.visit(baseUrl);
-
         //Click on "My Account" dropmenu
         cy.get('.caret').click();
 
@@ -75,8 +72,8 @@ describe('Shopping Cart', () => {
         cy.get('h2').contains('Returning Customer').should('be.visible');
 
         //Type in the login details and click Login button
-        cy.get('#input-email').type('bunductesteaza+1@gmail.com');
-        cy.get('#input-password').type('123456789');
+        cy.get('#input-email').type(email);
+        cy.get('#input-password').type(password);
         cy.get('form > .btn').click();
 
         //Enter any existing Product name into the Search text box field and click Search button
@@ -111,8 +108,8 @@ describe('Shopping Cart', () => {
         cy.get('h2').contains('Returning Customer').should('be.visible');
 
         //Type in the login details and click Login button
-        cy.get('#input-email').type('bunductesteaza+1@gmail.com');
-        cy.get('#input-password').type('123456789');
+        cy.get('#input-email').type(email);
+        cy.get('#input-password').type(password);
         cy.get('form > .btn').click();
 
         //Enter any existing Product name into the Search text box field and click Search button
@@ -140,9 +137,6 @@ describe('Shopping Cart', () => {
     it('Verify the Cart button when there are no products added to the Shopping Cart', () => {
         //TC_SC_004
 
-        //visit the Homepage
-        cy.visit(baseUrl);
-
         //Click on Cart button which is displayed in black color on the top of the page beside the search icon button
         cy.get('#cart > .btn').click();
 
@@ -153,9 +147,6 @@ describe('Shopping Cart', () => {
 
     it('Verify navigating to Shopping Cart page using the View Cart option in the Cart block', () => {
         //TC_SC_005
-
-        //visit the Homepage
-        cy.visit(baseUrl);
 
         //Enter any existing Product name into the Search text box field and click Search button
         cy.get('.form-control').type('iMac');
@@ -178,9 +169,6 @@ describe('Shopping Cart', () => {
     it('Verify the weight of the Product in the Shopping Cart page', () => {
         //TC_SC_006
 
-        //visit the Homepage
-        cy.visit(baseUrl);
-
         //Enter any existing Product name into the Search text box field and click Search button
         cy.get('.form-control').type('iMac');
         cy.get('.input-group-btn > .btn').click();
@@ -201,9 +189,6 @@ describe('Shopping Cart', () => {
 
     it('Verify Image, Name, Model, Quantity, Unit Price and Total of the Product in the Shopping Cart page', () => {
         //TC_SC_007
-
-        //visit the Homepage
-        cy.visit(baseUrl);
 
         //Enter any existing Product name into the Search text box field and click Search button
         cy.get('.form-control').type('iMac');
@@ -229,9 +214,6 @@ describe('Shopping Cart', () => {
 
     it('Verify updating the quantity of the Product in the Shopping Cart page', () => {
         //TC_SC_008
-
-        //visit the Homepage
-        cy.visit(baseUrl);
 
         //Enter any existing Product name into the Search text box field and click Search button
         cy.get('.form-control').type('iMac');
@@ -260,9 +242,6 @@ describe('Shopping Cart', () => {
         //TC_SC_009
         //Test fails due to missing error message when entering invalid non-numeric value in the quantity field
 
-        //visit the Homepage
-        cy.visit(baseUrl);
-
         //Enter any existing Product name into the Search text box field and click Search button
         cy.get('.form-control').type('iMac');
         cy.get('.input-group-btn > .btn').click();
@@ -289,9 +268,6 @@ describe('Shopping Cart', () => {
     it('Verify removing the item from Shopping Cart page', () => {
         //TC_SC_010
 
-        //visit the Homepage
-        cy.visit(baseUrl);
-
         //Enter any existing Product name into the Search text box field and click Search button
         cy.get('.form-control').type('iMac');
         cy.get('.input-group-btn > .btn').click();
@@ -314,9 +290,6 @@ describe('Shopping Cart', () => {
 
     it('Verify Page Heading, Page Title and Page URL of Shopping Cart page', () => {
         //TC_SC_011
-
-        //visit the Homepage
-        cy.visit(baseUrl);
 
         //Enter any existing Product name into the Search text box field and click Search button
         cy.get('.form-control').type('iMac');
@@ -341,9 +314,6 @@ describe('Shopping Cart', () => {
         //TC_SC_012
 
 
-        //visit the Homepage
-        cy.visit(baseUrl);
-
         //Enter any existing Product name into the Search text box field and click Search button
         cy.get('.form-control').type('iMac');
         cy.get('.input-group-btn > .btn').click();
@@ -363,9 +333,6 @@ describe('Shopping Cart', () => {
 
     it('Verify Coupon code application in the Shopping Cart page by providing an invalid coupon code', () => {
         //TC_SC_014
-
-        //visit the Homepage
-        cy.visit(baseUrl);
 
         //Enter any existing Product name into the Search text box field and click Search button
         cy.get('.form-control').type('iMac');
@@ -396,9 +363,6 @@ describe('Shopping Cart', () => {
     it('Verify Coupon code functionality in the Shopping Cart page by not providing any coupon code ', () => {
         //TC_SC_017
 
-        //visit the Homepage
-        cy.visit(baseUrl);
-
         //Enter any existing Product name into the Search text box field and click Search button
         cy.get('.form-control').type('iMac');
         cy.get('.input-group-btn > .btn').click();
@@ -425,9 +389,6 @@ describe('Shopping Cart', () => {
 
     it('Verify Closing the Warning message in the Shopping Cart page', () => {
         //TC_SC_018
-
-        //visit the Homepage
-        cy.visit(baseUrl);
 
         //Enter any existing Product name into the Search text box field and click Search button
         cy.get('.form-control').type('iMac');
@@ -461,9 +422,6 @@ describe('Shopping Cart', () => {
     it('Verify Coupon code functionality in the Shopping Cart page is having Placeholder', () => {
         //TC_SC_019
 
-        //visit the Homepage
-        cy.visit(baseUrl);
-
         //Enter any existing Product name into the Search text box field and click Search button
         cy.get('.form-control').type('iMac');
         cy.get('.input-group-btn > .btn').click();
@@ -486,9 +444,6 @@ describe('Shopping Cart', () => {
 
     it('Verify Estimate Shipping and Taxes functionality in the Shopping Cart page by providing all mandatory fields', () => {
         //TC_SC_020
-
-        //visit the Homepage
-        cy.visit(baseUrl);
 
         //Enter any existing Product name into the Search text box field and click Search button
         cy.get('.form-control').type('iMac');
@@ -534,9 +489,6 @@ describe('Shopping Cart', () => {
 
     it('Verify Estimate Shipping and Taxes functionality in the Shopping Cart page by providing all the fields', () => {
         //TC_SC_021
-
-        //visit the Homepage
-        cy.visit(baseUrl);
 
         //Enter any existing Product name into the Search text box field and click Search button
         cy.get('.form-control').type('iMac');
@@ -586,9 +538,6 @@ describe('Shopping Cart', () => {
     it('Verify Estimate Shipping and Taxes functionality in the Shopping Cart page by not providing anything', () => {
         //TC_SC_022
 
-        //visit the Homepage
-        cy.visit(baseUrl);
-
         //Enter any existing Product name into the Search text box field and click Search button
         cy.get('.form-control').type('iMac');
         cy.get('.input-group-btn > .btn').click();
@@ -615,9 +564,6 @@ describe('Shopping Cart', () => {
 
     it('Verify Estimate Shipping and Taxes functionality in the Shopping Cart page by not providing anything', () => {
         //TC_SC_023
-
-        //visit the Homepage
-        cy.visit(baseUrl);
 
         //Enter any existing Product name into the Search text box field and click Search button
         cy.get('.form-control').type('iMac');
@@ -664,9 +610,6 @@ describe('Shopping Cart', () => {
     it('Verify Estimate Shipping and Taxes functionality in the Shopping Cart page for Placeholder', () => {
         //TC_SC_024
 
-        //visit the Homepage
-        cy.visit(baseUrl);
-
         //Enter any existing Product name into the Search text box field and click Search button
         cy.get('.form-control').type('iMac');
         cy.get('.input-group-btn > .btn').click();
@@ -689,9 +632,6 @@ describe('Shopping Cart', () => {
 
     it('Verify Gift Certificate functionality in the Shopping Cart page by providing a invalid Gift Certificate', () => {
         //TC_SC_026
-
-        //visit the Homepage
-        cy.visit(baseUrl);
 
         //Enter any existing Product name into the Search text box field and click Search button
         cy.get('.form-control').type('iMac');
@@ -722,9 +662,6 @@ describe('Shopping Cart', () => {
     it('Verify Gift Certificate functionality in the Shopping Cart page by not providing any Gift Certificate', () => {
         //TC_SC_028
 
-        //visit the Homepage
-        cy.visit(baseUrl);
-
         //Enter any existing Product name into the Search text box field and click Search button
         cy.get('.form-control').type('iMac');
         cy.get('.input-group-btn > .btn').click();
@@ -751,9 +688,6 @@ describe('Shopping Cart', () => {
     it('Verify Gift Certificate functionality in the Shopping Cart page for Placeholder', () => {
         //TC_SC_029
 
-        //visit the Homepage
-        cy.visit(baseUrl);
-
         //Enter any existing Product name into the Search text box field and click Search button
         cy.get('.form-control').type('iMac');
         cy.get('.input-group-btn > .btn').click();
@@ -777,54 +711,54 @@ describe('Shopping Cart', () => {
     it('Continue shopping from the Shopping Cart page', () => {
         //TC_SC_031
 
-       //visit the Homepage
-       cy.visit(baseUrl);
+        //visit the Homepage
+        cy.visit(baseUrl);
 
-       //Enter any existing Product name into the Search text box field and click Search button
-       cy.get('.form-control').type('iMac');
-       cy.get('.input-group-btn > .btn').click();
+        //Enter any existing Product name into the Search text box field and click Search button
+        cy.get('.form-control').type('iMac');
+        cy.get('.input-group-btn > .btn').click();
 
-       //Click on the Product displayed in the Search results
-       cy.get('.img-responsive').click();
+        //Click on the Product displayed in the Search results
+        cy.get('.img-responsive').click();
 
-       //Click on 'Add to Cart' button in the displayed 'Product Display' page
-       cy.get('#button-cart').click();
+        //Click on 'Add to Cart' button in the displayed 'Product Display' page
+        cy.get('#button-cart').click();
 
-       //Click on the 'shopping cart!' link in the displayed success message
-       cy.get('.alert').contains('shopping cart').click();
+        //Click on the 'shopping cart!' link in the displayed success message
+        cy.get('.alert').contains('shopping cart').click();
 
-         //Click on 'Estimate Shipping & Taxes' section 
-         cy.get(':nth-child(2) > .panel-heading > .panel-title > .accordion-toggle').click();
+        //Click on 'Estimate Shipping & Taxes' section 
+        cy.get(':nth-child(2) > .panel-heading > .panel-title > .accordion-toggle').click();
 
-         //Select any Country from the 'Country' dropdown field
-         cy.get('#input-country').select('United States');
- 
-         //Select any State from the 'Region/State' field
-         cy.get('#input-zone').select('California');
- 
-         //Enter a post code on Post Code text field
-         cy.get('#input-postcode').type('90007');
- 
-         //Click on 'Get Quotes' button
-         cy.get('#button-quote').click();
- 
-         //Check that 'Please select the preferred shipping method to use on this order' dialog is displayed.  
-         cy.get('.modal-content').should('be.visible');
- 
-         //Check that Flat Shipping Rate - $5.00 radio button is displayed in the displayed dialog and is not selected by default
-         cy.get('.radio').should('be.visible').should('not.be.checked');
- 
-         //Select the radio button and Click on 'Cancel' button
-         cy.get('input[name=shipping_method').check();
-         cy.get('button').eq(11).click();
+        //Select any Country from the 'Country' dropdown field
+        cy.get('#input-country').select('United States');
 
-         //Click on 'Continue Shopping' button
-         cy.get('.pull-left > .btn').click();
+        //Select any State from the 'Region/State' field
+        cy.get('#input-zone').select('California');
 
-         //Check that User is taken to 'Home' Page
-         cy.get('h1 > a').contains('Your Store').should('be.visible');
-         cy.url().should('contain', '/index.php?route=common/home');
-         cy.title().should('eq', 'Your Store');
+        //Enter a post code on Post Code text field
+        cy.get('#input-postcode').type('90007');
+
+        //Click on 'Get Quotes' button
+        cy.get('#button-quote').click();
+
+        //Check that 'Please select the preferred shipping method to use on this order' dialog is displayed.  
+        cy.get('.modal-content').should('be.visible');
+
+        //Check that Flat Shipping Rate - $5.00 radio button is displayed in the displayed dialog and is not selected by default
+        cy.get('.radio').should('be.visible').should('not.be.checked');
+
+        //Select the radio button and Click on 'Cancel' button
+        cy.get('input[name=shipping_method').check();
+        cy.get('button').eq(11).click();
+
+        //Click on 'Continue Shopping' button
+        cy.get('.pull-left > .btn').click();
+
+        //Check that User is taken to 'Home' Page
+        cy.get('h1 > a').contains('Your Store').should('be.visible');
+        cy.url().should('contain', '/index.php?route=common/home');
+        cy.title().should('eq', 'Your Store');
 
     })
 })

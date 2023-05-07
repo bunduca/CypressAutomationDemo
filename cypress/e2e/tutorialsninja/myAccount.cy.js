@@ -3,6 +3,9 @@
 
 const { baseUrl } = Cypress.config();
 const picture = 'samy.jpg'
+import tutorialNinjaUserDetails from "../../fixtures/tutorialNinjaUserDetails.json"
+const { email, password } = tutorialNinjaUserDetails
+
 describe('My Account', () => {
 
     beforeEach(() => {
@@ -10,14 +13,13 @@ describe('My Account', () => {
         //Hook that is executed before the start of each test case
         cy.clearAllCookies();
         sessionStorage.clear();
-    })
-
-
-    it('Verify navigating to My Account page on login', () => {
-        //TC_MA_002
 
         //visit the Homepage
         cy.visit(baseUrl);
+    })
+    
+    it('Verify navigating to My Account page on login', () => {
+        //TC_MA_002
 
         //Click on "My Account" dropmenu
         cy.get('.caret').click();
@@ -30,8 +32,8 @@ describe('My Account', () => {
         cy.get('h2').contains('Returning Customer').should('be.visible');
 
         //Type in the login details and click Login button
-        cy.get('#input-email').type('bunductesteaza+1@gmail.com');
-        cy.get('#input-password').type('123456789');
+        cy.get('#input-email').type(email);
+        cy.get('#input-password').type(password);
         cy.get('form > .btn').click();
 
         //Verify successfull login and redirect to My Account page
@@ -42,9 +44,6 @@ describe('My Account', () => {
     it('Verify navigating to My Account page using My Account option ', () => {
         //TC_MA_003
 
-        //visit the Homepage
-        cy.visit(baseUrl);
-
         //Click on "My Account" dropmenu
         cy.get('.caret').click();
 
@@ -56,8 +55,8 @@ describe('My Account', () => {
         cy.get('h2').contains('Returning Customer').should('be.visible');
 
         //Type in the login details and click Login button
-        cy.get('#input-email').type('bunductesteaza+1@gmail.com');
-        cy.get('#input-password').type('123456789');
+        cy.get('#input-email').type(email);
+        cy.get('#input-password').type(password);
         cy.get('form > .btn').click();
 
         //Verify successfull login and redirect to My Account page
@@ -67,9 +66,6 @@ describe('My Account', () => {
     it('Verify navigating to My Account page using Right Column options ', () => {
         //TC_MA_004
 
-        //visit the Homepage
-        cy.visit(baseUrl);
-
         //Click on "My Account" dropmenu
         cy.get('.caret').click();
 
@@ -81,8 +77,8 @@ describe('My Account', () => {
         cy.get('h2').contains('Returning Customer').should('be.visible');
 
         //Type in the login details and click Login button
-        cy.get('#input-email').type('bunductesteaza+1@gmail.com');
-        cy.get('#input-password').type('123456789');
+        cy.get('#input-email').type(email);
+        cy.get('#input-password').type(password);
         cy.get('form > .btn').click();
 
         //Click on My account option from the right column
@@ -95,9 +91,6 @@ describe('My Account', () => {
     it('Verify navigating to My Account page using My Account option in Site Map page', () => {
         //TC_MA_005
 
-        //visit the Homepage
-        cy.visit(baseUrl);
-
         //Click on "My Account" dropmenu
         cy.get('.caret').click();
 
@@ -109,8 +102,8 @@ describe('My Account', () => {
         cy.get('h2').contains('Returning Customer').should('be.visible');
 
         //Type in the login details and click Login button
-        cy.get('#input-email').type('bunductesteaza+1@gmail.com');
-        cy.get('#input-password').type('123456789');
+        cy.get('#input-email').type(email);
+        cy.get('#input-password').type(password);
         cy.get('form > .btn').click();
 
         //Click the 'Site Map' link in the Footer options
@@ -123,9 +116,6 @@ describe('My Account', () => {
     it('Verify Breadcrump in My Account page', () => {
         //TC_MA_006
 
-        //visit the Homepage
-        cy.visit(baseUrl);
-
         //Click on "My Account" dropmenu
         cy.get('.caret').click();
 
@@ -137,8 +127,8 @@ describe('My Account', () => {
         cy.get('h2').contains('Returning Customer').should('be.visible');
 
         //Type in the login details and click Login button
-        cy.get('#input-email').type('bunductesteaza+1@gmail.com');
-        cy.get('#input-password').type('123456789');
+        cy.get('#input-email').type(email);
+        cy.get('#input-password').type(password);
         cy.get('form > .btn').click();
 
         // Click on 'My Account' dropmenu
@@ -154,9 +144,6 @@ describe('My Account', () => {
     it('Verify Page URL, Page Heading and Page Title of the My Account page', () => {
         //TC_MA_007
 
-        //visit the Homepage
-        cy.visit(baseUrl);
-
         //Click on "My Account" dropmenu
         cy.get('.caret').click();
 
@@ -168,8 +155,8 @@ describe('My Account', () => {
         cy.get('h2').contains('Returning Customer').should('be.visible');
 
         //Type in the login details and click Login button
-        cy.get('#input-email').type('bunductesteaza+1@gmail.com');
-        cy.get('#input-password').type('123456789');
+        cy.get('#input-email').type(email);
+        cy.get('#input-password').type(password);
         cy.get('form > .btn').click();
 
         // Click on 'My Account' dropmenu

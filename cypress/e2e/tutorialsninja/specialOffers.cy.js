@@ -3,6 +3,9 @@
 
 const { baseUrl } = Cypress.config();
 const picture = 'samy.jpg'
+import tutorialNinjaUserDetails from "../../fixtures/tutorialNinjaUserDetails.json"
+const { email, password } = tutorialNinjaUserDetails
+
 describe('Special Offers', () => {
 
     beforeEach(() => {
@@ -10,13 +13,14 @@ describe('Special Offers', () => {
         //Hook that is executed before the start of each test case
         cy.clearAllCookies();
         sessionStorage.clear();
+
+        //visit the Homepage
+        cy.visit(baseUrl);
     })
 
     it('Verify navigating to Special Offers page using Specials footer link', () => {
         //TC_SPO_001
 
-        //visit the Homepage
-        cy.visit(baseUrl);
 
         //Click on 'Specials' footer link 
         cy.get('footer').contains('Specials').click();
@@ -29,8 +33,6 @@ describe('Special Offers', () => {
     it('Verify navigating to Special Offers page from Site Map page', () => {
         //TC_SPO_002
 
-        //visit the Homepage
-        cy.visit(baseUrl);
 
         //Click on 'Site Map' footer link
         cy.get('footer').contains('Site Map').click();
@@ -46,8 +48,6 @@ describe('Special Offers', () => {
     it('Verify the Products which are sold at offer price are displayed in the Special Offers page', () => {
         //TC_SPO_003
 
-        //visit the Homepage
-        cy.visit(baseUrl);
 
         //Click on 'Specials' footer link 
         cy.get('footer').contains('Specials').click();
@@ -64,8 +64,6 @@ describe('Special Offers', () => {
     it('Verify viewing the Products in Special Offers page in List view', () => {
         //TC_SPO_004
 
-        //visit the Homepage
-        cy.visit(baseUrl);
 
         //Click on 'Specials' footer link 
         cy.get('footer').contains('Specials').click();
@@ -84,8 +82,6 @@ describe('Special Offers', () => {
     it('Verify viewing the Products in Special Offers page in Grid view', () => {
         //TC_SPO_005
 
-        //visit the Homepage
-        cy.visit(baseUrl);
 
         //Click on 'Specials' footer link 
         cy.get('footer').contains('Specials').click();
@@ -104,8 +100,6 @@ describe('Special Offers', () => {
     it('Verify Product Compare link in the Special Offers page', () => {
         //TC_SPO_006
 
-        //visit the Homepage
-        cy.visit(baseUrl);
 
         //Click on 'Specials' footer link 
         cy.get('footer').contains('Specials').click();
@@ -126,8 +120,6 @@ describe('Special Offers', () => {
     it('Verify Sorting the Products in the Special Offers page using Sort By field', () => {
         //TC_SPO_007
 
-        //visit the Homepage
-        cy.visit(baseUrl);
 
         //Click on 'Specials' footer link 
         cy.get('footer').contains('Specials').click();
@@ -150,8 +142,6 @@ describe('Special Offers', () => {
     it('Verify adding the Product to Wish List from the Special Offers page', () => {
         //TC_SPO_010
 
-        //visit the Homepage
-        cy.visit(baseUrl);
 
         //Click on "My Account" dropmenu
         cy.get('.caret').click();
@@ -164,8 +154,8 @@ describe('Special Offers', () => {
         cy.get('h2').contains('Returning Customer').should('be.visible');
 
         //Type in the login details and click Login button
-        cy.get('#input-email').type('bunductesteaza+1@gmail.com');
-        cy.get('#input-password').type('123456789');
+        cy.get('#input-email').type(email);
+        cy.get('#input-password').type(password);
         cy.get('form > .btn').click();
 
         //Click on 'Specials' footer link 
@@ -182,8 +172,6 @@ describe('Special Offers', () => {
     it('Verify adding the Product for Comparison from the Special Offers page', () => {
         //TC_SPO_011
 
-        //visit the Homepage
-        cy.visit(baseUrl);
 
         //Click on "My Account" dropmenu
         cy.get('.caret').click();
@@ -196,8 +184,8 @@ describe('Special Offers', () => {
         cy.get('h2').contains('Returning Customer').should('be.visible');
 
         //Type in the login details and click Login button
-        cy.get('#input-email').type('bunductesteaza+1@gmail.com');
-        cy.get('#input-password').type('123456789');
+        cy.get('#input-email').type(email);
+        cy.get('#input-password').type(password);
         cy.get('form > .btn').click();
 
         //Click on 'Specials' footer link 
@@ -213,8 +201,6 @@ describe('Special Offers', () => {
     it('Verify User is navigating to Product Display Page from Special Offers page', () => {
         //TC_SPO_012
 
-        //visit the Homepage
-        cy.visit(baseUrl);
 
         //Click on 'Specials' footer link 
         cy.get('footer').contains('Specials').click();
@@ -231,8 +217,6 @@ describe('Special Offers', () => {
     it('Verify the Breadcrumb of Special Offers page', () => {
         //TC_SPO_013
 
-        //visit the Homepage
-        cy.visit(baseUrl);
 
         //Click on 'Specials' footer link 
         cy.get('footer').contains('Specials').click();
@@ -245,16 +229,14 @@ describe('Special Offers', () => {
     it('Verify the Page URL, Page Heading and Page Title of Special Offers page', () => {
         //TC_SPO_014
 
-        //visit the Homepage
-        cy.visit(baseUrl);
 
         //Click on 'Specials' footer link 
         cy.get('footer').contains('Specials').click();
 
         //Check that Correct Page URL, Page Heading and Page Title should be displayed in the 'Special Offers' page
         cy.get('h2').contains('Special Offers').should('be.visible');
-         cy.url().should('contain', '/index.php?route=product/special');
-         cy.title().should('eq', 'Special Offers');
+        cy.url().should('contain', '/index.php?route=product/special');
+        cy.title().should('eq', 'Special Offers');
 
 
 

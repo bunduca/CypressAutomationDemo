@@ -3,6 +3,9 @@
 
 const { baseUrl } = Cypress.config();
 const picture = 'samy.jpg'
+import tutorialNinjaUserDetails from "../../fixtures/tutorialNinjaUserDetails.json"
+const { email, password } = tutorialNinjaUserDetails
+
 describe('My Account Information', () => {
 
     beforeEach(() => {
@@ -10,14 +13,14 @@ describe('My Account Information', () => {
         //Hook that is executed before the start of each test case
         cy.clearAllCookies();
         sessionStorage.clear();
-    })
 
+        //visit the Homepage
+        cy.visit(baseUrl);
+    })
 
     it('Verify navigating to My Account Information page from My Account page', () => {
         //TC_MAI_001
 
-        //visit the Homepage
-        cy.visit(baseUrl);
 
         //Click on "My Account" dropmenu
         cy.get('.caret').click();
@@ -30,8 +33,8 @@ describe('My Account Information', () => {
         cy.get('h2').contains('Returning Customer').should('be.visible');
 
         //Type in the login details and click Login button
-        cy.get('#input-email').type('bunductesteaza+1@gmail.com');
-        cy.get('#input-password').type('123456789');
+        cy.get('#input-email').type(email);
+        cy.get('#input-password').type(password);
         cy.get('form > .btn').click();
 
         // Click on 'My Account' dropmenu
@@ -51,8 +54,6 @@ describe('My Account Information', () => {
     it('Verify navigating to My Account Information page using Edit Account Right column option', () => {
         //TC_MAI_002
 
-        //visit the Homepage
-        cy.visit(baseUrl);
 
         //Click on "My Account" dropmenu
         cy.get('.caret').click();
@@ -65,8 +66,8 @@ describe('My Account Information', () => {
         cy.get('h2').contains('Returning Customer').should('be.visible');
 
         //Type in the login details and click Login button
-        cy.get('#input-email').type('bunductesteaza+1@gmail.com');
-        cy.get('#input-password').type('123456789');
+        cy.get('#input-email').type(email);
+        cy.get('#input-password').type(password);
         cy.get('form > .btn').click();
 
         // Click on 'My Account' dropmenu
@@ -86,8 +87,6 @@ describe('My Account Information', () => {
     it('Verify navigating to My Account Information page from Site Map page', () => {
         //TC_MAI_003
 
-        //visit the Homepage
-        cy.visit(baseUrl);
 
         //Click on "My Account" dropmenu
         cy.get('.caret').click();
@@ -100,8 +99,8 @@ describe('My Account Information', () => {
         cy.get('h2').contains('Returning Customer').should('be.visible');
 
         //Type in the login details and click Login button
-        cy.get('#input-email').type('bunductesteaza+1@gmail.com');
-        cy.get('#input-password').type('123456789');
+        cy.get('#input-email').type(email);
+        cy.get('#input-password').type(password);
         cy.get('form > .btn').click();
 
         //Click on 'Site Map' footer option
@@ -118,8 +117,6 @@ describe('My Account Information', () => {
     it('Verify updating the Account Details in the My Account Information page', () => {
         //TC_MAI_004
 
-        //visit the Homepage
-        cy.visit(baseUrl);
 
         //Click on "My Account" dropmenu
         cy.get('.caret').click();
@@ -132,8 +129,8 @@ describe('My Account Information', () => {
         cy.get('h2').contains('Returning Customer').should('be.visible');
 
         //Type in the login details and click Login button
-        cy.get('#input-email').type('bunductesteaza+1@gmail.com');
-        cy.get('#input-password').type('123456789');
+        cy.get('#input-email').type(email);
+        cy.get('#input-password').type(password);
         cy.get('form > .btn').click();
 
         // Click on 'My Account' dropmenu
@@ -148,7 +145,7 @@ describe('My Account Information', () => {
         //Update all the details in the fields - First  Name, Last Name, E-Mail and Telephone
         cy.get('#input-firstname').clear().type('Ionescu');
         cy.get('#input-lastname').clear().type('Ioana');
-        cy.get('#input-email').clear().type('bunductesteaza+1@gmail.com');
+        cy.get('#input-email').clear().type(email);
         cy.get('#input-telephone').clear().type('012345678900');
 
         //Click on 'Continue' buttton 
@@ -164,15 +161,13 @@ describe('My Account Information', () => {
         //Check that all the account details are updated
         cy.get('#input-firstname').contains('Ionescu').should('be.visible');
         cy.get('#input-lastname').contains('Ioana').should('be.visible');
-        cy.get('#input-email').contains('bunductesteaza+1@gmail.com').should('be.visible');
+        cy.get('#input-email').contains(email).should('be.visible');
         cy.get('#input-telephone').contains('012345678900').should('be.visible');
     })
 
     it('Verify making all the fields in the My Account Information page empty and update ', () => {
         //TC_MAI_005
 
-        //visit the Homepage
-        cy.visit(baseUrl);
 
         //Click on "My Account" dropmenu
         cy.get('.caret').click();
@@ -185,8 +180,8 @@ describe('My Account Information', () => {
         cy.get('h2').contains('Returning Customer').should('be.visible');
 
         //Type in the login details and click Login button
-        cy.get('#input-email').type('bunductesteaza+1@gmail.com');
-        cy.get('#input-password').type('123456789');
+        cy.get('#input-email').type(email);
+        cy.get('#input-password').type(password);
         cy.get('form > .btn').click();
 
         // Click on 'My Account' dropmenu
@@ -217,8 +212,6 @@ describe('My Account Information', () => {
     it('Verify all the fields in the My Account Information page have placeholders', () => {
         //TC_MAI_006
 
-        //visit the Homepage
-        cy.visit(baseUrl);
 
         //Click on "My Account" dropmenu
         cy.get('.caret').click();
@@ -231,8 +224,8 @@ describe('My Account Information', () => {
         cy.get('h2').contains('Returning Customer').should('be.visible');
 
         //Type in the login details and click Login button
-        cy.get('#input-email').type('bunductesteaza+1@gmail.com');
-        cy.get('#input-password').type('123456789');
+        cy.get('#input-email').type(email);
+        cy.get('#input-password').type(password);
         cy.get('form > .btn').click();
 
         // Click on 'My Account' dropmenu
@@ -260,8 +253,6 @@ describe('My Account Information', () => {
     it('Verifty Back button in the My Acccount Information page', () => {
         //TC_MAI_009
 
-        //visit the Homepage
-        cy.visit(baseUrl);
 
         //Click on "My Account" dropmenu
         cy.get('.caret').click();
@@ -274,8 +265,8 @@ describe('My Account Information', () => {
         cy.get('h2').contains('Returning Customer').should('be.visible');
 
         //Type in the login details and click Login button
-        cy.get('#input-email').type('bunductesteaza+1@gmail.com');
-        cy.get('#input-password').type('123456789');
+        cy.get('#input-email').type(email);
+        cy.get('#input-password').type(password);
         cy.get('form > .btn').click();
 
         // Click on 'My Account' dropmenu
@@ -290,7 +281,7 @@ describe('My Account Information', () => {
         //Update the fields in the 'My Account Information' page 
         cy.get('#input-firstname').clear().type('Popescu');
         cy.get('#input-lastname').clear().type('Elena');
-        cy.get('#input-email').clear().type('bunductesteaza+1@gmail.com');
+        cy.get('#input-email').clear().type(email);
         cy.get('#input-telephone').clear().type('0123456789');
 
         //Click on 'Back' button
@@ -308,15 +299,13 @@ describe('My Account Information', () => {
         cy.get('.breadcrumb').contains('Edit Information').should('be.visible');
         cy.get('input[name=firstname]').should('have.value', 'Ionescu');
         cy.get('input[name=lastname]').should('have.value', 'Ioana');
-        cy.get('input[name=email]').should('have.value', 'bunductesteaza+1@gmail.com');
+        cy.get('input[name=email]').should('have.value', email);
         cy.get('input[name=telephone]').should('have.value', '012345678900');
     })
 
     it('Verifty Back button in the My Acccount Information page', () => {
         //TC_MAI_010
 
-        //visit the Homepage
-        cy.visit(baseUrl);
 
         //Click on "My Account" dropmenu
         cy.get('.caret').click();
@@ -329,8 +318,8 @@ describe('My Account Information', () => {
         cy.get('h2').contains('Returning Customer').should('be.visible');
 
         //Type in the login details and click Login button
-        cy.get('#input-email').type('bunductesteaza+1@gmail.com');
-        cy.get('#input-password').type('123456789');
+        cy.get('#input-email').type(email);
+        cy.get('#input-password').type(password);
         cy.get('form > .btn').click();
 
         // Click on 'My Account' dropmenu
@@ -344,7 +333,7 @@ describe('My Account Information', () => {
 
         //Check the Breadcrumb in the displayed 'My Account Information' page
         cy.get('.breadcrumb').contains('Edit Information').should('be.visible');
-        
+
         //Check that Breadcrumb is working properly
         cy.get('.breadcrumb').contains('Account').click();
 
@@ -355,8 +344,6 @@ describe('My Account Information', () => {
     it('Verify Page Heading, Page Title and Page URL in the My Account Information page', () => {
         //TC_MAI_011
 
-        //visit the Homepage
-        cy.visit(baseUrl);
 
         //Click on "My Account" dropmenu
         cy.get('.caret').click();
@@ -369,8 +356,8 @@ describe('My Account Information', () => {
         cy.get('h2').contains('Returning Customer').should('be.visible');
 
         //Type in the login details and click Login button
-        cy.get('#input-email').type('bunductesteaza+1@gmail.com');
-        cy.get('#input-password').type('123456789');
+        cy.get('#input-email').type(email);
+        cy.get('#input-password').type(password);
         cy.get('form > .btn').click();
 
         // Click on 'My Account' dropmenu
@@ -388,5 +375,5 @@ describe('My Account Information', () => {
         cy.get('#content').contains('My Account Information').should('be.visible');
 
 
-})  
+    })
 })

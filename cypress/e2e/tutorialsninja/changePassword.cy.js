@@ -1,8 +1,10 @@
 /// <reference types="cypress" />
 
-
 const { baseUrl } = Cypress.config();
 const picture = 'samy.jpg'
+import tutorialNinjaUserDetails from "../../fixtures/tutorialNinjaUserDetails.json"
+const { email, password } = tutorialNinjaUserDetails
+
 describe('Change Password', () => {
 
     beforeEach(() => {
@@ -10,14 +12,14 @@ describe('Change Password', () => {
         //Hook that is executed before the start of each test case
         cy.clearAllCookies();
         sessionStorage.clear();
-    })
-
-
-    it('Verify navigating to Change Password page from My Account page', () => {
-        //TC_CP_001
 
         //visit the Homepage
         cy.visit(baseUrl);
+
+    })
+
+    it('Verify navigating to Change Password page from My Account page', () => {
+        //TC_CP_001
 
         //Click on "My Account" dropmenu
         cy.get('.caret').click();
@@ -30,8 +32,8 @@ describe('Change Password', () => {
         cy.get('h2').contains('Returning Customer').should('be.visible');
 
         //Type in the login details and click Login button
-        cy.get('#input-email').type('bunductesteaza+1@gmail.com');
-        cy.get('#input-password').type('123456789');
+        cy.get('#input-email').type(email);
+        cy.get('#input-password').type(password);
         cy.get('form > .btn').click();
 
         // Click on 'My Account' dropmenu
@@ -51,9 +53,6 @@ describe('Change Password', () => {
     it('Verify navigating to Change Password page using Password Right column option', () => {
         //TC_CP_002
 
-        //visit the Homepage
-        cy.visit(baseUrl);
-
         //Click on "My Account" dropmenu
         cy.get('.caret').click();
 
@@ -65,8 +64,8 @@ describe('Change Password', () => {
         cy.get('h2').contains('Returning Customer').should('be.visible');
 
         //Type in the login details and click Login button
-        cy.get('#input-email').type('bunductesteaza+1@gmail.com');
-        cy.get('#input-password').type('123456789');
+        cy.get('#input-email').type(email);
+        cy.get('#input-password').type(password);
         cy.get('form > .btn').click();
 
         // Click on 'My Account' dropmenu
@@ -86,9 +85,6 @@ describe('Change Password', () => {
     it('Verify navigating to Change Password page from Site Map page', () => {
         //TC_CP_003
 
-        //visit the Homepage
-        cy.visit(baseUrl);
-
         //Click on "My Account" dropmenu
         cy.get('.caret').click();
 
@@ -100,8 +96,8 @@ describe('Change Password', () => {
         cy.get('h2').contains('Returning Customer').should('be.visible');
 
         //Type in the login details and click Login button
-        cy.get('#input-email').type('bunductesteaza+1@gmail.com');
-        cy.get('#input-password').type('123456789');
+        cy.get('#input-email').type(email);
+        cy.get('#input-password').type(password);
         cy.get('form > .btn').click();
 
         // Click on 'My Account' dropmenu
@@ -119,9 +115,9 @@ describe('Change Password', () => {
         //Check that user is navigated to 'Change Password' page
         cy.get('#content > h1').contains('Change Password').should('be.visible');
         cy.get('.breadcrumb').should('be.visible').contains('Change Password').should('be.visible');
-    
 
-    
+
+
 
     })
 })

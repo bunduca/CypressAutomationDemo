@@ -3,6 +3,9 @@
 
 const { baseUrl } = Cypress.config();
 const picture = 'samy.jpg'
+import tutorialNinjaUserDetails from "../../fixtures/tutorialNinjaUserDetails.json"
+const { email, password } = tutorialNinjaUserDetails
+
 describe('Header Menu Footer Options', () => {
 
     beforeEach(() => {
@@ -10,13 +13,13 @@ describe('Header Menu Footer Options', () => {
         //Hook that is executed before the start of each test case
         cy.clearAllCookies();
         sessionStorage.clear();
+
+        //visit the Homepage
+        cy.visit(baseUrl);
     })
 
     it('Verify correct Phone number is displayed for the Contact Us Header option', () => {
         //TC_HMF_001
-
-        //visit the Homepage
-        cy.visit(baseUrl);
 
         //Click the 'Contact Us' icon header option
         cy.get('#top > .container').contains('123456789').should('be.visible');
@@ -24,9 +27,6 @@ describe('Header Menu Footer Options', () => {
 
     it('Verify Currency header option is displayed with the required list of Currencies', () => {
         //TC_HMF_002
-
-        //visit the Homepage
-        cy.visit(baseUrl);
 
         //Click on the 'Currency' header option
         cy.get('.fa').eq(0).click();
@@ -42,9 +42,6 @@ describe('Header Menu Footer Options', () => {
     it('Verify About Us Footer link', () => {
         //TC_HMF_005
 
-        //visit the Homepage
-        cy.visit(baseUrl);
-
         //Click on 'About Us' Footer link
         cy.get('footer').contains('About Us').should('be.visible').click();
 
@@ -55,9 +52,6 @@ describe('Header Menu Footer Options', () => {
 
     it('Verify Delivery Information Footer link', () => {
         //TC_HMF_006
-
-        //visit the Homepage
-        cy.visit(baseUrl);
 
         //Click on 'Delivery Information' Footer link
         cy.get('footer').contains('Delivery Information').should('be.visible').click();
@@ -70,9 +64,6 @@ describe('Header Menu Footer Options', () => {
     it('Verify Privacy Policy Footer link', () => {
         //TC_HMF_007
 
-        //visit the Homepage
-        cy.visit(baseUrl);
-
         //Click on 'Privacy Policy' Footer link
         cy.get('footer').contains('Privacy Policy').should('be.visible').click();
 
@@ -84,9 +75,6 @@ describe('Header Menu Footer Options', () => {
     it('Verify Terms & Conditions Footer link', () => {
         //TC_HMF_008
 
-        //visit the Homepage
-        cy.visit(baseUrl);
-
         //Click on 'Terms & Conditions' Footer link
         cy.get('footer').contains('Terms & Conditions').should('be.visible').click();
 
@@ -97,9 +85,6 @@ describe('Header Menu Footer Options', () => {
 
     it('Verify Brands Footer link', () => {
         //TC_HMF_009
-
-        //visit the Homepage
-        cy.visit(baseUrl);
 
         //Click on 'Brands' Footer link
         cy.get('footer').contains('Brands').should('be.visible').click();
@@ -120,9 +105,6 @@ describe('Header Menu Footer Options', () => {
     it('Verify viewing the Products in Brand page in List view', () => {
         //TC_HMF_010
 
-        //visit the Homepage
-        cy.visit(baseUrl);
-
         //Click on 'Brands' Footer link
         cy.get('footer').contains('Brands').should('be.visible').click();
 
@@ -140,9 +122,6 @@ describe('Header Menu Footer Options', () => {
     it('Verify viewing the Products in Brand page in Grid view', () => {
         //TC_HMF_011
 
-        //visit the Homepage
-        cy.visit(baseUrl);
-
         //Click on 'Brands' Footer link
         cy.get('footer').contains('Brands').should('be.visible').click();
 
@@ -158,9 +137,6 @@ describe('Header Menu Footer Options', () => {
 
     it('Verify Product Compare link in the Brand page', () => {
         //TC_HMF_012
-
-        //visit the Homepage
-        cy.visit(baseUrl);
 
         //Click on 'Brands' Footer link
         cy.get('footer').contains('Brands').should('be.visible').click();
@@ -182,9 +158,6 @@ describe('Header Menu Footer Options', () => {
     it('Verify adding the Product to Wish List from the Brand page', () => {
         //TC_HMF_016
 
-        //visit the Homepage
-        cy.visit(baseUrl);
-
         //Click on 'Brands' Footer link
         cy.get('footer').contains('Brands').should('be.visible').click();
 
@@ -202,9 +175,6 @@ describe('Header Menu Footer Options', () => {
     it('Verify adding the Product for Comparison from the Brand page', () => {
         //TC_HMF_017
 
-        //visit the Homepage
-        cy.visit(baseUrl);
-
         //Click on 'Brands' Footer link
         cy.get('footer').contains('Brands').should('be.visible').click();
 
@@ -216,13 +186,10 @@ describe('Header Menu Footer Options', () => {
 
         //Check that success message is displayed
         cy.get('.alert').contains('Success: You have added Apple Cinema 30" to your product comparison!').should('be.visible');
-    }) 
+    })
 
     it('Verify User is navigating to Product Display Page from Brand page', () => {
         //TC_HMF_018
-
-        //visit the Homepage
-        cy.visit(baseUrl);
 
         //Click on 'Brands' Footer link
         cy.get('footer').contains('Brands').should('be.visible').click();
@@ -236,5 +203,5 @@ describe('Header Menu Footer Options', () => {
         //Check that User is taken to the 'Product Display Page' of the Product
         cy.get('#product-product').contains('Apple Cinema 30"').should('be.visible');
         cy.get('.breadcrumb').contains('Apple Cinema 30"').should('be.visible');
-}) 
+    })
 })

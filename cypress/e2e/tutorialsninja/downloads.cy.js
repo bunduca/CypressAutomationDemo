@@ -3,16 +3,23 @@
 
 const { baseUrl } = Cypress.config();
 const picture = 'samy.jpg'
+import tutorialNinjaUserDetails from "../../fixtures/tutorialNinjaUserDetails.json"
+const { email, password } = tutorialNinjaUserDetails
+
 describe('Downloads', () => {
 
-
-
-
-    it('Verify navigating to Account Downloads page from My Account page', () => {
-        //TC_DL_001
+    beforeEach(() => {
+        //Clear cookies and session storage (so that we are no longer logged in from previous test)
+        //Hook that is executed before the start of each test case
+        cy.clearAllCookies();
+        sessionStorage.clear();
 
         //visit the Homepage
         cy.visit(baseUrl);
+    })
+
+    it('Verify navigating to Account Downloads page from My Account page', () => {
+        //TC_DL_001
 
         //Click on "My Account" dropmenu
         cy.get('.caret').click();
@@ -25,8 +32,8 @@ describe('Downloads', () => {
         cy.get('h2').contains('Returning Customer').should('be.visible');
 
         //Type in the login details and click Login button
-        cy.get('#input-email').type('bunductesteaza+1@gmail.com');
-        cy.get('#input-password').type('123456789');
+        cy.get('#input-email').type(email);
+        cy.get('#input-password').type(password);
         cy.get('form > .btn').click();
 
         //Verify successfull login and redirect to My Account page
@@ -43,9 +50,6 @@ describe('Downloads', () => {
     it('Verify navigating to Account Downloads page from My Account dropmenu', () => {
         //TC_DL_002
 
-        //visit the Homepage
-        cy.visit(baseUrl);
-
         //Click on "My Account" dropmenu
         cy.get('.caret').click();
 
@@ -57,8 +61,8 @@ describe('Downloads', () => {
         cy.get('h2').contains('Returning Customer').should('be.visible');
 
         //Type in the login details and click Login button
-        cy.get('#input-email').type('bunductesteaza+1@gmail.com');
-        cy.get('#input-password').type('123456789');
+        cy.get('#input-email').type(email);
+        cy.get('#input-password').type(password);
         cy.get('form > .btn').click();
 
         // Click on 'My Account' dropmenu
@@ -75,9 +79,6 @@ describe('Downloads', () => {
     it('Verify navigating to Account Downloads page using Downloads Right Column option', () => {
         //TC_DL_003
 
-        //visit the Homepage
-        cy.visit(baseUrl);
-
         //Click on "My Account" dropmenu
         cy.get('.caret').click();
 
@@ -89,8 +90,8 @@ describe('Downloads', () => {
         cy.get('h2').contains('Returning Customer').should('be.visible');
 
         //Type in the login details and click Login button
-        cy.get('#input-email').type('bunductesteaza+1@gmail.com');
-        cy.get('#input-password').type('123456789');
+        cy.get('#input-email').type(email);
+        cy.get('#input-password').type(password);
         cy.get('form > .btn').click();
 
         // Click on 'My Account' dropmenu
@@ -111,9 +112,6 @@ describe('Downloads', () => {
     it('Verify navigating to Account Downloads page from Site Map page', () => {
         //TC_DL_004
 
-        //visit the Homepage
-        cy.visit(baseUrl);
-
         //Click on "My Account" dropmenu
         cy.get('.caret').click();
 
@@ -125,8 +123,8 @@ describe('Downloads', () => {
         cy.get('h2').contains('Returning Customer').should('be.visible');
 
         //Type in the login details and click Login button
-        cy.get('#input-email').type('bunductesteaza+1@gmail.com');
-        cy.get('#input-password').type('123456789');
+        cy.get('#input-email').type(email);
+        cy.get('#input-password').type(password);
         cy.get('form > .btn').click();
 
         //Click on 'Site Map' footer option
@@ -143,9 +141,6 @@ describe('Downloads', () => {
     it('Verify navigating to Account Downloads page from Right Column options before logging into the Application', () => {
         //TC_DL_005
 
-        //visit the Homepage
-        cy.visit(baseUrl);
-
         //Click on "My Account" dropmenu
         cy.get('.caret').click();
 
@@ -160,16 +155,12 @@ describe('Downloads', () => {
         cy.get('#column-right').contains('Downloads').click();
 
         //Enter the credentials and click on 'Login' button
-        cy.get('#input-email').type('bunductesteaza+1@gmail.com');
-        cy.get('#input-password').type('123456789');
+        cy.get('#input-email').type(email);
+        cy.get('#input-password').type(password);
         cy.get('form > .btn').click();
 
         //Check that User is taken to the 'Account Downloads' page
         cy.get('h2').contains('Account Downloads').should('be.visible');
         cy.get('.breadcrumb').contains('Downloads').should('be.visible');
-
-
-
-
     })
 })

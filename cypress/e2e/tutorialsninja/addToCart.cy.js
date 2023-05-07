@@ -1,18 +1,24 @@
 /// <reference types="cypress" />
 
-
 const { baseUrl } = Cypress.config();
 const picture = 'samy.jpg'
+import tutorialNinjaUserDetails from "../../fixtures/tutorialNinjaUserDetails.json"
+const { email, password } = tutorialNinjaUserDetails
+
 describe('Add to Cart', () => {
 
-
-
-
-    it('Verify adding the product to Cart from Product Display Page', () => {
-        //TC_ATC_001
+    beforeEach(() => {
+        //Clear cookies and session storage (so that we are no longer logged in from previous test)
+        //Hook that is executed before the start of each test case
+        cy.clearAllCookies();
+        sessionStorage.clear();
 
         //visit the Homepage
         cy.visit(baseUrl);
+    })
+
+    it('Verify adding the product to Cart from Product Display Page', () => {
+        //TC_ATC_001
 
         //Click on "My Account" dropmenu
         cy.get('.caret').click();
@@ -25,8 +31,8 @@ describe('Add to Cart', () => {
         cy.get('h2').contains('Returning Customer').should('be.visible');
 
         //Type in the login details and click Login button
-        cy.get('#input-email').type('bunductesteaza+1@gmail.com');
-        cy.get('#input-password').type('123456789');
+        cy.get('#input-email').type(email);
+        cy.get('#input-password').type(password);
         cy.get('form > .btn').click();
 
         //Enter any existing Product name into the Search text box field and click Search button
@@ -52,9 +58,6 @@ describe('Add to Cart', () => {
     it('Verify adding the product to Cart from Wish List Page', () => {
         //TC_ATC_002
 
-        //visit the Homepage
-        cy.visit(baseUrl);
-
         //Click on "My Account" dropmenu
         cy.get('.caret').click();
 
@@ -66,8 +69,8 @@ describe('Add to Cart', () => {
         cy.get('h2').contains('Returning Customer').should('be.visible');
 
         //Type in the login details and click Login button
-        cy.get('#input-email').type('bunductesteaza+1@gmail.com');
-        cy.get('#input-password').type('123456789');
+        cy.get('#input-email').type(email);
+        cy.get('#input-password').type(password);
         cy.get('form > .btn').click();
 
         //Click on 'Wish List' header option 
@@ -89,9 +92,6 @@ describe('Add to Cart', () => {
     it('Verify adding the product to Cart from Search Results Page', () => {
         //TC_ATC_003
 
-        //visit the Homepage
-        cy.visit(baseUrl);
-
         //Click on "My Account" dropmenu
         cy.get('.caret').click();
 
@@ -103,8 +103,8 @@ describe('Add to Cart', () => {
         cy.get('h2').contains('Returning Customer').should('be.visible');
 
         //Type in the login details and click Login button
-        cy.get('#input-email').type('bunductesteaza+1@gmail.com');
-        cy.get('#input-password').type('123456789');
+        cy.get('#input-email').type(email);
+        cy.get('#input-password').type(password);
         cy.get('form > .btn').click();
 
         //Enter any existing Product name into the Search text box field and click Search button
@@ -127,9 +127,6 @@ describe('Add to Cart', () => {
     it('Verify adding the product to Cart from the Related Products section of the Product Display Page', () => {
         //TC_ATC_004
 
-        //visit the Homepage
-        cy.visit(baseUrl);
-
         //Click on "My Account" dropmenu
         cy.get('.caret').click();
 
@@ -141,8 +138,8 @@ describe('Add to Cart', () => {
         cy.get('h2').contains('Returning Customer').should('be.visible');
 
         //Type in the login details and click Login button
-        cy.get('#input-email').type('bunductesteaza+1@gmail.com');
-        cy.get('#input-password').type('123456789');
+        cy.get('#input-email').type(email);
+        cy.get('#input-password').type(password);
         cy.get('form > .btn').click();
 
         //Enter any existing Product name into the Search text box field and click Search button
@@ -168,9 +165,6 @@ describe('Add to Cart', () => {
     it('Verify adding the product to Cart from the Products displayed in the category or sub-category page', () => {
         //TC_ATC_005
 
-        //visit the Homepage
-        cy.visit(baseUrl);
-
         //Click on "My Account" dropmenu
         cy.get('.caret').click();
 
@@ -182,8 +176,8 @@ describe('Add to Cart', () => {
         cy.get('h2').contains('Returning Customer').should('be.visible');
 
         //Type in the login details and click Login button
-        cy.get('#input-email').type('bunductesteaza+1@gmail.com');
-        cy.get('#input-password').type('123456789');
+        cy.get('#input-email').type(email);
+        cy.get('#input-password').type(password);
         cy.get('form > .btn').click();
 
         //Click on 'Desktops' menu option
@@ -208,9 +202,6 @@ describe('Add to Cart', () => {
     it('Verify adding the product to Cart from the Products displayed in the Featured section of Home page', () => {
         //TC_ATC_006
 
-        //visit the Homepage
-        cy.visit(baseUrl);
-
         //Click on "My Account" dropmenu
         cy.get('.caret').click();
 
@@ -222,8 +213,8 @@ describe('Add to Cart', () => {
         cy.get('h2').contains('Returning Customer').should('be.visible');
 
         //Type in the login details and click Login button
-        cy.get('#input-email').type('bunductesteaza+1@gmail.com');
-        cy.get('#input-password').type('123456789');
+        cy.get('#input-email').type(email);
+        cy.get('#input-password').type(password);
         cy.get('form > .btn').click();
 
         //Go to Homepage
@@ -232,21 +223,18 @@ describe('Add to Cart', () => {
         //Click on 'Add to Cart' button on the product that is displayed in the 'Featured' section of the Home page
         cy.get('button').eq(10).click();
 
-         //Check that success message with text - 'Success: You have added Product Name to your shopping cart!' is displayed
-         cy.get('.alert').contains('Success: You have added MacBook to your shopping cart!').should('be.visible');
+        //Check that success message with text - 'Success: You have added Product Name to your shopping cart!' is displayed
+        cy.get('.alert').contains('Success: You have added MacBook to your shopping cart!').should('be.visible');
 
-         //Click on the 'shopping cart!' link in the displayed success message
-         cy.get('.alert').contains('shopping cart').click();
- 
-         //Check that product is successfully displayed in the 'Shopping Cart' page
-         cy.get('.table-responsive').contains('MacBook').should('be.visible');
-        })
+        //Click on the 'shopping cart!' link in the displayed success message
+        cy.get('.alert').contains('shopping cart').click();
 
-        it('Verify adding the product to Cart from Product Comparison Page', () => {
-            //TC_ATC_007
+        //Check that product is successfully displayed in the 'Shopping Cart' page
+        cy.get('.table-responsive').contains('MacBook').should('be.visible');
+    })
 
-             //visit the Homepage
-        cy.visit(baseUrl);
+    it('Verify adding the product to Cart from Product Comparison Page', () => {
+        //TC_ATC_007
 
         //Click on "My Account" dropmenu
         cy.get('.caret').click();
@@ -259,8 +247,8 @@ describe('Add to Cart', () => {
         cy.get('h2').contains('Returning Customer').should('be.visible');
 
         //Type in the login details and click Login button
-        cy.get('#input-email').type('bunductesteaza+1@gmail.com');
-        cy.get('#input-password').type('123456789');
+        cy.get('#input-email').type(email);
+        cy.get('#input-password').type(password);
         cy.get('form > .btn').click();
 
         //Enter any existing Product name into the Search text box field and click Search button
@@ -283,7 +271,7 @@ describe('Add to Cart', () => {
 
         //Click on the 'shopping cart!' link in the displayed success message
         cy.get('.alert').contains('shopping cart').click();
- 
+
         //Check that product is successfully displayed in the 'Shopping Cart' page
         cy.get('.table-responsive').contains('iMac').should('be.visible');
 
