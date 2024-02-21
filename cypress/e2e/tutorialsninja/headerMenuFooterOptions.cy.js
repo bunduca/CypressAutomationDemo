@@ -13,6 +13,7 @@ describe('Header Menu Footer Options', () => {
         //Hook that is executed before the start of each test case
         cy.clearAllCookies();
         sessionStorage.clear();
+        cy.viewport(1920,1080);
 
         //visit the Homepage
         cy.visit(baseUrl);
