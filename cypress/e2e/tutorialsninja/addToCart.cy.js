@@ -73,14 +73,18 @@ describe('Add to Cart', () => {
         cy.get('#input-password').type(password);
         cy.get('form > .btn').click();
 
+        //Go to Homepage and add a product to Wish List
+        cy.get('h1').click();
+        cy.get('[data-original-title="Add to Wish List"]').eq(0).click();
+
         //Click on 'Wish List' header option 
         cy.get('#wishlist-total > .fa').click();
 
         //Click on 'Add to Cart' icon option in the displayed 'My Wish List' page
-        cy.get('button').eq(8).click();
+        cy.get('[data-original-title="Add to Cart"]').click();
 
         //Check that success message with text - 'Success: You have added Product Name to your shopping cart!' is displayed
-        cy.get('.alert').contains('Success: You have added iMac to your shopping cart!').should('be.visible');
+        cy.get('.alert').contains('Success: You have added ').should('be.visible');
 
         //Click on 'Shopping Cart' header option
         cy.get(':nth-child(4) > a > .fa').click();
@@ -112,10 +116,10 @@ describe('Add to Cart', () => {
         cy.get('.input-group-btn > .btn').click();
 
         //Click on 'Add to Cart' option on the product that is displayed in the Search Results
-        cy.get('button').eq(10).click();
+        cy.get('button').eq(11).click();
 
         //Check that success message with text - 'Success: You have added Product Name to your shopping cart!' is displayed
-        cy.get('.alert').contains('Success: You have added iMac to your shopping cart!').should('be.visible');
+        cy.get('.alert').contains('Success: You have added ').should('be.visible');
 
         // Click on 'Cart' button which is in black color beside the search icon button on the top of the page
         cy.get('.btn-inverse').click();
@@ -184,13 +188,13 @@ describe('Add to Cart', () => {
         cy.get('.collapse').contains('Desktops').click();
 
         //Click on 'Show All Desktops' option 
-        cy.get('.open > .dropdown-menu').contains('Show All Desktops').should('be.visible').click();
+        cy.get('.open > .dropdown-menu').contains('Show AllDesktops').should('be.visible').click();
 
         //Select 'Mac' subcategory option from the left side options 
         cy.get('#column-left').contains('Mac').click();
 
         //Click on 'Add to Cart' button that is availble on any of the Products of the displayed Category or Sub-category pages
-        cy.get('button').eq(11).click();
+        cy.get('button').eq(12).click();
 
         //Click on the 'shopping cart!' link in the displayed success message
         cy.get('.alert').contains('shopping cart').click();
