@@ -56,7 +56,7 @@ describe('Home Page', () => {
         cy.get('.pull-left > .btn').click();
 
         //Check that User is taken to 'Home' Page
-        cy.get('h1 > a').contains('Your Store').should('be.visible');
+        cy.get('h1 > a').contains('Qafox').should('be.visible');
         cy.url().should('contain', '/index.php?route=common/home');
         cy.title().should('eq', 'Your Store');
     })
@@ -93,7 +93,7 @@ describe('Home Page', () => {
         cy.get('h1 > a').click();
 
         //Check that User is taken to 'Home' Page
-        cy.get('h1 > a').contains('Your Store').should('be.visible');
+        cy.get('h1 > a').contains('Qafox').should('be.visible');
         cy.url().should('contain', '/index.php?route=common/home');
         cy.title().should('eq', 'Your Store');
     })
@@ -111,7 +111,7 @@ describe('Home Page', () => {
         cy.get('.btn-primary').click();
 
         //Check that User is taken to 'Home' Page
-        cy.get('h1 > a').contains('Your Store').should('be.visible');
+        cy.get('h1 > a').contains('Qafox').should('be.visible');
         cy.url().should('contain', '/index.php?route=common/home');
         cy.title().should('eq', 'Your Store');
 
