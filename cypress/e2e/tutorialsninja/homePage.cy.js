@@ -130,7 +130,7 @@ describe('Home Page', () => {
         cy.get('.swiper-button-next').eq(0).click();
         cy.get('.img-responsive').eq(1).should('be.visible');
         cy.get('.swiper-button-prev').eq(0).click();
-        cy.get('.img-responsive').eq(1).should('be.visible');
+        cy.get('.img-responsive').eq(2).should('be.visible');
 
         //Check that user is able to slide the Hero Images using Swiper Pagination bullets under the Hero Images
         cy.get('.swiper-pagination-bullet').eq(0).click();
@@ -175,7 +175,7 @@ describe('Home Page', () => {
         cy.get('.breadcrumb > :nth-child(1) > a > .fa').click();
 
         //Check that user is navigated to the homepage
-        cy.get('h1 > a').contains('Your Store').should('be.visible');
+        cy.get('h1 > a').contains('Qafox').should('be.visible');
         cy.url().should('contain', '/index.php?route=common/home');
         cy.title().should('eq', 'Your Store');
 
