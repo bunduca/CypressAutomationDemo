@@ -3,6 +3,7 @@
 
 const { baseUrl } = Cypress.config();
 const picture = 'samy.jpg'
+import { it } from "mocha";
 import tutorialNinjaUserDetails from "../../fixtures/tutorialNinjaUserDetails.json"
 const { email, password } = tutorialNinjaUserDetails
 
@@ -233,10 +234,10 @@ describe('Newsletter', () => {
         cy.get('.col-sm-10 > :nth-child(1) > input').click();
 
         //Click on 'Continue' button
-        cy.get('.btn').eq(9).click();
+        cy.get('.btn').eq(11).click();
 
         //Check that Success message with text - 'Success: Your newsletter subscription has been successfully updated!' is displayed and the User is taken to 'My Account' page
-        cy.get('.alert').contains(' Success: Your newsletter subscription has been successfully updated!').should('be.visible');
+        cy.get('.alert').contains('Success: Your newsletter subscription has been successfully updated!').should('be.visible');
 
         //Check that User is taken to 'My Account' page
         cy.get('#content').contains('My Account').should('be.visible');
@@ -267,7 +268,7 @@ describe('Newsletter', () => {
         //Enter the new account details into mandatory fields only (First Name, Last Name, email, phone, password, password confirm)
         cy.get('#input-firstname').type('Dancescu');
         cy.get('#input-lastname').type('Marian');
-        cy.get('#input-email').type('testtestautomation1@gmail.com');
+        cy.get('#input-email').type('testtestautomation+1@gmail.com');
         cy.get('#input-telephone').type(password);
         cy.get('#input-password').type(password);
         cy.get('#input-confirm').type(password);
