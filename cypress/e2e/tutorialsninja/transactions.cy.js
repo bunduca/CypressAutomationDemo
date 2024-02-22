@@ -215,7 +215,7 @@ describe('Transactions', () => {
         cy.get('.breadcrumb').contains('Your Transactions').should('be.visible');
 
         //Click on 'Continue' button in the displayed 'Your Transactions' page
-        cy.get('.btn').eq(8).click();
+        cy.get('.btn').eq(10).click();
 
         //Check that User is taken to 'My Account' page
         cy.get('#content').contains('My Account').should('be.visible');
