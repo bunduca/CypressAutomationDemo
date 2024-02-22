@@ -178,7 +178,7 @@ describe('Returns', () => {
         cy.get('.breadcrumb').contains('Product Returns').should('be.visible');
 
         //Click on 'Continue' button on the displayed 'Product Returns' page
-        cy.get('.btn').eq(8).click();
+        cy.get('.btn').eq(10).click();
 
         //Check that User is taken to 'My Account' page
         cy.get('#content').contains('My Account').should('be.visible');
