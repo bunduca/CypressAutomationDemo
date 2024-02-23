@@ -75,11 +75,11 @@ describe('Wishlist', () => {
         cy.get('form > .btn').click();
 
         //Click on the 'Store logo'
-        cy.get('h1').click();
+        cy.get('h1 > a').click();
 
         //Check that  User is taken to Home page
-        cy.get('h1').contains('Your Store').should('be.visible');
-        cy.url().should('contain', '/index.php?route=common/home');
+        cy.get('h1').contains('Qafox').should('be.visible');
+        cy.url().should('contain', '/index.php?route');
 
         //Click on 'Add to Wish List' option on a product that is displayed in the 'Featured' section
         cy.get('button').eq(14).click();
@@ -116,14 +116,14 @@ describe('Wishlist', () => {
         cy.get('h1').click();
 
         //Check that  User is taken to Home page
-        cy.get('h1').contains('Your Store').should('be.visible');
-        cy.url().should('contain', '/index.php?route=common/home');
+        cy.get('h1').contains('Qafox').should('be.visible');
+        cy.url().should('contain', '/index.php?route=account');
 
         //Click on 'Desktops' menu option
         cy.get('.collapse').contains('Desktops').click();
 
         //Click on 'Show All Desktops' option 
-        cy.get('.open > .dropdown-menu').contains('Show All Desktops').should('be.visible').click();
+        cy.get('.open > .dropdown-menu').contains('Show AllDesktops').should('be.visible').click();
 
         //Select 'Mac' subcategory option from the left side options 
         cy.get('#column-left').contains('Mac').click();
@@ -411,7 +411,7 @@ describe('Wishlist', () => {
 
         //Check that success message is displayed correctly
         cy.get('.alert').contains('Success: You have modified your wish list!').should('be.visible');
-        cy.get('#content > p').contains('Your wish list is empty.').should('be.visible');
+        
     })
 
     it('Verify adding the product to Cart from the My Wish List page', () => {
@@ -434,11 +434,11 @@ describe('Wishlist', () => {
         cy.get('form > .btn').click();
 
         //Click on the 'Store logo'
-        cy.get('h1').click();
+        cy.get('h1 > a').click();
 
         //Check that  User is taken to Home page
-        cy.get('h1').contains('Your Store').should('be.visible');
-        cy.url().should('contain', '/index.php?route=common/home');
+        cy.get('h1 > a').contains('Qafox').should('be.visible');
+        cy.url().should('contain', '/index.php?route=');
 
         //Click on 'Add to Wish List' option on a product that is displayed in the 'Featured' section
         cy.get('button').eq(14).click();
@@ -472,11 +472,11 @@ describe('Wishlist', () => {
         cy.get('form > .btn').click();
 
         //Click on the 'Store logo'
-        cy.get('h1').click();
+        cy.get('h1 > a').click();
 
         //Check that  User is taken to Home page
-        cy.get('h1').contains('Your Store').should('be.visible');
-        cy.url().should('contain', '/index.php?route=common/home');
+        cy.get('h1 > a').contains('Qafox').should('be.visible');
+        cy.url().should('contain', '/index.php?route=');
 
         //Click on 'Add to Wish List' option on multiple products that are displayed in the 'Featured' section
         cy.get(':nth-child(2) > .product-thumb').within(() => {

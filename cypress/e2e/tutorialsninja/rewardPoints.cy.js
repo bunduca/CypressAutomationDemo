@@ -172,7 +172,7 @@ describe('Reward Points', () => {
         cy.get('#content > h1').contains('Your Reward Points').should('be.visible');
 
         //Click on 'Continue' button in the displayed 'Your Reward Points' page
-        cy.get('.btn').eq(8).click();
+        cy.get('.btn').eq(10).click();
 
         //Check that user is redirected to My Account Page
         cy.get('#content').contains('My Account').should('be.visible');

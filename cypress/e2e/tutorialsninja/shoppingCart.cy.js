@@ -45,7 +45,7 @@ describe('Shopping Cart', () => {
         cy.get('.img-responsive').click();
 
         // Click on 'Add to Cart' option on a product that is displayed in the 'Related Products' section of displayed 'Product Display' page
-        cy.get('button').eq(11).click();
+        cy.get('button').eq(13).click();
 
         //Check that success message with text - 'Success: You have added iMac to your shopping cart!!' is displayed
         cy.get('.alert').contains('Success: You have added iMac to your shopping cart!').should('be.visible');
@@ -235,7 +235,7 @@ describe('Shopping Cart', () => {
         cy.get('button').eq(9).click();
 
         //Check that success message with text - ' Success: You have modified your shopping cart!' is displayed
-        cy.get('.alert-success').contains(' Success: You have modified your shopping cart!').should('be.visible');
+        cy.get('.alert-success').contains('Success: You have modified your shopping cart!').should('be.visible');
     })
 
     it('Verify updating the quantity of the Product in the Shopping Cart page to a negative or zero or a non-numerical value ', () => {
@@ -756,7 +756,7 @@ describe('Shopping Cart', () => {
         cy.get('.pull-left > .btn').click();
 
         //Check that User is taken to 'Home' Page
-        cy.get('h1 > a').contains('Your Store').should('be.visible');
+        cy.get('h1 > a').contains('Qafox').should('be.visible');
         cy.url().should('contain', '/index.php?route=common/home');
         cy.title().should('eq', 'Your Store');
 

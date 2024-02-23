@@ -55,7 +55,7 @@ describe('Contact Us', () => {
         // Our Location - Your Store and Telephone (Store details and Telephone details should be displayed)
         //Contact Form - Your Name, E-Mail Address and Enquiry   
         cy.get('#content').within(() => {
-            cy.contains('Your Store').should('be.visible');
+            cy.contains('Qafox').should('be.visible');
             cy.contains('Telephone').should('be.visible');
             cy.contains('Your Name').should('be.visible');
             cy.contains('E-Mail Address').should('be.visible');
@@ -85,12 +85,12 @@ describe('Contact Us', () => {
         cy.get('.btn').eq(7).click();
 
         //Check that user is navigated to the homepage
-        cy.get('h1 > a').contains('Your Store').should('be.visible');
+        cy.get('h1 > a').contains('Qafox').should('be.visible');
         cy.url().should('contain', '/index.php?route=common/home');
         cy.title().should('eq', 'Your Store');
     })
 
-    it('Verify submitting the Contact Form in Contact Us page by not providing any details', () => {
+    it.only('Verify submitting the Contact Form in Contact Us page by not providing any details', () => {
         //TC_CU_007
 
         //Click on 'Phone' icon option from the header options

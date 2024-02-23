@@ -267,7 +267,7 @@ describe('Search', () => {
 
 
         //Click the search button after entering any text into the search text box field
-        cy.get('.form-control').type('iMac');
+        cy.get('#search > .form-control').clear().type('iMac');
         cy.get('.input-group-btn > .btn').click();
 
         //Select 'Grid' option
@@ -396,7 +396,7 @@ describe('Search', () => {
         cy.get('button').eq(20).scrollIntoView().click();
 
         //Click on Product compare link from the succes message
-        cy.get('.alert > [href="http://tutorialsninja.com/demo/index.php?route=product/compare"]').click();
+        cy.get('.alert').contains('product comparison').click();
 
         //Check that user is navigated to the Product Comparision page
         cy.get('#content > h1').contains('Product Comparison').should('be.visible');
@@ -555,7 +555,7 @@ describe('Search', () => {
         cy.get('.input-group-btn > .btn').click();
 
         //Check the Page Heading, Page URL and Page Title of the 'Search' page
-        cy.get('h1 > a').should('contain', 'Your Store').should('be.visible');
+        cy.get('h1 > a').should('contain', 'Qafox').should('be.visible');
         cy.get('#content > h1').should('contain', 'Search - iMac').should('be.visible');
         cy.url().should('contain', '/index.php?route=product/search&search=iMac');
         cy.title().should('eq', 'Search - iMac');

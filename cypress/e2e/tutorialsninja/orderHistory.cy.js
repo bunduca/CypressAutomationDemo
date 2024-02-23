@@ -210,7 +210,7 @@ describe('Order History', () => {
         cy.get('.breadcrumb').contains('Order History').should('be.visible');
 
         //Click on 'Continue' button in the 'Order History' page
-        cy.get('.btn').eq(8).click();
+        cy.get('.btn').contains('Continue').click();
 
         //Verify successfull redirect to My Account page
         cy.get('#content > :nth-child(1)').contains('My Account').should('be.visible');

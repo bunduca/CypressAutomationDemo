@@ -113,7 +113,7 @@ describe('Product Display Page', () => {
         //Proper Product Name, Brand and Product Code should be displayed for the different types of Products in the Product Display Page.
         cy.get('.col-sm-4 > h1').contains('iMac').should('be.visible');
         cy.get('.col-sm-4 > :nth-child(3) > :nth-child(1)').contains('Brand: Apple').should('be.visible');
-        cy.get('.col-sm-4 > :nth-child(3) > :nth-child(2)').contains('Product Code: Product 14').should('be.visible');
+        cy.get('.col-sm-4 > :nth-child(3) > :nth-child(2)').contains('Product Code:Product 14').should('be.visible');
     })
 
     it('Verify the availabilty status of the Product in the Product Display Page', () => {
@@ -172,7 +172,7 @@ describe('Product Display Page', () => {
 
         //Check that price and Ex Tax is visible in the displayed Product Display Page
         cy.get('h2').contains('$100.00').should('be.visible');
-        cy.get('.col-sm-4 > :nth-child(4) > :nth-child(2)').contains('Ex Tax: $100.00').should('be.visible');
+        cy.get('#product-product').contains('Ex Tax:$100.00').should('be.visible');
     })
 
     it('Verify the default quanity for the Product is displayed as 1 in the Product Display Page, when there is no minimum quantity set for the Product', () => {
@@ -215,6 +215,7 @@ describe('Product Display Page', () => {
 
     it('Verify the negative quantity or zero quantity or null quantity should not be allowed in the Product Display Page', () => {
         //TC_PDP_006
+        //test failed due to error message not showing up
 
         //Click on "My Account" dropmenu
         cy.get('.caret').click();
@@ -346,7 +347,7 @@ describe('Product Display Page', () => {
         cy.get('#input-review').type('I love my new Apple Cinema 30", I cannot reccommend it enough');
 
         //Select any radio button to give the rating
-        cy.get('[value="5"]').click();
+        cy.get('.col-sm-12 > [value="5"]').click();
 
         //Click on 'Continue' button
         cy.get('#button-review').click();
@@ -521,10 +522,10 @@ describe('Product Display Page', () => {
         cy.get('[data-original-title="Add to Wish List"]').eq(0).click();
 
         //Check that Success message with text - 'Success: You have added Product Name to your wish list!' is displayed
-        cy.get('.alert').contains(' Success: You have added iMac to your wish list!').should('be.visible');
+        cy.get('.alert').contains('Success: You have added iMac to your wish list!').should('be.visible');
 
         //Click on 'wish list' link in the success message 
-        cy.get('.alert > [href="http://tutorialsninja.com/demo/index.php?route=account/wishlist"]').click();
+        cy.get('.alert > [href="https://tutorialsninja.com/demo/index.php?route=account/wishlist"]').click();
 
         //Check that user is taken to 'Wish List page and the product added is displayed in the 'Wish List' page
         cy.get('h2').contains('My Wish List').should('be.visible');
@@ -563,7 +564,7 @@ describe('Product Display Page', () => {
         cy.get('.alert').contains('Success: You have added iMac to your product comparison!').should('be.visible');
 
         //Click on 'product comparisoin' link in the success message
-        cy.get('.alert > [href="http://tutorialsninja.com/demo/index.php?route=product/compare"]').click();
+        cy.get('[href="https://tutorialsninja.com/demo/index.php?route=product/compare"]').click();
 
         //Check that user is taken to 'Product Comparison' page and the product details are displayed in the page
         cy.get('#content > h1').contains('Product Comparison').should('be.visible');
@@ -638,7 +639,7 @@ describe('Product Display Page', () => {
         cy.get('#wishlist-total > .fa').click();
 
         // Click on the Image icon displayed under the 'Image' section of the displayed 'Wish List' page
-        cy.get('.table-responsive > .table > tbody > tr > .text-center > a > img').click();
+        cy.get('.table-responsive > .table > tbody > :nth-child(1) > .text-center > a > img').click();
 
         //Check that User is taken the Product Display page of the Product that is displayed in the 'Wish List' page
         cy.get('.col-sm-4 > h1').contains('iMac').should('be.visible');
@@ -755,7 +756,7 @@ describe('Product Display Page', () => {
         cy.get('.alert').contains('shopping cart').click();
 
         //Click on the Product image from the displayed Shopping Cart page
-        cy.get('.table-responsive > .table > tbody > tr > .text-center > a > .img-thumbnail').click();
+        cy.get('.table-responsive > .table > tbody > :nth-child(2) > .text-center > a > .img-thumbnail').click();
 
         //Check that User is taken to the Product Display page of the Product 
         cy.get('.col-sm-4 > h1').contains('iMac').should('be.visible');
@@ -827,7 +828,7 @@ describe('Product Display Page', () => {
         cy.get('.img-responsive').click();
 
         //Check that 'Reward Points' in the displayed 'Product Display' page are visible
-        cy.get('#content > :nth-child(1) > .col-sm-4').contains('Reward Points: 100').should('be.visible');
+        cy.get('#content > :nth-child(1) > .col-sm-4').contains('Reward Points:100').should('be.visible');
 
     })
 

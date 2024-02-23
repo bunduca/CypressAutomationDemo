@@ -145,7 +145,7 @@ describe('Recurring Payments', () => {
         cy.get('#column-right').contains('Recurring payments').should('be.visible').click();
 
         //Click on 'Continue' button
-        cy.get('.btn').eq(8).click();
+        cy.get('.btn').eq(10).click();
 
         //Check that User is taken to 'My Account' page
         cy.get('#content').contains('My Account').should('be.visible');

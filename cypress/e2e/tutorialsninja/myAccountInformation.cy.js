@@ -152,17 +152,17 @@ describe('My Account Information', () => {
         cy.get('.pull-right > .btn').click();
 
         //Check that Success message with text - ' Success: Your account has been successfully updated.' is displayed
-        cy.get('.alert').contains(' Success: Your account has been successfully updated.').should('be.visible');
+        cy.get('.alert').contains('Success: Your account has been successfully updated.').should('be.visible');
 
 
         //Click on 'Edit Account' Right Column option
         cy.get('#column-right').contains('Edit Account').click();
 
         //Check that all the account details are updated
-        cy.get('#input-firstname').contains('Ionescu').should('be.visible');
-        cy.get('#input-lastname').contains('Ioana').should('be.visible');
-        cy.get('#input-email').contains(email).should('be.visible');
-        cy.get('#input-telephone').contains('012345678900').should('be.visible');
+        cy.get('input[name=firstname]').should('have.value','Ionescu');
+        cy.get('input[name=lastname]').should('have.value','Ioana');
+        cy.get('input[name=email]').should('have.value','bunductesteaza@gmail.com');
+        cy.get('input[name=telephone]').should('have.value','012345678900');
     })
 
     it('Verify making all the fields in the My Account Information page empty and update ', () => {

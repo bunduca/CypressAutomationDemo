@@ -162,10 +162,10 @@ describe('Special Offers', () => {
         cy.get('footer').contains('Specials').click();
 
         //Select 'Wish List' icon option of any product that is displayed in the 'Special Offers' page
-        cy.get('button').eq(10).click();
+        cy.get('button').eq(13).click();
 
         //Check that Success message with text - 'Success: You have added Product Name to your wish list!' is displayed and  the Product is successfully added to the Wish List
-        cy.get('.alert').contains(' Success: You have added Apple Cinema 30" to your wish list!').should('be.visible');
+        cy.get('.alert').contains('Success: You have added Apple Cinema 30" to your wish list!').should('be.visible');
 
     })
 
@@ -192,10 +192,10 @@ describe('Special Offers', () => {
         cy.get('footer').contains('Specials').click();
 
         //Select 'Compare this Product' icon option of any product that is displayed in the 'Special Offers' page
-        cy.get('button').eq(11).click();
+        cy.get('button').eq(14).click();
 
         //Check that Success message with text - ' Success: You have added Apple Cinema 30" to your product comparison!' is displayed and  the Product is successfully added to the Wish List
-        cy.get('.alert').contains(' Success: You have added Apple Cinema 30" to your product comparison!').should('be.visible');
+        cy.get('.alert').contains('Success: You have added Apple Cinema 30" to your product comparison!').should('be.visible');
     })
 
     it('Verify User is navigating to Product Display Page from Special Offers page', () => {

@@ -64,7 +64,7 @@ describe('Address Book', () => {
 
         //Type in the login details and click Login button
         cy.get('#input-email').type(email);
-        cy.get('#input-password').type();
+        cy.get('#input-password').type(password);
         cy.get('form > .btn').click();
 
         // Click on 'My Account' dropmenu
@@ -144,7 +144,7 @@ describe('Address Book', () => {
         //Newly register an account
         cy.get('#input-firstname').type('Ionescu');
         cy.get('#input-lastname').type('Ion');
-        cy.get('#input-email').type('ionescuion+1@test.com');
+        cy.get('#input-email').type('ionescuion+2@test.com');
         cy.get('#input-telephone').type('0123478596');
         cy.get('#input-password').type('987654321');
         cy.get('#input-confirm').type('987654321');
@@ -188,6 +188,57 @@ describe('Address Book', () => {
         //Check that user is taken to 'Address Book Entries' page
         cy.get('h2').contains('Address Book Entries').should('be.visible');
         cy.get('.breadcrumb').contains('Address Book').should('be.visible');
+    })
+
+    it('Verify adding new Address by providing only the mandatory fields', () => {
+        //TC_AB_013
+
+        //Click on "My Account" dropmenu
+        cy.get('.caret').click();
+
+        //Click on "Login" option
+        cy.get('.dropdown-menu > :nth-child(2) > a').click();
+
+        //Verify redirect to the login page
+        cy.url().should('contain', '/index.php?route=account/login');
+        cy.get('h2').contains('Returning Customer').should('be.visible');
+
+        //Type in the login details and click Login button
+        cy.get('#input-email').type(email);
+        cy.get('#input-password').type(password);
+        cy.get('form > .btn').click();
+
+        //Click on 'Address Book' option from Right Column options
+        cy.get('.list-group').contains('Address Book').click();
+
+        //Click on 'New Address' button
+        cy.get('.btn').contains('New Address').click();
+
+        //Check that User is taken to 'Add Address' page
+        cy.get('h2').contains('Add Address').should('be.visible');
+        cy.get('.breadcrumb').contains('Add Address').should('be.visible');
+
+        //Enter details into only mandatory fields (First Name, Last Name, Address 1, City, Post Code, Country and Region/State)
+        cy.get('#input-firstname').type('Vancescu');
+        cy.get('#input-lastname').type('Maria');
+        cy.get('#input-address-1').type('Str Fabricii');
+        cy.get('#input-city').type('Cluj Napoca');
+        cy.get('#input-postcode').type('1234567');
+        cy.get('#input-country').select('Romania');
+        cy.get('#input-zone').select('Cluj');
+
+        //Click  on 'Continue' button 
+        cy.get('.btn').contains('Continue').click();
+
+        //Check that new address was added
+        cy.get('.alert').contains('Your address has been successfully added').should('be.visible');
+        cy.get('.table-responsive').within(() => {
+            cy.contains('Vancescu Maria').should('be.visible');
+            cy.contains('Str Fabricii').should('be.visible');
+            cy.contains('Cluj Napoca 1234567').should('be.visible');
+            cy.contains('Cluj').should('be.visible');
+            cy.contains('Romania').should('be.visible');
+        })
     })
 
     it('Verify updating the Address in the Address Book Entries page', () => {
@@ -263,7 +314,7 @@ describe('Address Book', () => {
         cy.get('.col-sm-10 > :nth-child(2) > input').click();
 
         //Click on 'Continue' button
-        cy.get('.btn').eq(9).click();
+        cy.get('.btn').contains('Continue').click();
 
         //check that Succesful message " Your address has been successfully updated" is displayed
         cy.get('.alert').contains('Your address has been successfully updated').should('be.visible');
@@ -298,7 +349,7 @@ describe('Address Book', () => {
         cy.get('#input-postcode').clear();
 
         //Click on 'Continue' button
-        cy.get('.btn').eq(9).click();
+        cy.get('.btn').contains('Continue').click();
 
         //check that Succesful message " Your address has been successfully updated" is displayed
         cy.get('.alert').contains('Your address has been successfully updated').should('be.visible');
@@ -337,7 +388,7 @@ describe('Address Book', () => {
         cy.get('#input-zone').select('--- None ---');
 
         //Click on 'Continue' button
-        cy.get('.btn').eq(9).click();
+        cy.get('.btn').contains('Continue').click();
 
         //check that Field level warning messages should be displayed for all the mandatory fields
         cy.get('#content').contains('First Name must be between 1 and 32 characters!').should('be.visible');
@@ -422,56 +473,7 @@ describe('Address Book', () => {
         cy.get('.breadcrumb').contains('Account').should('be.visible');
     })
 
-    it('Verify adding new Address by providing only the mandatory fields', () => {
-        //TC_AB_013
-
-        //Click on "My Account" dropmenu
-        cy.get('.caret').click();
-
-        //Click on "Login" option
-        cy.get('.dropdown-menu > :nth-child(2) > a').click();
-
-        //Verify redirect to the login page
-        cy.url().should('contain', '/index.php?route=account/login');
-        cy.get('h2').contains('Returning Customer').should('be.visible');
-
-        //Type in the login details and click Login button
-        cy.get('#input-email').type(email);
-        cy.get('#input-password').type(password);
-        cy.get('form > .btn').click();
-
-        //Click on 'Address Book' option from Right Column options
-        cy.get('.list-group').contains('Address Book').click();
-
-        //Click on 'New Address' button
-        cy.get('.btn').eq(11).click();
-
-        //Check that User is taken to 'Add Address' page
-        cy.get('h2').contains('Add Address').should('be.visible');
-        cy.get('.breadcrumb').contains('Add Address').should('be.visible');
-
-        //Enter details into only mandatory fields (First Name, Last Name, Address 1, City, Post Code, Country and Region/State)
-        cy.get('#input-firstname').type('Vancescu');
-        cy.get('#input-lastname').type('Maria');
-        cy.get('#input-address-1').type('Str Fabricii');
-        cy.get('#input-city').type('Cluj Napoca');
-        cy.get('#input-postcode').type('1234567');
-        cy.get('#input-country').select('Romania');
-        cy.get('#input-zone').select('Cluj');
-
-        //Click  on 'Continue' button 
-        cy.get('.btn').eq(9).click();
-
-        //Check that new address was added
-        cy.get('.alert').contains('Your address has been successfully added').should('be.visible');
-        cy.get('.table-responsive').within(() => {
-            cy.contains('Vancescu Maria').should('be.visible');
-            cy.contains('Str Fabricii').should('be.visible');
-            cy.contains('Cluj Napoca 1234567').should('be.visible');
-            cy.contains('Cluj').should('be.visible');
-            cy.contains('Romania').should('be.visible');
-        })
-    })
+   
 
     it('Verify selecting the newly added Address as default address', () => {
         //TC_AB_014
@@ -495,16 +497,16 @@ describe('Address Book', () => {
         cy.get('.list-group').contains('Address Book').click();
 
         //Click on 'Edit' button on the newly added address
-        cy.get('.btn-info').eq(1).click();
+        cy.get('.btn-info').contains('Edit').click();
 
         //Select 'Yes' radio option for the 'Default Address' field
         cy.get('.col-sm-10 > :nth-child(1) > input').click();
 
         //Click  on 'Continue' button 
-        cy.get('.btn').eq(9).click();
+        cy.get('.btn').contains('Continue').click();
 
         //Check that User is taken to 'Address Book Entries' page and the new address should become the default address and the old address should not be default address anymore.
-        cy.get('.alert').contains(' Your address has been successfully updated').should('be.visible');
+        cy.get('.alert').contains('Your address has been successfully updated').should('be.visible');
     })
 
     it('Verify the Breadcrumb, Page URL, Page Heading and Page Title of Address Book Entries page', () => {
@@ -557,11 +559,11 @@ describe('Address Book', () => {
         cy.get('.list-group').contains('Address Book').click();
 
         //Click on 'Edit' button o of any address in the 'Address Book Entries' page 
-        cy.get('.btn-info').eq(1).click();
+        cy.get('.btn-info').contains('Edit').click();
 
         //Check Breadcrumb, Page URL, Page Heading and Page Title of 'Edit Address' page
         cy.get('.breadcrumb').contains('Edit Address').should('be.visible');
-        cy.url().should('contain', '/index.php?route=account/address/edit&address_id=14082');
+        cy.url().should('contain', '/index.php?route=account/address/edit&address_id=');
         cy.get('h2').contains('Edit Address').should('be.visible');
         cy.title().should('eq', 'Address Book');
     })
@@ -588,7 +590,7 @@ describe('Address Book', () => {
         cy.get('.list-group').contains('Address Book').click();
 
         //Click on 'New Address' button
-        cy.get('.btn').eq(13).click();
+        cy.get('.btn').contains('New Address').click();
 
         //Check Breadcrumb, Page URL, Page Heading and Page Title of 'Add Address' page
         cy.get('.breadcrumb').contains('Add Address').should('be.visible');
