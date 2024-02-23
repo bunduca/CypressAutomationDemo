@@ -1,4 +1,6 @@
 {
     "email": "bunductesteaza@gmail.com",
-    "password": "123456789"
+    "password": "123456789",
+    "emailPrefix": "bunductesteaza+",
+    "emailDomain": "@gmail.com"
 }
