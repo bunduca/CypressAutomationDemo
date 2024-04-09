@@ -6,6 +6,7 @@
   "scripts": {
     "cypress:open:demoqa": "npx cypress open --config-file demoqa.config.js",
     "cypress:open:tutorialsninja": "npx cypress open --config-file tutorialsninja.config.js",
+    "cypress:open:nopCommerce": "npx cypress open --config-file nopCommerce.config.js",
     "cypress:run:tutorialsninja": "npx cypress run --config-file tutorialsninja.config.js --spec \"cypress/e2e/tutorialsNinja/**/*\"",
     "cypress:run:homepageTutorialsNinja": "npx cypress run --config-file tutorialsninja.config.js --spec cypress/e2e/tutorialsninja/homePage.cy.js"
   },
