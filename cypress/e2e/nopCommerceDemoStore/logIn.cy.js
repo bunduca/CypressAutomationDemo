@@ -23,6 +23,7 @@ describe('Log In', () => {
 
   it('Verify logging into application using valid credentials ', () => {
 
+
     //dedicated custom command that checks existing account-if user doesn't exist, register accoun and login; else just log in
    cy.registerAndLogin(email,password);
 
@@ -111,6 +112,9 @@ describe('Log In', () => {
 
   it('Verify Logging into the application and browsing back using browser back button', () => {
 
+
+   
+
     //Click on "Log in" button
     cy.get('.ico-login').click();
 
@@ -163,4 +167,6 @@ describe('Log In', () => {
     cy.get('.ico-register').contains('Register').should('be.visible');
   })
 
+
+})
 })
